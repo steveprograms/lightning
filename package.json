@@ -9,6 +9,13 @@
   "author": "Steven Marks and Chandler Sterling",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^4.0.0"
+    "electron": "^4.0.0",
+    "webpack": "^4.28.2",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   }
 }
