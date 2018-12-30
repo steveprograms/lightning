@@ -6,15 +6,22 @@ let sno = 0
 $('#add-to-list').on('click', () => {
    let name = $('#Name').val()
    let email = $('#Email').val()
-
-   fs.appendFile('contacts', name + ',' + email + '\n')
-
+   fs.appendFile('contacts', name + ',' + email + '\n', (err)=>{
+     if (err){
+      console.log('es muy mucho facked')
+      return}})
+   try{
+     fs.appendFile('contacts', (name + ',' + email + '\n'))
+   }catch{
+     console.log('es fucq')
+   }
    addEntry(name, email)
 })
 
 function addEntry(name, email) {
    if(name && email) {
       sno++
+      //console.log('in add Entry func')
       let updateString = '<tr><td>'+ sno + '</td><td>'+ name +'</td><td>'
          + email +'</td></tr>'
       $('#contact-table').append(updateString)
