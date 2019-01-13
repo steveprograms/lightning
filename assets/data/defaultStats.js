@@ -1,4 +1,5 @@
 var defaults = {
+  "credits":0,
   "character":
   {
     "stats":
@@ -6,7 +7,6 @@ var defaults = {
       "name":"",
       "level":1,
       "xp":0,
-      "credits":0,
       "inventory": [],
       "spacecraft":
       {

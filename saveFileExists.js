@@ -4,6 +4,7 @@ let util = require('util')
 const repl = require('repl')
 const path = require('path');
 const defaults = require('./assets/data/defaultStats');
+const planets = require('./assets/data/planets');
 // const electron = require('electron');
 // const userDataPath = (electron.app || electron.remote.app).getPath('userData');
 
@@ -15,6 +16,7 @@ var opts = {
 
 // path where user data will be written to
 this.path = path.join(userDataPath, opts.configName + '.json');
+this.planet = "terra";
 
 // returns the user data file, or if none exists, returns the defaults we specify
 function parseDataFile() {
@@ -64,6 +66,10 @@ var LoadingScreen_button = $('<input type="button" value="Loading Screen" id="lo
 
 
 // ********** RUNTIME CODE ************
+$(".go_planet").click(function(e){
+  this.planet = e.target.id;
+  showPlanet(e.target.id);
+})
 if(fs.existsSync(this.path)){
   console.log('Found an existing game')
   //Return buttons for Start new game and load saved game
@@ -95,4 +101,8 @@ if(fs.existsSync(this.path)){
     //Create new file, load game screen (Page 2?)
     new_game()
   });
+}
+
+function showPlanet(planet) {
+  $("#main").html('<div>' + planets[planet].name + '</div><br><div>' + planets[planet].description + '</div><br><div>' + planets[planet].history + '</div>');
 }
