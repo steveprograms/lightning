@@ -4,7 +4,8 @@
   "description": "Lightning Beta",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "test": "jest"
   },
   "author": "Steven Marks and Chandler Sterling",
   "license": "ISC",
