@@ -9,3 +9,6 @@
 #
 # Useful links for learning electron:
 # https://ourcodeworld.com/articles/read/106/how-to-choose-read-save-delete-or-create-a-file-with-electron-framework
+#
+# using jest to test, follow instructions from page
+# https://jestjs.io/docs/en/getting-started.html
