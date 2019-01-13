@@ -3,13 +3,14 @@ let fs = require('fs')
 let util = require('util')
 const repl = require('repl')
 const path = require('path');
+const defaults = require('./assets/data/defaultStats');
 // const electron = require('electron');
-
 // const userDataPath = (electron.app || electron.remote.app).getPath('userData');
+
 const userDataPath = 'userData';
 var opts = {
   configName: 'user-data',
-  defaults: {}
+  defaults: defaults,
 };
 
 // path where user data will be written to
