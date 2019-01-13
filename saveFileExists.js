@@ -4,7 +4,7 @@ let fs = require('fs')
 var StartNewGame_button = $('<input type="button" value="Start New Game" id="new_game_button"/>')
 var ResumeGame_button = $('<input type="button" value="Resume Existing Game" id="existing_game_button"/>')
 
-if(fs.existsSync('gamesave1.json')){
+if(fs.existsSync('gamesave.json')){
   //Return buttons for Start new game and load saved game
   $("#start_game_buttons").append(StartNewGame_button)
   $("#start_game_buttons").append(ResumeGame_button)
@@ -32,8 +32,8 @@ if(fs.existsSync('gamesave1.json')){
 
 // make a separate function for loading next window?
 function new_game(){
-  
-  fs.copyFile('gamesave.json', 'gamesave1.json', (err) => {
+
+  fs.copyFile('template.json', 'gamesave.json', (err) => {
     if (err) throw err;
     console.log('new game file was copied to destination.txt');
   });
