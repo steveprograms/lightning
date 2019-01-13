@@ -1,4 +1,5 @@
 const { app, BrowserWindow, electron } = require('electron')
+const util = require('util')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
