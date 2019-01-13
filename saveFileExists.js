@@ -32,7 +32,7 @@ if(fs.existsSync('gamesave1.json')){
 
 // make a separate function for loading next window?
 function new_game(){
-  var content = 'this is test shit';
+  
   fs.copyFile('gamesave.json', 'gamesave1.json', (err) => {
     if (err) throw err;
     console.log('new game file was copied to destination.txt');
