@@ -2,9 +2,14 @@
   <head>
     <meta charset="UTF-8">
     <title>Green Lightning!</title>
+    <style>
+      #app {
+        display: none;
+      }
+    </style>
   </head>
   <body background="images/main_menu_background.png">
-    <div class = "container">
+    <div id = "container">
      <h1>Green Lightning!</h1>
      <h3>The worlds most action filled text based game</h3>
 
@@ -18,29 +23,17 @@
 
 
    -->
-   <div id="user-info"></div>
-   <div id="main"style="width: 100%; height: 600px; background-color: white; padding: 100px, 20px, 20px, 20px;"></div>
-   <br>
-   <input type="button" value="Terra" class="go_planet" id="terra"/>
-   <input type="button" value="Mercurion" class="go_planet" id="mercurion"/>
-   <input type="button" value="Orias" class="go_planet" id="orias"/>
-   <input type="button" value="Rust" class="go_planet" id="rust"/>
-   <input type="button" value="K-787" class="go_planet" id="k_787"/>
-   <input type="button" value="Sunspeared" class="go_planet" id="sunspeared"/>
-   <input type="button" value="Chindi" class="go_planet" id="chindi"/>
-   <input type="button" value="Omega" class="go_planet" id="omega"/>
-   <input type="button" value="Ark" class="go_planet" id="ark"/>
-   <input type="button" value="Aquaris" class="go_planet" id="aquaris"/>
+  </div>
 
-   <div id="app"></div>
-     <script src="./saveFileExists.js" ></script>
+  <div id="app"></div>
 
-    <script>
-      // install babel hooks in the renderer process
-      require('babel-register');
-      require('./scripts/main');
-    </script>
+  <script src="./saveFileExists.js" ></script>
 
+  <script>
+    // install babel hooks in the renderer process
+    require('babel-register');
+    require('./scripts/main');
+  </script>
 
   <script src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>

@@ -51,12 +51,9 @@ function new_game(){
 }
 
 function existing_game(){
-  // alert('load existing game clicked!')
-  //load save file and load next window
-}
-
-function existing_game(){
-  // alert('load existing game clicked!')
+  console.log('loading game')
+  $("#container").remove();
+  $('#app').css('display', 'block')
   //load save file and load next window
 }
 
