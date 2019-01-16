@@ -32,9 +32,14 @@
    <input type="button" value="Ark" class="go_planet" id="ark"/>
    <input type="button" value="Aquaris" class="go_planet" id="aquaris"/>
 
-   <div id="react-main"></div>
+   <div id="app"></div>
      <script src="./saveFileExists.js" ></script>
-     <script src="./reactIndex.js" ></script>
+
+    <script>
+      // install babel hooks in the renderer process
+      require('babel-register');
+      require('./scripts/main');
+    </script>
 
 
   <script src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
