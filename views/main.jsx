@@ -50,7 +50,7 @@ export default class Main extends React.Component {
   // our Stats component.  in this case we're assigning the level
 
   // below that again we use the Stats component again, and the value props
-  // again, but this time we assign the spacecraft model to interval
+  // again, but this time we assign the spacecraft model to value
   // instead of the player's level.  Within the Stats components
   // whatever value equal, will be that component's `this.props.value`
 
