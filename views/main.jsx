@@ -17,11 +17,15 @@ export default class Main extends React.Component {
 
     //es6 is kinda fucky.  when we use methods in our class, we have to bind them to `this`
     this.addLevel = this.addLevel.bind(this);
+    this.changeScreen = this.changeScreen.bind(this);
 
     // read() is from our helpers
     // and will take the user-data.json data and assign it
     // to our `this.data`
-    this.data = read()
+    this.data = read();
+    this.state = {};
+    this.state.screen = 'stats';
+    console.log("state: ", this.state)
   }
 
   addLevel() {
@@ -36,6 +40,12 @@ export default class Main extends React.Component {
     // but it means that below, when the values change, it will cascade that
     // change to lower components so things actually update on Screen
     // in the html
+    this.forceUpdate();
+  }
+
+  changeScreen() {
+    console.log(this.state)
+    this.state.screen = 'map';
     this.forceUpdate();
   }
 
@@ -59,42 +69,54 @@ export default class Main extends React.Component {
   // will be called when this component is clicked on
   // in the html
   render() {
-    return (
-      <div>
+    if (this.state.screen == 'stats'){
+      return (
+
         <div>
-          username: { this.data.username }
+          <div>
+            username: { this.data.username }
+          </div>
+          <div>
+            credits: { this.data.credits }
+          </div>
+          <Stats
+            value={ this.data.character.stats.level }
+          />
+          <div>
+            xp: { this.data.character.stats.xp }
+          </div>
+          <div>
+            spacecraft:
+          </div>
+          <Stats
+            value={ this.data.character.stats.spacecraft.model }
+          />
+          <div>
+            year: { this.data.character.stats.spacecraft.year }
+          </div>
+          <div>
+            value: { this.data.character.stats.spacecraft.value }
+          </div>
+          <div>
+            cargospace: { this.data.character.stats.spacecraft.cargo_space }
+          </div>
+          <div/>
+          <Button
+            onClick={this.addLevel}
+          >
+          Add Level
+          </Button>
+          <Button
+            onClick={this.changeScreen}
+          >
+          Map
+          </Button>
         </div>
-        <div>
-          credits: { this.data.credits }
-        </div>
-        <Stats
-          value={ this.data.character.stats.level }
-        />
-        <div>
-          xp: { this.data.character.stats.xp }
-        </div>
-        <div>
-          spacecraft:
-        </div>
-        <Stats
-          value={ this.data.character.stats.spacecraft.model }
-        />
-        <div>
-          year: { this.data.character.stats.spacecraft.year }
-        </div>
-        <div>
-          value: { this.data.character.stats.spacecraft.value }
-        </div>
-        <div>
-          cargospace: { this.data.character.stats.spacecraft.cargo_space }
-        </div>
-        <div/>
-        <Button
-          onClick={this.addLevel}
-        >
-        Add Level
-        </Button>
-      </div>
-    );
+      );
+    } else if (this.state.screen == 'map'){
+      return(
+        <div> The new planet map screeeeeeeennnn </div>
+      )
+    }
   }
 }
