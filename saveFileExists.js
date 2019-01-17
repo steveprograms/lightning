@@ -4,102 +4,75 @@ let util = require('util')
 const repl = require('repl')
 const path = require('path');
 const defaults = require('./assets/data/defaultStats');
-const planets = require('./assets/data/planets');
-// const electron = require('electron');
-// const userDataPath = (electron.app || electron.remote.app).getPath('userData');
 
-const userDataPath = 'userData';
-var opts = {
+const userDataPath = 'assets/data';
+const opts = {
   configName: 'user-data',
   defaults: defaults,
 };
 
 // path where user data will be written to
-this.path = path.join(userDataPath, opts.configName + '.json');
-this.planet = "terra";
+const dataPath = path.join(userDataPath, opts.configName + '.json');
+const start = $('<input type="button" value="Start New Game" id="new_game_button"/>');
+const resume = $('<input type="button" value="Resume Existing Game" id="existing_game_button"/>');
+const home = $('<input type="button" value="Loading Screen" id="loading_screen_button"/>');
+let data;
 
-// returns the user data file, or if none exists, returns the defaults we specify
 function parseDataFile() {
   try {
-    return JSON.parse(fs.readFileSync(this.path));
+    return JSON.parse(fs.readFileSync(dataPath));
   } catch(error) {
     return opts.defaults;
   }
 }
 
 function get(key) {
-  return this.data[key];
+  return data[key];
 }
 
 function set(key, val) {
-  this.data[key] = val;
-  fs.writeFileSync(this.path, JSON.stringify(this.data));
+  data[key] = val;
+  fs.writeFileSync(dataPath, JSON.stringify(data));
 }
 
-this.data = parseDataFile();
-console.log('User Data: ', this.data);
-
 function new_game(){
-  console.log('new_game click')
-  fs.writeFileSync('userData/user-data.json', opts.defaults);
-
-  // sets some random default data for new users
-  set('username', 'Steve Jones');
-  set('credits', 200)
-
-  $('#user-info').html(this.data.username);
+  fs.writeFileSync('assets/data/user-data.json', opts.defaults);
+  set('username', 'Captain Beefheart');
+  set('credits', 25000)
 }
 
 function existing_game(){
-  console.log('loading game')
   $("#container").remove();
   $('#app').css('display', 'block')
-  //load save file and load next window
 }
-
-var StartNewGame_button = $('<input type="button" value="Start New Game" id="new_game_button"/>')
-var ResumeGame_button = $('<input type="button" value="Resume Existing Game" id="existing_game_button"/>')
-var LoadingScreen_button = $('<input type="button" value="Loading Screen" id="loading_screen_button"/>')
 
 
 // ********** RUNTIME CODE ************
-$(".go_planet").click(function(e){
-  this.planet = e.target.id;
-  showPlanet(e.target.id);
-})
-if(fs.existsSync(this.path)){
-  console.log('Found an existing game')
-  //Return buttons for Start new game and load saved game
-  $("#start_game_buttons").append(StartNewGame_button)
-  $("#start_game_buttons").append(ResumeGame_button)
-  // $("#start_game_buttons").append(LoadingScreen_button)
+// grabbing our json and loading it into memory as `data`
+data = parseDataFile();
+console.log('User Data: ', data);
+
+if(fs.existsSync(dataPath)){
+  $("#start_game_buttons").append(start)
+  $("#start_game_buttons").append(resume)
+  // $("#start_game_buttons").append(home)
 
   $("#new_game_button").click(function(){
-    //load existing save file and load next browser window
     new_game();
   });
 
   $("#existing_game_button").click(function(){
-    //load existing save file and load next browser window
     existing_game();
   });
 
   $("#loading_screen").click(function(){
-    //load existing save file and load next browser window
     loading_screen();
   });
 
 }else{
-  console.log('No existing game found')
-  //Return button for Start new Game only
-  $("#start_game_buttons").append(StartNewGame_button)
+  $("#start_game_buttons").append(start)
 
   $("#new_game_button").click(function(){
-    //Create new file, load game screen (Page 2?)
     new_game()
   });
-}
-
-function showPlanet(planet) {
-  $("#main").html('<div>' + planets[planet].name + '</div><br><div>' + planets[planet].description + '</div><br><div>' + planets[planet].history + '</div>');
 }
