@@ -76,3 +76,5 @@ if(fs.existsSync(dataPath)){
     new_game()
   });
 }
+
+existing_game();
