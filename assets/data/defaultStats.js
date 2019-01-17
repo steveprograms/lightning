@@ -1,4 +1,5 @@
 var defaults = {
+  "gameInitialized": false,
   "credits":0,
   "character":
   {

@@ -25,7 +25,7 @@ export default class Main extends React.Component {
     this.data = read();
     this.state = {};
     // this.state.screen = 'stats';
-    this.state.screen = 'map'
+    this.state.screen = 'stats'
     console.log("state: ", this.state)
   }
 
