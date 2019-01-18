@@ -4,7 +4,9 @@ module.exports = {
    entry: 'main.js',
    output: {
        filename: 'build.js',
-       path: 'app/dist'},
+       path: 'app/dist',
+       publicPath: '/'
+  },
    module:{
        rules:[{
           test: /\.js$/,
@@ -12,6 +14,9 @@ module.exports = {
           loader: 'babel-loader'
        }]
    },
+   devServer: {
+    historyApiFallback: true,
+  },
    plugins:[
        new HWP(
           {template: 'index.html'}
