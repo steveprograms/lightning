@@ -5,7 +5,7 @@ const repl = require('repl')
 const path = require('path');
 const defaults = require('./assets/data/defaultStats');
 
-const userDataPath = 'assets/data';
+const userDataPath = './assets/data';
 const opts = {
   configName: 'user-data',
   defaults: defaults,
@@ -13,6 +13,7 @@ const opts = {
 
 // path where user data will be written to
 const dataPath = path.join(userDataPath, opts.configName + '.json');
+
 const start = $('<input type="button" value="Start New Game" id="new_game_button"/>');
 const resume = $('<input type="button" value="Resume Existing Game" id="existing_game_button"/>');
 const home = $('<input type="button" value="Loading Screen" id="loading_screen_button"/>');
@@ -36,9 +37,9 @@ function set(key, val) {
 }
 
 function new_game(){
-  fs.writeFileSync('assets/data/user-data.json', opts.defaults);
-  set('username', 'Captain Beefheart');
-  set('credits', 25000)
+  opts.defaults.gameInitialized = true;
+  fs.writeFileSync(dataPath, JSON.stringify(opts.defaults));
+  existing_game();
 }
 
 function existing_game(){
@@ -46,16 +47,13 @@ function existing_game(){
   $('#app').css('display', 'block')
 }
 
-
 // ********** RUNTIME CODE ************
 // grabbing our json and loading it into memory as `data`
 data = parseDataFile();
-console.log('User Data: ', data);
 
 if(fs.existsSync(dataPath)){
   $("#start_game_buttons").append(start)
   $("#start_game_buttons").append(resume)
-  // $("#start_game_buttons").append(home)
 
   $("#new_game_button").click(function(){
     new_game();
@@ -64,11 +62,6 @@ if(fs.existsSync(dataPath)){
   $("#existing_game_button").click(function(){
     existing_game();
   });
-
-  $("#loading_screen").click(function(){
-    loading_screen();
-  });
-
 }else{
   $("#start_game_buttons").append(start)
 
@@ -76,3 +69,5 @@ if(fs.existsSync(dataPath)){
     new_game()
   });
 }
+// uncomment below to skip Main Menu screen
+// existing_game()

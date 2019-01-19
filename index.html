@@ -10,33 +10,29 @@
   </head>
   <body background="images/main_menu_background.png">
     <div id = "container">
-     <h1>Green Lightning!</h1>
-     <h3>The worlds most action filled text based game</h3>
+      <h1>
+        Green Lightning!
+      </h1>
+      <h3>
+        The worlds most action filled text based game
+      </h3>
+      <div
+        id="start_game_buttons">
+      </div>
+    </div>
 
-     <div id="start_game_buttons">
-        <!-- to be filled by saveFileExists.js -->
-     </div>
-     <!-- On application load, check to see if file exists for displaying the menu.
-     1. If no save file exists, only show "Start New Game" button
-     2. If save file exists, show "Start New Game" and "Continue Saved Game" buttons
-        -future start: enable multiple saves
+    <script src="./saveFileExists.js" ></script>
 
+    <div
+      id="app">
+    </div>
 
-   -->
-  </div>
+    <script>
+      require('babel-register');
+      require('./scripts/main');
+    </script>
 
-  <div id="app"></div>
-
-  <script src="./saveFileExists.js" ></script>
-
-  <script>
-    // install babel hooks in the renderer process
-    require('babel-register');
-    require('./scripts/main');
-  </script>
-
-  <script src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>
-
+    <script src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>
   </body>
 </html>
