@@ -8,18 +8,6 @@ import PlanetContainer from '../views/planetContainer';
 import HomeScreen from '../views/homeScreen';
 
 export default class Main extends React.Component {
-  constructor(props) {
-    super(props);
-
-
-    this.data = read();
-    this.state = {};
-
-    this.state.screen = 'stats'
-    console.log("state: ", this.state)
-  }
-
-
   render() {
     return (
       <div>
