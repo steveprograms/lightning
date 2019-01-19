@@ -11,26 +11,7 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    this.addLevel = this.addLevel.bind(this);
-    this.changeScreen = this.changeScreen.bind(this);
-
     this.data = read();
-    this.state = {};
-
-    this.state.screen = 'stats'
-    console.log("state: ", this.state)
-  }
-
-  addLevel() {
-    this.data.character.stats.level += 1;
-    save(this.data);
-    this.forceUpdate();
-  }
-
-  changeScreen() {
-    console.log(this.state)
-    this.state.screen = 'map';
-    this.forceUpdate();
   }
 
   render() {
