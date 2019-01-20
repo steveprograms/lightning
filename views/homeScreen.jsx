@@ -6,15 +6,21 @@ import { Link, Switch, Route } from 'react-router-dom'
 import MapContainer from '../views/mapContainer';
 import PlanetContainer from '../views/planetContainer';
 import LinkButton from '../views/linkButton';
+import { connect } from 'react-redux';
+import { addNanoBuck } from '../actions/lightningActions';
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
-
     this.data = read();
   }
 
+  addBuck() {
+
+  }
+
   render() {
+    let { nanobucks } = this.props;
     return (
       <div>
         <div>
@@ -50,7 +56,28 @@ export default class HomeScreen extends React.Component {
           title={'Map'}
           routeTo={'/map'}
         />
+          Nanobucks: {nanobucks}
+        <Button
+          onClick={this.props.addNanoBuck}
+        >
+        Add NanoBucks
+        </Button>
       </div>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    nanobucks: state.nanobucks,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addNanoBuck: () =>
+    dispatch(addNanoBuck()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
