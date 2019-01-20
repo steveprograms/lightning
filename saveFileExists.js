@@ -51,7 +51,7 @@ function existing_game(){
 // grabbing our json and loading it into memory as `data`
 data = parseDataFile();
 
-if(fs.existsSync(dataPath)){
+if(fs.existsSync(dataPath) && data.gameInitialized){
   $("#start_game_buttons").append(start)
   $("#start_game_buttons").append(resume)
 
