@@ -51,7 +51,7 @@ class HomeScreen extends React.Component {
         <div />
         <LinkButton
           title={'Map'}
-          routeTo={'/map'}
+          routeTo={'/mapscreen'}
         />
           Nanobucks: {nanobucks}
         <Button

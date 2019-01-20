@@ -24,9 +24,7 @@ export default class MapPlanet extends React.Component {
     yCoord = yCoord + 'px';
     diameter = (diameter || '15') + 'px';
     name = name.toLowerCase();
-    console.log('name: ', name)
     let planet = planets[name];
-    console.log('planet: ', planet.name)
 
     return (
       <div
@@ -35,7 +33,7 @@ export default class MapPlanet extends React.Component {
         onMouseLeave={this.mouseLeave}
         onClick={this.onClick}
       >
-        <div style={{position: 'relative', backgroundColor: 'white', width: '20px', height: '20px'}}>
+        <div style={{position: 'absolute', backgroundColor: 'rgba(255,255,255,0)', color: 'white', marginTop: '15px'}}>
           {name}
         </div>
       </div>

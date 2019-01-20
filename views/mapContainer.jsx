@@ -1,11 +1,10 @@
-import React from 'react';
-import LinkButton from '../views/linkButton';
-import MapPlanet from './mapPlanet'
+import MapPlanet from './mapPlanet';
+import React from 'react'
 
 export default class MapContainer extends React.Component {
   render() {
     return (
-      <div style={{width: '800px', height: '800px', backgroundColor: 'black', position: 'absolute'}}>
+      <div style={{top: '50px', width: '800px', height: '800px', backgroundColor: 'black', position: 'absolute'}}>
         <MapPlanet
           name={'Terra'}
           xCoord={'400'}
@@ -59,10 +58,6 @@ export default class MapContainer extends React.Component {
           xCoord={'250'}
           yCoord={'225'}
           color={'brown'}
-        />
-        <LinkButton
-          title={'Home'}
-          routeTo={'/homescreen'}
         />
       </div>
     )
