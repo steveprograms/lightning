@@ -5,6 +5,7 @@ const repl = require('repl')
 const path = require('path');
 const defaults = require('./assets/data/defaultStats');
 
+
 const userDataPath = './assets/data';
 const opts = {
   configName: 'user-data',
@@ -45,6 +46,11 @@ function new_game(){
 function existing_game(){
   $("#container").remove();
   $('#app').css('display', 'block')
+
+  var audio = new Audio('./assets/audio/earth.wav');
+  audio.loop = true;
+  audio.play();
+
 }
 
 // ********** RUNTIME CODE ************
