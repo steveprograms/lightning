@@ -2,18 +2,14 @@ import React from 'react';
 import { read } from './helpers';
 import Stats from './stats';
 import Button from '@material-ui/core/Button';
-import LinkButton from '../views/linkButton';
 import { connect } from 'react-redux';
 import { addNanoBuck } from '../actions/lightningActions';
+import MapScreenButton from './buttons/mapScreenButton';
 
 class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.data = read();
-  }
-
-  addBuck() {
-
   }
 
   render() {
@@ -49,10 +45,7 @@ class HomeScreen extends React.Component {
         </div>
         <div/>
         <div />
-        <LinkButton
-          title={'Map'}
-          routeTo={'/mapscreen'}
-        />
+        <MapScreenButton />
           Nanobucks: {nanobucks}
         <Button
           onClick={this.props.addNanoBuck}

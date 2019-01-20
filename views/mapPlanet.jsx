@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import planets from '../assets/data/planets'
+import { changeFocusedPlanet } from '../actions/lightningActions';
+import { connect } from 'react-redux';
 
-export default class MapPlanet extends React.Component {
+class MapPlanet extends React.Component {
+  constructor(props) {
+    super(props)
+
+  }
+
   mouseEnter() {
-    console.log('enter this moof')
+
   }
 
   mouseLeave() {
-    console.log('leave NOW')
+
   }
 
-  onClick() {
-    console.log('dude i been clicked on man')
+  onClick = () => {
+    this.props.changeFocusedPlanet(this.props.name);
   }
-
 
   render() {
 
@@ -32,6 +38,7 @@ export default class MapPlanet extends React.Component {
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
         onClick={this.onClick}
+        value={name}
       >
         <div style={{position: 'absolute', backgroundColor: 'rgba(255,255,255,0)', color: 'white', marginTop: '15px'}}>
           {name}
@@ -40,3 +47,18 @@ export default class MapPlanet extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    focusedPlanetName: state.focusedPlanetName,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeFocusedPlanet: (planet) =>
+    dispatch(changeFocusedPlanet(planet)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MapPlanet);

@@ -1,17 +1,28 @@
 import React from 'react';
-import LinkButton from '../views/linkButton';
 import MapContainer from './mapContainer';
+import HomeScreenButton from './buttons/homeScreenButton';
+import MapInfoPanel from './mapInfoPanel';
+import { connect } from 'react-redux';
 
-export default class MapScreen extends React.Component {
+class MapScreen extends React.Component {
   render() {
+    let { focusedPlanetName } = this.props;
     return (
       <div>
         <MapContainer/>
-        <LinkButton
-          title={'Home'}
-          routeTo={'/homescreen'}
+        <HomeScreenButton />
+        <MapInfoPanel
+          focusedPlanetName={focusedPlanetName}
         />
       </div>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    focusedPlanetName: state.focusedPlanetName,
+  }
+}
+
+export default connect(mapStateToProps)(MapScreen);
