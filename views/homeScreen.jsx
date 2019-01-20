@@ -57,7 +57,7 @@ class HomeScreen extends React.Component {
         <Button
           onClick={this.props.addNanoBuck}
         >
-        Add NanoBucks
+          Add NanoBucks
         </Button>
       </div>
     )

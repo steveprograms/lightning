@@ -1,6 +1,5 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import { Link, Switch, Route } from 'react-router-dom'
+import LinkButton from '../views/linkButton';
 
 export default class MapContainer extends React.Component {
   render() {
@@ -17,7 +16,10 @@ export default class MapContainer extends React.Component {
         <div style={{left: '298px', top: '554px', width: '5px', height: '5px', backgroundColor: 'yellow', position: 'absolute'}}/>
         <div style={{left: '600px', top: '10px', width: '5px', height: '5px', backgroundColor: 'yellow', position: 'absolute'}}/>
         <div />
-        <li><Link to='/homescreen'>Home</Link></li>
+        <LinkButton
+          title={'Home'}
+          routeTo={'/homescreen'}
+        />
       </div>
     )
   }
