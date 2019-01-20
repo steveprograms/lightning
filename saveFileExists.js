@@ -48,8 +48,9 @@ function existing_game(){
   $('#app').css('display', 'block')
 
   //planet_music(data.character.on_planet) call the function to change music
-
+  console.log(data.character.on_planet)
   var audio = new Audio(`./assets/audio/${data.character.on_planet}.wav`);
+  //var audio = new Audio('./assets/audio/earth.wav');
   audio.loop = true;
   audio.play();
 
