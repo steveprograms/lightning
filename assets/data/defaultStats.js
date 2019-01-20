@@ -15,8 +15,11 @@ var defaults = {
         "year":2420,
         "value":5000,
         "cargo_space":250,
+        "fuel_capacity":3,
+        "fuel_amount":3
       },
     },
+    "on_planet":"earth"
   },
 };
 
