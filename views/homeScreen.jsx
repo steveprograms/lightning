@@ -1,10 +1,7 @@
 import React from 'react';
-import { save, read } from './helpers';
+import { read } from './helpers';
 import Stats from './stats';
 import Button from '@material-ui/core/Button';
-import { Link, Switch, Route } from 'react-router-dom'
-import MapContainer from '../views/mapContainer';
-import PlanetContainer from '../views/planetContainer';
 import LinkButton from '../views/linkButton';
 import { connect } from 'react-redux';
 import { addNanoBuck } from '../actions/lightningActions';

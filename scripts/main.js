@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from '../views/main.jsx';
 import { HashRouter } from 'react-router-dom';
@@ -16,7 +15,7 @@ function checkGameFile() {
   }
 }
 
-const store = createStore(lightningApp)
+const store = createStore(lightningApp);
 
 window.onload = function(){
   checkGameFile();
