@@ -45,6 +45,10 @@ function new_game(){
 function existing_game(){
   $("#container").remove();
   $('#app').css('display', 'block')
+
+  var audio = new Audio('./assets/audio/earth.wav');
+  audio.loop = true;
+  audio.play();
 }
 
 // ********** RUNTIME CODE ************

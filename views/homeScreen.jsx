@@ -12,9 +12,13 @@ export default class HomeScreen extends React.Component {
     super(props);
 
     this.data = read();
+
   }
 
   render() {
+
+
+
     return (
       <div>
         <div>
