@@ -15,7 +15,8 @@ export function read() {
 export function planet_music(planet){
 
   //To Do:
-  //turn existing sound off first
+  // * turn existing sound off first
+  // * figure out how to import into saveFileExists.js
 
   var audio = new Audio(`./assets/audio/${planet}.wav`);
   audio.loop = true;
