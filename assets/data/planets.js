@@ -27,7 +27,7 @@ var planets = {
       description: "Dusty, red, quiet",
       history: "",
     },
-    'k_787': {
+    'k-787': {
       x_coord: 260,
       y_coord: 31,
       name: "K-787",
