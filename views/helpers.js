@@ -20,7 +20,10 @@ export function planet_music(planet){
 }
 
 export function distanceBetweenPlanets(planet1, planet2) {
-  let x_distance = Math.abs(planet1.x_coord - planet2.x_coord);
-  let y_distance = Math.abs(planet1.y_coord - planet2.y_coord);
-  return Math.round(Math.sqrt((x_distance * x_distance) + (y_distance * y_distance)));
+  let xDistance = Math.abs(planet1.x_coord - planet2.x_coord);
+  let yDistance = Math.abs(planet1.y_coord - planet2.y_coord);
+  let xSquared = Math.pow(xDistance, 2);
+  let ySquared = Math.pow(yDistance, 2);
+  let totalDistance = Math.sqrt(xSquared + ySquared);
+  return Math.round(totalDistance);
 }
