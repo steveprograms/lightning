@@ -3,7 +3,7 @@ import { read } from './helpers';
 import Stats from './stats';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
-import { addNanoBuck } from '../actions/lightningActions';
+import { addNanoBuck } from '../actions/appActions';
 import MapScreenButton from './buttons/mapScreenButton';
 import PlanetInfoHome from './planetInfoHome';
 import SaveGameButton from './buttons/saveGameButton'
@@ -16,7 +16,6 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    let { nanobucks } = this.props;
     return (
       <div>
         <MapScreenButton />
@@ -42,15 +41,12 @@ class HomeScreen extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    nanobucks: state.nanobucks,
     currentPlanetId: state.currentPlanetId,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addNanoBuck: () =>
-    dispatch(addNanoBuck()),
   };
 };
 

@@ -5,10 +5,10 @@ let fs = require('fs');
 const defaults = require('../assets/data/defaultStats');
 const filePath = './assets/data/user-data.json';
 import { createStore } from 'redux';
-import lightningApp from '../reducers/lightningReducer';
+import app from '../reducers/appReducer';
 import { Provider } from 'react-redux';
 
-const store = createStore(lightningApp);
+const store = createStore(app);
 
 window.onload = function(){
   ReactDOM.render((

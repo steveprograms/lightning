@@ -1,4 +1,5 @@
-let fs = require('fs')
+let fs = require('fs');
+let dataPath = './assets/data/user-data.json';
 
 export function save(data) {
   fs.writeFileSync('./assets/data/user-data.json', JSON.stringify(data));
@@ -12,7 +13,6 @@ export function planet_music(planet){
 
   //To Do:
   // * turn existing sound off first
-  // * figure out how to import into saveFileExists.js
 
   var audio = new Audio(`./assets/audio/${planet}.wav`);
   audio.loop = true;
@@ -26,4 +26,13 @@ export function distanceBetweenPlanets(planet1, planet2) {
   let ySquared = Math.pow(yDistance, 2);
   let totalDistance = Math.sqrt(xSquared + ySquared);
   return Math.round(totalDistance);
+}
+
+export function parseDataFile() {
+  try {
+    return JSON.parse(fs.readFileSync(dataPath));
+  } catch(error) {
+    fs.writeFileSync(dataPath, JSON.stringify(defaults));
+    return defaults;
+  }
 }

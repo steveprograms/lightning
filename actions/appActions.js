@@ -1,16 +1,9 @@
 import {
-  ADD_NANOBUCK,
   CHANGE_SELECTED_PLANET,
   SET_DESTINATION,
   SET_CURRENT_PLANET,
   ASSIGN_GAME_DEFAULTS
 } from "../assets/constants";
-
-export function addNanoBuck() {
-  return {
-    type: ADD_NANOBUCK
-  };
-};
 
 export function changeSelectedPlanet(planetId) {
   return {

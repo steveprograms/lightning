@@ -4,7 +4,7 @@ let fs = require('fs')
 const path = require('path');
 const defaults = require('../assets/data/defaultStats');
 import { connect } from 'react-redux';
-import { assignGameDefaults } from '../actions/lightningActions';
+import { assignGameDefaults } from '../actions/appActions';
 
 const userDataPath = '../assets/data';
 const opts = {
@@ -14,33 +14,21 @@ const opts = {
 
 let dataPath = './assets/data/user-data.json';
 
-let data;
-
 class LoadScreen extends React.Component {
 
-  parseDataFile() {
-    try {
-      return JSON.parse(fs.readFileSync(dataPath));
-    } catch(error) {
-      return opts.defaults;
-    }
-  }
-
   startNewGame = () => {
-    data.gameInitialized = true;
     opts.defaults.gameInitialized = true;
     fs.writeFileSync(dataPath, JSON.stringify(opts.defaults));
     this.props.assignGameDefaults();
   }
 
   loadSavedGame(){
-    // var audio = new Audio('./assets/audio/earth.wav');
-    // audio.loop = true;
-    // audio.play();
+    var audio = new Audio('./assets/audio/earth.wav');
+    audio.loop = true;
+    audio.play();
   }
 
   render() {
-    data = this.parseDataFile();
     let savedGameFound = this.props.gameInitialized;
     return savedGameFound ? (
       <div>
