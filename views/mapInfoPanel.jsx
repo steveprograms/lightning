@@ -17,7 +17,6 @@ export default class MapInfoPanel extends React.Component {
         <div />
         -
         <div />
-        {planet.history}
       </div>
     )
   }
