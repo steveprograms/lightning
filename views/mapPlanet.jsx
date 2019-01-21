@@ -5,25 +5,12 @@ import { changeSelectedPlanet } from '../actions/lightningActions';
 import { connect } from 'react-redux';
 
 class MapPlanet extends React.Component {
-  constructor(props) {
-    super(props)
-
-  }
-
-  mouseEnter() {
-
-  }
-
-  mouseLeave() {
-
-  }
 
   onClick = () => {
     this.props.changeSelectedPlanet(this.props.id);
   }
 
   render() {
-
     let { id } = this.props;
     let planet = planets[id];
     let xCoord = planet.x_coord;
@@ -90,7 +77,7 @@ class MapPlanet extends React.Component {
         }}>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -98,8 +85,8 @@ const mapStateToProps = state => {
   return {
     selectedPlanetId: state.selectedPlanetId,
     currentPlanetId: state.currentPlanetId,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {

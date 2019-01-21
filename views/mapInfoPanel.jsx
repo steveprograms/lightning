@@ -38,9 +38,11 @@ class MapInfoPanel extends React.Component {
         <div />
         Distance: {distance} spacemiles
         <div />
-        <TransitScreenButton />
+        <TransitScreenButton
+          transitDestination={this.props.selectedPlanetId}
+        />
       </div>
-    )
+    );
   }
 }
 

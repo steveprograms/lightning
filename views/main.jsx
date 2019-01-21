@@ -15,6 +15,6 @@ export default class Main extends React.Component {
           <Route path='/' component={HomeScreen}/>
         </Switch>
       </div>
-    )
+    );
   }
 }

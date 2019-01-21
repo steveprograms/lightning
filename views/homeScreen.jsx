@@ -11,7 +11,6 @@ class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.data = read();
-
   }
 
   render() {
@@ -51,8 +50,7 @@ class HomeScreen extends React.Component {
           currentPlanetId={this.props.currentPlanetId}
         />
       </div>
-
-    )
+    );
   }
 }
 
@@ -60,8 +58,8 @@ const mapStateToProps = state => {
   return {
     nanobucks: state.nanobucks,
     currentPlanetId: state.currentPlanetId,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {

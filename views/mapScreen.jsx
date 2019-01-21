@@ -15,14 +15,14 @@ class MapScreen extends React.Component {
           selectedPlanetId={selectedPlanetId}
         />
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
     selectedPlanetId: state.selectedPlanetId,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(MapScreen);
