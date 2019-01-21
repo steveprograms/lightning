@@ -29,6 +29,7 @@ export default class LinkButton extends React.Component {
           color={color}
           size="large"
           style={{position: 'relative', height: height, width: width}}
+          onClick={this.props.onClick}
         >
           <Link
             to={routeTo}

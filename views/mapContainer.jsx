@@ -16,6 +16,6 @@ export default class MapContainer extends React.Component {
         <MapPlanet id={ 'ark' } />
         <MapPlanet id={ 'aquaris' } />
       </div>
-    )
+    );
   }
 }

@@ -1,6 +1,8 @@
 import {
   ADD_NANOBUCK,
-  CHANGE_SELECTED_PLANET
+  CHANGE_SELECTED_PLANET,
+  SET_DESTINATION,
+  SET_CURRENT_PLANET
 } from "../assets/constants";
 
 export function addNanoBuck() {
@@ -9,9 +11,23 @@ export function addNanoBuck() {
   };
 };
 
-export function changeSelectedPlanet(planet) {
+export function changeSelectedPlanet(planetId) {
   return {
     type: CHANGE_SELECTED_PLANET,
-    planet
+    planetId
+  };
+};
+
+export function setDestination(planetId) {
+  return {
+    type: SET_DESTINATION,
+    planetId
+  }
+}
+
+export function setCurrentPlanet(planetId) {
+  return {
+    type: SET_CURRENT_PLANET,
+    planetId
   };
 };
