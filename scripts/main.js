@@ -9,7 +9,7 @@ import lightningApp from '../reducers/lightningReducer';
 import { Provider } from 'react-redux';
 
 function checkGameFile() {
-  if (fs.existsSync(dataPath)) {
+  if (fs.existsSync('../assets/data/user-data.json')) {
   } else {
     fs.writeFileSync(filePath, JSON.stringify(defaults));
   }

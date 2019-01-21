@@ -7,6 +7,7 @@ import { addNanoBuck } from '../actions/lightningActions';
 import MapScreenButton from './buttons/mapScreenButton';
 import PlanetInfoHome from './planetInfoHome';
 import SaveGameButton from './buttons/saveGameButton'
+import LinkButton from './buttons/LinkButton';
 
 class HomeScreen extends React.Component {
   constructor(props) {
@@ -19,7 +20,18 @@ class HomeScreen extends React.Component {
     return (
       <div>
         <MapScreenButton />
+        <div />
+        -
+        <div />
         <SaveGameButton />
+        <div />
+        <LinkButton
+        title={'Load Screen'}
+        routeTo={'/loadscreen'}
+        onClick={this.startNewGame}
+        >
+        New
+        </LinkButton>
         <PlanetInfoHome
           currentPlanetId={this.props.currentPlanetId}
         />
