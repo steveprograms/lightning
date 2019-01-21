@@ -16,6 +16,8 @@ class SaveGameButton extends React.Component {
   render() {
     return (
       <Button
+        variant='contained'
+        color='primary'
         style={{float: 'right'}}
         onClick={this.onClick}
       >
