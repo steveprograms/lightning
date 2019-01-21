@@ -1,4 +1,4 @@
-# lightning
+# Green Lightning
 # need to have homebrew installed
 # need to have npm and node installed
 #

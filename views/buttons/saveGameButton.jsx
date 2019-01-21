@@ -1,7 +1,7 @@
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import React from 'react';
-import { saveGame } from '../../actions/lightningActions';
+import { saveGame } from '../../actions/appActions';
 import fs from 'fs';
 let filePath = './assets/data/user-data.json';
 

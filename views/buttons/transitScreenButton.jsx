@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkButton from './linkButton';
 import { connect } from 'react-redux';
-import { setDestination } from '../../actions/lightningActions';
+import { setDestination } from '../../actions/appActions';
 
 class TransitScreenButton extends React.Component {
 
