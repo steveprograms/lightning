@@ -3,6 +3,8 @@ import LinkButton from './buttons/linkButton';
 let fs = require('fs')
 const path = require('path');
 const defaults = require('../assets/data/defaultStats');
+import { connect } from 'react-redux';
+import { assignGameDefaults } from '../actions/lightningActions';
 
 const userDataPath = '../assets/data';
 const opts = {
@@ -14,7 +16,7 @@ let dataPath = './assets/data/user-data.json';
 
 let data;
 
-export default class LoadScreen extends React.Component {
+class LoadScreen extends React.Component {
 
   parseDataFile() {
     try {
@@ -24,16 +26,14 @@ export default class LoadScreen extends React.Component {
     }
   }
 
-  startNewGame(){
-    console.log('startNewGame');
+  startNewGame = () => {
     data.gameInitialized = true;
     opts.defaults.gameInitialized = true;
     fs.writeFileSync(dataPath, JSON.stringify(opts.defaults));
-    // existing_game();
+    this.props.assignGameDefaults();
   }
 
   loadSavedGame(){
-    console.log('loadSavedGame')
     // var audio = new Audio('./assets/audio/earth.wav');
     // audio.loop = true;
     // audio.play();
@@ -41,9 +41,7 @@ export default class LoadScreen extends React.Component {
 
   render() {
     data = this.parseDataFile();
-    let { nanobucks } = this.props;
-    let savedGameFound = (fs.existsSync(dataPath) && data.gameInitialized);
-    console.log('savedGameFound: ', savedGameFound)
+    let savedGameFound = this.props.gameInitialized;
     return savedGameFound ? (
       <div>
         Green Lightning!
@@ -78,3 +76,18 @@ export default class LoadScreen extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    gameInitialized: state.gameInitialized,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    assignGameDefaults: () =>
+    dispatch(assignGameDefaults()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoadScreen);
