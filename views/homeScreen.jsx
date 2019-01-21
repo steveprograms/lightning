@@ -18,18 +18,18 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <div>
-        <MapScreenButton />
+        <MapScreenButton
+        />
         <div />
         -
         <div />
         <SaveGameButton />
         <div />
         <LinkButton
-        title={'Load Screen'}
+        title={'Main Menu'}
         routeTo={'/loadscreen'}
         onClick={this.startNewGame}
         >
-        New
         </LinkButton>
         <PlanetInfoHome
           currentPlanetId={this.props.currentPlanetId}
