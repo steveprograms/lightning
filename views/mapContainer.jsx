@@ -5,16 +5,16 @@ export default class MapContainer extends React.Component {
   render() {
     return (
       <div style={{top: '50px', width: '800px', height: '800px', backgroundColor: 'black', position: 'absolute'}}>
-        <MapPlanet name= { 'terra' } />
-        <MapPlanet name={ 'mercurion' } />
-        <MapPlanet name={ 'orias' } />
-        <MapPlanet name={ 'rust' } />
-        <MapPlanet name={ 'k-787' } />
-        <MapPlanet name={ 'sunspeared' } />
-        <MapPlanet name={ 'chindi' } />
-        <MapPlanet name={ 'omega' } />
-        <MapPlanet name={ 'ark' } />
-        <MapPlanet name={ 'aquaris' } />
+        <MapPlanet id={ 'terra' } />
+        <MapPlanet id={ 'mercurion' } />
+        <MapPlanet id={ 'orias' } />
+        <MapPlanet id={ 'rust' } />
+        <MapPlanet id={ 'k-787' } />
+        <MapPlanet id={ 'sunspeared' } />
+        <MapPlanet id={ 'chindi' } />
+        <MapPlanet id={ 'omega' } />
+        <MapPlanet id={ 'ark' } />
+        <MapPlanet id={ 'aquaris' } />
       </div>
     )
   }

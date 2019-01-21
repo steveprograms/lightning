@@ -1,11 +1,12 @@
 import {
   ADD_NANOBUCK,
-  CHANGE_FOCUSED_PLANET
+  CHANGE_SELECTED_PLANET
 } from "../assets/constants";
 
 const initialState = {
   nanobucks: 25,
-  focusedPlanetName: 'Terra',
+  selectedPlanetId: 'terra',
+  currentPlanetId: 'terra',
 };
 
 function lightningReducer(state = initialState, action) {
@@ -15,9 +16,9 @@ function lightningReducer(state = initialState, action) {
     });
   }
 
-  if (action.type === CHANGE_FOCUSED_PLANET) {
+  if (action.type === CHANGE_SELECTED_PLANET) {
     return Object.assign({}, state, {
-      focusedPlanetName: action.planet
+      selectedPlanetId: action.planet
     });
   }
   return state;

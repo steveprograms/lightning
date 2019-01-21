@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import planets from '../assets/data/planets'
-import { changeFocusedPlanet } from '../actions/lightningActions';
+import { changeSelectedPlanet } from '../actions/lightningActions';
 import { connect } from 'react-redux';
 
 class MapPlanet extends React.Component {
@@ -19,39 +19,74 @@ class MapPlanet extends React.Component {
   }
 
   onClick = () => {
-    this.props.changeFocusedPlanet(this.props.name);
+    this.props.changeSelectedPlanet(this.props.id);
   }
 
   render() {
 
-    let { name } = this.props;
-    let planet = planets[name];
+    let { id } = this.props;
+    let planet = planets[id];
     let xCoord = planet.x_coord;
     let yCoord = planet.y_coord;
     let color = planet.color;
+    let isCurrentPlanet = (this.props.currentPlanetId == id) ? true : false;
+    let isSelectedPlanet = (this.props.selectedPlanetId == id) ? true : false;
+    let currentPlanetIndicatorColor = isCurrentPlanet ? 'green' : 'rgba(255,255,255,0)';
+    let selectedPlanetIndicatorColor = isSelectedPlanet ? 'red' : 'rgba(255,255,255,0)';
 
     return (
       <div
         style={{
-          left: xCoord,
-          top: yCoord,
-          width: '15px',
-          height: '15px',
-          backgroundColor: color,
-          borderRadius: '50%',
-          position: 'absolute'
+          position: 'relative',
+          margin: '20px',
         }}
-        onMouseEnter={this.mouseEnter}
-        onMouseLeave={this.mouseLeave}
-        onClick={this.onClick}
       >
+        <div
+          style={{
+            left: xCoord,
+            top: yCoord,
+            width: '15px',
+            height: '15px',
+            backgroundColor: color,
+            borderRadius: '50%',
+            position: 'absolute'
+          }}
+          onMouseEnter={this.mouseEnter}
+          onMouseLeave={this.mouseLeave}
+          onClick={this.onClick}
+        >
+        </div>
         <div style={{
           position: 'absolute',
           backgroundColor: 'rgba(255,255,255,0)',
           color: 'white',
-          marginTop: '15px'
+          marginTop: '15px',
+          left: xCoord,
+          top: yCoord,
         }}>
-          {name}
+          {planet.name}
+        </div>
+        <div style={{
+          position: 'absolute',
+          backgroundColor: currentPlanetIndicatorColor,
+          width: '20px',
+          height: '5px',
+          left: xCoord,
+          top: yCoord,
+          marginTop: '5px',
+          marginLeft: '-25px'
+        }}>
+        </div>
+        <div style={{
+          position: 'absolute',
+          backgroundColor: selectedPlanetIndicatorColor,
+          width: '20px',
+          height: '5px',
+          left: xCoord,
+          top: yCoord,
+          marginTop: '5px',
+          marginLeft: '20px'
+        }}>
         </div>
       </div>
     )
@@ -60,14 +95,15 @@ class MapPlanet extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    focusedPlanetName: state.focusedPlanetName,
+    selectedPlanetId: state.selectedPlanetId,
+    currentPlanetId: state.currentPlanetId,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeFocusedPlanet: (planet) =>
-    dispatch(changeFocusedPlanet(planet)),
+    changeSelectedPlanet: (id) =>
+    dispatch(changeSelectedPlanet(id)),
   };
 };
 

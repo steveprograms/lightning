@@ -6,13 +6,13 @@ import { connect } from 'react-redux';
 
 class MapScreen extends React.Component {
   render() {
-    let { focusedPlanetName } = this.props;
+    let { selectedPlanetId } = this.props;
     return (
       <div>
         <MapContainer/>
         <HomeScreenButton />
         <MapInfoPanel
-          focusedPlanetName={focusedPlanetName}
+          selectedPlanetId={selectedPlanetId}
         />
       </div>
     )
@@ -21,7 +21,7 @@ class MapScreen extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    focusedPlanetName: state.focusedPlanetName,
+    selectedPlanetId: state.selectedPlanetId,
   }
 }
 

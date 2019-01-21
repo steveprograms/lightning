@@ -1,6 +1,6 @@
 import {
   ADD_NANOBUCK,
-  CHANGE_FOCUSED_PLANET
+  CHANGE_SELECTED_PLANET
 } from "../assets/constants";
 
 export function addNanoBuck() {
@@ -9,9 +9,9 @@ export function addNanoBuck() {
   };
 };
 
-export function changeFocusedPlanet(planet) {
+export function changeSelectedPlanet(planet) {
   return {
-    type: CHANGE_FOCUSED_PLANET,
+    type: CHANGE_SELECTED_PLANET,
     planet
   };
 };
