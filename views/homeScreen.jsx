@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { addNanoBuck } from '../actions/lightningActions';
 import MapScreenButton from './buttons/mapScreenButton';
+import PlanetInfoHome from './planetInfoHome';
 
 class HomeScreen extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class HomeScreen extends React.Component {
     let { nanobucks } = this.props;
     return (
       <div>
+        <MapScreenButton />
         <div>
           username: { this.data.username }
         </div>
@@ -45,15 +47,11 @@ class HomeScreen extends React.Component {
           cargospace: { this.data.character.stats.spacecraft.cargo_space }
         </div>
         <div/>
-        <div />
-        <MapScreenButton />
-          Nanobucks: {nanobucks}
-        <Button
-          onClick={this.props.addNanoBuck}
-        >
-          Add NanoBucks
-        </Button>
+        <PlanetInfoHome
+          currentPlanetId={this.props.currentPlanetId}
+        />
       </div>
+
     )
   }
 }
@@ -61,6 +59,7 @@ class HomeScreen extends React.Component {
 const mapStateToProps = state => {
   return {
     nanobucks: state.nanobucks,
+    currentPlanetId: state.currentPlanetId,
   }
 }
 
