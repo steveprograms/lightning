@@ -8,17 +8,9 @@ import { createStore } from 'redux';
 import lightningApp from '../reducers/lightningReducer';
 import { Provider } from 'react-redux';
 
-function checkGameFile() {
-  if (fs.existsSync('../assets/data/user-data.json')) {
-  } else {
-    fs.writeFileSync(filePath, JSON.stringify(defaults));
-  }
-}
-
 const store = createStore(lightningApp);
 
 window.onload = function(){
-  checkGameFile();
   ReactDOM.render((
     <Provider store={store}>
       <HashRouter>
