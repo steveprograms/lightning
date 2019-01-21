@@ -42,6 +42,7 @@ class MapPlanet extends React.Component {
         }}
       >
         <div
+          className={'map-planet'}
           style={{
             left: xCoord,
             top: yCoord,
