@@ -22,6 +22,10 @@ class HomeScreen extends React.Component {
         />
         <div />
         -
+        <LinkButton
+        title={'Merchant'}
+        routeTo={'/merchantscreen'}
+        />
         <div />
         <SaveGameButton />
         <div />
