@@ -1,26 +1,14 @@
 var defaults = {
-  "gameInitialized": false,
-  "credits":0,
-  "character":
-  {
-    "stats":
-    {
-      "name":"",
-      "level":1,
-      "xp":0,
-      "inventory": [],
-      "spacecraft":
-      {
-        "model":"Powerman5000",
-        "year":2420,
-        "value":5000,
-        "cargo_space":250,
-        "fuel_capacity":3,
-        "fuel_amount":3
-      },
-    },
-    "on_planet":"earth"
-  },
+  gameInitialized: false,
+  nanobucks:0,
+  selectedPlanetId: 'terra',
+  currentPlanetId: 'terra',
+  destinationPlanet: null,
+  username: 'Mr Biggleswort',
+  level: 1,
+  xp: 1,
+  shipModel: 'The Baby Destroyer',
+  shipMake: 'Lazer Products Corporation',
 };
 
 module.exports = defaults;

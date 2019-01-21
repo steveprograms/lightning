@@ -6,10 +6,16 @@ import {
 } from "../assets/constants";
 
 const initialState = {
+  gameInitialized: false,
   nanobucks: 25,
   selectedPlanetId: 'terra',
   currentPlanetId: 'terra',
   destinationPlanet: null,
+  username: 'Mr Bigglesworth',
+  level: 1,
+  xp: 1,
+  shipModel: 'The Baby Destroyer',
+  shipMake: 'Lazer Products Corporation',
 };
 
 function lightningReducer(state = initialState, action) {
