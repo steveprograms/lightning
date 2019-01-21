@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { saveGame } from '../../actions/lightningActions';
 import fs from 'fs';
+let filePath = './assets/data/user-data.json';
 
 class SaveGameButton extends React.Component {
 
   onClick = () => {
-    console.log('onClick')
-    console.log('state: ', this.props.state)
-    fs.writeFileSync('./assets/data/user-data.json', JSON.stringify(this.props.state));
+    let { state } = this.props;
+    console.log('state: ', state);
+    fs.writeFileSync(filePath, JSON.stringify(this.props.state));
   }
 
   render() {
