@@ -2,6 +2,7 @@ import React from 'react';
 import planets from '../assets/data/planets'
 import { connect } from 'react-redux';
 import { distanceBetweenPlanets } from './helpers';
+import TransitScreenButton from './buttons/transitScreenButton';
 
 class MapInfoPanel extends React.Component {
   render() {
@@ -36,6 +37,8 @@ class MapInfoPanel extends React.Component {
         -
         <div />
         Distance: {distance} spacemiles
+        <div />
+        <TransitScreenButton />
       </div>
     )
   }
