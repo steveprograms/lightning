@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { addNanoBuck } from '../actions/lightningActions';
 import MapScreenButton from './buttons/mapScreenButton';
 import PlanetInfoHome from './planetInfoHome';
+import SaveGameButton from './buttons/saveGameButton'
 
 class HomeScreen extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class HomeScreen extends React.Component {
     return (
       <div>
         <MapScreenButton />
+        <SaveGameButton />
         <div>
           username: { this.data.username }
         </div>
