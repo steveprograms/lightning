@@ -1,11 +1,13 @@
 import React from 'react';
 import planets from '../assets/data/planets'
 import { connect } from 'react-redux';
+import { distanceBetweenPlanets } from './helpers';
 
 class MapInfoPanel extends React.Component {
   render() {
     let selectedPlanet  = planets[this.props.selectedPlanetId];
     let currentPlanet = planets[this.props.currentPlanetId] || planets['terra'];
+    let distance = distanceBetweenPlanets(selectedPlanet, currentPlanet);
 
     return (
       <div
@@ -33,6 +35,7 @@ class MapInfoPanel extends React.Component {
         <div />
         -
         <div />
+        Distance: {distance} spacemiles
       </div>
     )
   }

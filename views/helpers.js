@@ -18,3 +18,9 @@ export function planet_music(planet){
   audio.loop = true;
   audio.play();
 }
+
+export function distanceBetweenPlanets(planet1, planet2) {
+  let x_distance = Math.abs(planet1.x_coord - planet2.x_coord);
+  let y_distance = Math.abs(planet1.y_coord - planet2.y_coord);
+  return Math.round(Math.sqrt((x_distance * x_distance) + (y_distance * y_distance)));
+}
