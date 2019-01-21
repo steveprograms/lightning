@@ -4,8 +4,17 @@ import MapScreenButton from './buttons/mapScreenButton';
 import PlanetInfoHome from './planetInfoHome';
 import SaveGameButton from './buttons/saveGameButton'
 import LinkButton from './buttons/LinkButton';
+let filePath = './assets/data/user-data.json';
+import fs from 'fs';
 
 class HomeScreen extends React.Component {
+
+  onCLick = () => {
+    let { state } = this.props;
+    console.log('saving state: ', state);
+    fs.writeFileSync(filePath, JSON.stringify(this.props.state));
+  }
+
   render() {
     return (
       <div>
@@ -17,9 +26,10 @@ class HomeScreen extends React.Component {
         <SaveGameButton />
         <div />
         <LinkButton
-        title={'Main Menu'}
+        style={{float: 'right'}}
+        title={'Menu'}
         routeTo={'/loadscreen'}
-        onClick={this.startNewGame}
+        onClick={this.onClick}
         >
         </LinkButton>
         <PlanetInfoHome
@@ -32,6 +42,7 @@ class HomeScreen extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    state: state,
     currentPlanetId: state.currentPlanetId,
   };
 };

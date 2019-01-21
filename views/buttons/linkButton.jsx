@@ -11,7 +11,8 @@ export default class LinkButton extends React.Component {
       variant,
       routeTo,
       title,
-      textColor
+      textColor,
+      style,
     } = this.props;
 
     height = height || '35px';
@@ -21,6 +22,13 @@ export default class LinkButton extends React.Component {
     routeTo = routeTo || '/';
     title = title || routeTo;
     textColor = textColor || 'black';
+    style = Object.assign(
+      {
+        position: 'relative',
+        height: height,
+        width: width
+      }, style
+    );
 
     return (
       <div>
@@ -28,7 +36,7 @@ export default class LinkButton extends React.Component {
           variant={variant}
           color={color}
           size="large"
-          style={{position: 'relative', height: height, width: width}}
+          style={style}
           onClick={this.props.onClick}
         >
           <Link
