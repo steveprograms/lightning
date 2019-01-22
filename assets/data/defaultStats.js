@@ -12,7 +12,6 @@ var defaults = {
   shipHoldLimit: 10,
   inventory: [],
   crew: [],
-
 };
 
 module.exports = defaults;

@@ -6,6 +6,7 @@ import SaveGameButton from './buttons/saveGameButton'
 import LinkButton from './buttons/LinkButton';
 let filePath = './assets/data/user-data.json';
 import fs from 'fs';
+import GameMenu from './gameMenu';
 
 class HomeScreen extends React.Component {
 
@@ -18,6 +19,7 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <div>
+        <GameMenu />
         <MapScreenButton
         />
         <div />
