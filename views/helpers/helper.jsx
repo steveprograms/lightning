@@ -1,8 +1,9 @@
 let fs = require('fs');
 let dataPath = './assets/data/user-data.json';
+import defaults from '../../assets/data/defaultStats';
 
 export function save(data) {
-  fs.writeFileSync('./assets/data/user-data.json', JSON.stringify(data));
+  fs.writeFileSync('../../assets/data/user-data.json', JSON.stringify(data));
 }
 
 export function read() {

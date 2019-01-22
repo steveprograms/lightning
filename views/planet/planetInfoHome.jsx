@@ -1,5 +1,5 @@
 import React from 'react';
-import planets from '../assets/data/planets'
+import planets from '../../assets/data/planets'
 
 export default class PlanetInfoHome extends React.Component {
   render() {

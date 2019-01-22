@@ -1,12 +1,11 @@
 import React from 'react';
-import RouteButton from './buttons/routeButton';
+import RouteButton from '../buttons/routeButton';
 let fs = require('fs')
 const path = require('path');
-const defaults = require('../assets/data/defaultStats');
+const defaults = require('../../assets/data/defaultStats');
 import { connect } from 'react-redux';
-import { assignGameDefaults } from '../actions/appActions';
+import { assignGameDefaults } from '../../actions/appActions';
 
-const userDataPath = '../assets/data';
 const opts = {
   configName: 'user-data',
   defaults: defaults,

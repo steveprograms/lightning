@@ -1,6 +1,6 @@
 import React from 'react';
 import MapContainer from './mapContainer';
-import RouteButton from './buttons/routeButton';
+import RouteButton from '../buttons/routeButton';
 import MapInfoPanel from './mapInfoPanel';
 import { connect } from 'react-redux';
 
