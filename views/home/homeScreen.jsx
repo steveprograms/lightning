@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PlanetInfoHome from './planetInfoHome';
-import SaveGameButton from './buttons/saveGameButton'
-import RouteButton from './buttons/routeButton';
+import PlanetInfoHome from '../planetInfoHome';
+import SaveGameButton from '../buttons/saveGameButton'
+import RouteButton from '../buttons/routeButton';
 let filePath = './assets/data/user-data.json';
 import fs from 'fs';
-import GameMenu from './gameMenu';
+import GameMenu from '../gameMenu';
 
 class HomeScreen extends React.Component {
 
