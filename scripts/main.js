@@ -11,11 +11,12 @@ import { Provider } from 'react-redux';
 const store = createStore(app);
 
 window.onload = function(){
-  ReactDOM.render((
+  ReactDOM.render(
     <Provider store={store}>
       <HashRouter>
         <Main />
       </HashRouter>
-    </Provider>
-  ), document.getElementById('app'));
+    </Provider>,
+    document.getElementById('app')
+  );
 }
