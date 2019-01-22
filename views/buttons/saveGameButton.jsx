@@ -9,7 +9,7 @@ class SaveGameButton extends React.Component {
 
   onClick = () => {
     let { state } = this.props;
-    console.log('state: ', state);
+    console.log('saving state: ', state);
     fs.writeFileSync(filePath, JSON.stringify(this.props.state));
   }
 

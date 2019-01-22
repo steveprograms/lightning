@@ -1,14 +1,17 @@
 var defaults = {
   gameInitialized: false,
-  nanobucks:0,
+  nanobucks:1000,
   selectedPlanetId: 'terra',
   currentPlanetId: 'terra',
   destinationPlanet: null,
-  username: 'Mr Biggleswort',
+  username: 'Captain Beefheart',
   level: 1,
   xp: 1,
   shipModel: 'The Baby Destroyer',
   shipMake: 'Lazer Products Corporation',
+  shipHoldLimit: 10,
+  inventory: [],
+  crew: [],
 };
 
 module.exports = defaults;

@@ -4,12 +4,14 @@ import MapScreen from '../views/mapScreen';
 import HomeScreen from '../views/homeScreen';
 import TransitScreen from '../views/transitScreen';
 import LoadScreen from '../views/loadScreen';
+import MerchantScreen from '../views/merchantScreen';
 
 export default class Main extends React.Component {
   render() {
     return (
       <div>
         <Switch>
+          <Route path='/merchantscreen' component={MerchantScreen}/>
           <Route path='/loadscreen' component={LoadScreen}/>
           <Route path='/transitscreen' component={TransitScreen}/>
           <Route path='/homescreen' component={HomeScreen}/>

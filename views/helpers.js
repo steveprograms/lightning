@@ -16,7 +16,7 @@ export function planet_music(planet){
 
   var audio = new Audio(`./assets/audio/${planet}.wav`);
   audio.loop = true;
-  audio.play();
+  // audio.play();
 }
 
 export function distanceBetweenPlanets(planet1, planet2) {
