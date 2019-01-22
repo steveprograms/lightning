@@ -33,7 +33,6 @@ function appReducer(state = initialState, action) {
   }
 
   if (action.type === ASSIGN_GAME_DEFAULTS) {
-    console.log('reducer me: ', defaults)
     return Object.assign({}, state, defaults);
   }
 

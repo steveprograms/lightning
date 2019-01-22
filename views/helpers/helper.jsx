@@ -1,12 +1,13 @@
 let fs = require('fs');
-let dataPath = '../assets/data/user-data.json';
+let dataPath = './assets/data/user-data.json';
+import defaults from '../../assets/data/defaultStats';
 
 export function save(data) {
-  fs.writeFileSync('../assets/data/user-data.json', JSON.stringify(data));
+  fs.writeFileSync('../../assets/data/user-data.json', JSON.stringify(data));
 }
 
 export function read() {
-  return JSON.parse(fs.readFileSync('../assets/data/user-data.json'));
+  return JSON.parse(fs.readFileSync('./assets/data/user-data.json'));
 }
 
 export function planet_music(planet){
@@ -14,7 +15,7 @@ export function planet_music(planet){
   //To Do:
   // * turn existing sound off first
 
-  var audio = new Audio(`../assets/audio/${planet}.wav`);
+  var audio = new Audio(`./assets/audio/${planet}.wav`);
   audio.loop = true;
   // audio.play();
 }

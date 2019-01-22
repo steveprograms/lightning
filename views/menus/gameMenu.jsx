@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { connect } from 'react-redux';
 import fs from 'fs';
-let filePath = '../assets/data/user-data.json';
+let filePath = './assets/data/user-data.json';
 import { withRouter} from 'react-router-dom';
 
 class GameMenu extends React.Component {
