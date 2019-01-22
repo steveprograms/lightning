@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkButton from './buttons/linkButton';
+import RouteButton from './buttons/routeButton';
 let fs = require('fs')
 const path = require('path');
 const defaults = require('../assets/data/defaultStats');
@@ -35,31 +35,31 @@ class LoadScreen extends React.Component {
         Green Lightning!
         <div />
         The galaxy's most action filled text based game
-        <LinkButton
-        title={'New'}
-        routeTo={'/homescreen'}
-        onClick={this.startNewGame}
+        <RouteButton
+          title={'New'}
+          routeTo={'/homescreen'}
+          addOnClick={this.startNewGame}
         >
-        </LinkButton>
-        <LinkButton
-        title={'Load'}
-        routeTo={'/homescreen'}
-        onClick={this.loadSavedGame}
+        </RouteButton>
+        <RouteButton
+          title={'Load'}
+          routeTo={'/homescreen'}
+          addOnClick={this.loadSavedGame}
         >
-        </LinkButton>
+        </RouteButton>
       </div>
     ) : (
       <div>
         Green Lightning!
         <div />
         The galaxy's most action filled text based game
-        <LinkButton
-        title={'New'}
-        routeTo={'/homescreen'}
-        onClick={this.startNewGame}
+        <RouteButton
+          title={'New'}
+          routeTo={'/homescreen'}
+          addOnClick={this.startNewGame}
         >
         New
-        </LinkButton>
+        </RouteButton>
       </div>
     );
   }

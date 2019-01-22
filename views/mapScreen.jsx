@@ -1,6 +1,6 @@
 import React from 'react';
 import MapContainer from './mapContainer';
-import HomeScreenButton from './buttons/homeScreenButton';
+import RouteButton from './buttons/routeButton';
 import MapInfoPanel from './mapInfoPanel';
 import { connect } from 'react-redux';
 
@@ -10,7 +10,10 @@ class MapScreen extends React.Component {
     return (
       <div>
         <MapContainer/>
-        <HomeScreenButton />
+        <RouteButton
+          title={'Home'}
+          routeTo={'/homescreen'}
+        />
         <MapInfoPanel
           selectedPlanetId={selectedPlanetId}
         />

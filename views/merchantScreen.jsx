@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LinkButton from './buttons/LinkButton';
+import RouteButton from './buttons/routeButton';
 
 class MerchantScreen extends React.Component {
 
   render() {
     return (
       <div>
-        <LinkButton
+        <RouteButton
           title={'Home'}
           routeTo={'/homescreen'}
         />
