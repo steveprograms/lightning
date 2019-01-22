@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RouteButton from './buttons/routeButton';
+import RouteButton from '../buttons/routeButton';
 
 class MerchantScreen extends React.Component {
 

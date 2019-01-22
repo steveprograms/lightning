@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 import MapScreen from '../views/map/mapScreen';
 import HomeScreen from '../views/home/homeScreen';
-import TransitScreen from '../views/transitScreen';
+import TransitScreen from '../views/transit/transitScreen';
 import LoadScreen from '../views/load/loadScreen';
-import MerchantScreen from '../views/merchantScreen';
+import MerchantScreen from '../views/merchant/merchantScreen';
 
 export default class Main extends React.Component {
   render() {
