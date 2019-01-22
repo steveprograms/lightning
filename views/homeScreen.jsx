@@ -1,43 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MapScreenButton from './buttons/mapScreenButton';
 import PlanetInfoHome from './planetInfoHome';
 import SaveGameButton from './buttons/saveGameButton'
-import LinkButton from './buttons/LinkButton';
+import RouteButton from './buttons/routeButton';
 let filePath = './assets/data/user-data.json';
 import fs from 'fs';
 import GameMenu from './gameMenu';
 
 class HomeScreen extends React.Component {
 
-  onCLick = () => {
-    let { state } = this.props;
-    console.log('saving state: ', state);
-    fs.writeFileSync(filePath, JSON.stringify(this.props.state));
-  }
-
   render() {
     return (
       <div>
         <GameMenu />
-        <MapScreenButton
+        <RouteButton
+          title={'Map'}
+          routeTo={'/mapscreen'}
         />
-        <div />
-        -
-        <LinkButton
-        title={'Merchant'}
-        routeTo={'/merchantscreen'}
+        <RouteButton
+          title={'Merchant'}
+          routeTo={'/merchantscreen'}
         />
-        <div />
-        <SaveGameButton />
-        <div />
-        <LinkButton
-        style={{float: 'right'}}
-        title={'Menu'}
-        routeTo={'/loadscreen'}
-        onClick={this.onClick}
-        >
-        </LinkButton>
         <PlanetInfoHome
           currentPlanetId={this.props.currentPlanetId}
         />
@@ -48,7 +31,6 @@ class HomeScreen extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    state: state,
     currentPlanetId: state.currentPlanetId,
   };
 };

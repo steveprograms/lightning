@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkButton from './buttons/linkButton';
+import RouteButton from './buttons/routeButton';
 import { setCurrentPlanet } from '../actions/appActions';
 import { connect } from 'react-redux';
 
@@ -13,10 +13,10 @@ class TransitScreen extends React.Component {
     return (
       <div>
         YOU'RE IN SPACE IN TRANSIT
-        <LinkButton
+        <RouteButton
           title={'Land'}
           routeTo={'/homescreen'}
-          onClick={this.onClick}
+          addOnClick={this.onClick}
         />
       </div>
     );

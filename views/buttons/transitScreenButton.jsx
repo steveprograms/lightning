@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkButton from './linkButton';
+import RouteButton from './routeButton';
 import { connect } from 'react-redux';
 import { setDestination } from '../../actions/appActions';
 
@@ -13,11 +13,11 @@ class TransitScreenButton extends React.Component {
 
     let { transitDestination } = this.props;
     return (
-      <LinkButton
+      <RouteButton
         title={'Launch'}
         routeTo={'/transitscreen'}
         transitDestination={transitDestination}
-        onClick={this.onClick}
+        addOnClick={this.onClick}
       />
     );
   }
