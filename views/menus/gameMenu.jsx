@@ -28,6 +28,7 @@ export class GameMenu extends React.Component {
   }
 
   handleClose = () => {
+    console.log('go go go go go')
     this.setState({ anchorEl: null });
   };
 

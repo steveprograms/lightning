@@ -13,16 +13,26 @@ describe('<GameMenu />', () => {
   , instance
   , menu
   , state
-  , menuItem;
+  , menuItem
+  , saveStateToFile
+  , helpers;
 
   beforeEach(() => {
-    props = {
+    jest.resetModules();
 
+    props = {
+      history: [],
     };
+
+    helpers = {
+      saveStateToFile: jest.fn(),
+    };
+
+    jest.setMock('../helpers/helper', helpers);
 
     GameMenu = require('./gameMenu').GameMenu;
     wrapper = mount(<GameMenu {...props} />);
-    instance = wrapper.instance()
+    instance = wrapper.instance();
   });
 
   describe('render', () => {
@@ -68,6 +78,43 @@ describe('<GameMenu />', () => {
       });
     });
   });
+
+  describe('handleSave', () => {
+    it('saves state to file', () => {
+      iconButton = wrapper.find('IconButton');
+      iconButton.simulate('click');
+      wrapper.find('MenuItem').first().simulate('click');
+      expect(helpers.saveStateToFile).toBeCalled();
+    });
+
+    it('closes menu', () => {
+      spyOn(instance, 'handleClose');
+      iconButton = wrapper.find('IconButton');
+      iconButton.simulate('click');
+      wrapper.find('MenuItem').first().simulate('click');
+      expect(instance.handleClose).toBeCalled();
+      //jest.restoreAllMocks();
+    });
+  });
+
+  describe('handleSaveAndExit', () => {
+    it('saves state to file', () => {
+      iconButton = wrapper.find('IconButton');
+      iconButton.simulate('click');
+      wrapper.find('MenuItem').last().simulate('click');
+      expect(helpers.saveStateToFile).toBeCalled();
+    });
+
+    it('closes menu and routes to loading screen', () => {
+      spyOn(instance, 'handleClose');
+      iconButton = wrapper.find('IconButton');
+      iconButton.simulate('click');
+      wrapper.find('MenuItem').last().simulate('click');
+      expect(instance.handleClose).toBeCalled();
+      //jest.restoreAllMocks();
+    });
+  });
+
 
   describe('mapStateToProps', () => {
     it('maps correctly', () => {
