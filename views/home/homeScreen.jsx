@@ -1,24 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PlanetInfoHome from '../planet/planetInfoHome';
-import SaveGameButton from '../buttons/saveGameButton'
 import RouteButton from '../buttons/routeButton';
-let filePath = './assets/data/user-data.json';
-import fs from 'fs';
 import GameMenu from '../menus/gameMenu';
 
 export class HomeScreen extends React.Component {
 
-  saveStateToFile = () => {
-    fs.writeFileSync(filePath, JSON.stringify(this.props.state));
-  };
-
   render() {
     return (
       <React.Fragment>
-        <GameMenu
-          saveStateToFile={this.saveStateToFile}
-        />
+        <GameMenu />
         <RouteButton
           title={'Map'}
           routeTo={'/mapscreen'}
@@ -28,7 +19,7 @@ export class HomeScreen extends React.Component {
           routeTo={'/merchantscreen'}
         />
         <PlanetInfoHome
-          currentPlanetId={this.props.state.currentPlanetId}
+          currentPlanetId={this.props.currentPlanetId}
         />
       </React.Fragment>
     );
@@ -37,7 +28,7 @@ export class HomeScreen extends React.Component {
 
 export const mapStateToProps = state => {
   return {
-    state: state,
+    currentPlanetId: state.currentPlanetId,
   };
 };
 

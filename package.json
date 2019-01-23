@@ -2,7 +2,7 @@
   "name": "lightning",
   "version": "0.1.0",
   "description": "Lightning Beta",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "electron -r babel-register .",
     "test": "jest"

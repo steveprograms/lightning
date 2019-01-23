@@ -1,13 +1,11 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { connect } from 'react-redux';
-import fs from 'fs';
-let filePath = './assets/data/user-data.json';
 import { withRouter} from 'react-router-dom';
+import { saveStateToFile } from '../helpers/helper';
 
 export class GameMenu extends React.Component {
   state = {
@@ -20,12 +18,12 @@ export class GameMenu extends React.Component {
 
   handleSave = () => {
     this.handleClose();
-    this.props.saveStateToFile();
+    saveStateToFile(this.props.state);
   };
 
   handleSaveAndExit = () => {
     this.handleClose();
-    this.props.saveStateToFile();
+    saveStateToFile(this.props.state);
     this.props.history.push('/loadingscreen');
   }
 
@@ -65,8 +63,14 @@ export class GameMenu extends React.Component {
           </MenuItem>
         </Menu>
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(GameMenu);
+const mapStateToProps = state => {
+  return {
+    state: state,
+  };
+};
+
+export default withRouter(connect(mapStateToProps)(GameMenu));
