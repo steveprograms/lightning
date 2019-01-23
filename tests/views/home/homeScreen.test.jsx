@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { GameMenu } from '../menus/gameMenu';
-import { RouteButton } from '../buttons/routeButton';
+import { GameMenu } from '../../../src/views/menus/gameMenu';
+import { RouteButton } from '../../../src/views/buttons/routeButton';
 import configureMockStore from 'redux-mock-store';
 const mockStore = configureMockStore();
 
@@ -16,15 +16,15 @@ describe('<HomeScreen />', () => {
 
   beforeEach(() => {
     jest.resetModules();
-    
+
     props = {
       currentPlanetId: 'terra'
     };
 
-    jest.setMock('../buttons/routeButton', RouteButton);
-    jest.setMock('../menus/gameMenu', GameMenu);
+    jest.setMock('../../../src/views/buttons/routeButton', RouteButton);
+    jest.setMock('../../../src/views/menus/gameMenu', GameMenu);
 
-    HomeScreen = require('./homeScreen').HomeScreen;
+    HomeScreen = require('../../../src/views/home/homeScreen').HomeScreen;
   });
 
   describe('render', () => {
@@ -59,7 +59,7 @@ describe('<HomeScreen />', () => {
 
   describe('mapStateToProps', () => {
     it('maps correctly', () => {
-      mapStateToProps = require('./homeScreen').mapStateToProps;
+      mapStateToProps = require('../../../src/views/home/homeScreen').mapStateToProps;
       initialState = {
         currentPlanetId: 'abba',
       };
