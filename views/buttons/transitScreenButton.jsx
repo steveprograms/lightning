@@ -17,7 +17,7 @@ class TransitScreenButton extends React.Component {
         title={'Launch'}
         routeTo={'/transitscreen'}
         transitDestination={transitDestination}
-        addOnClick={this.onClick}
+        onClick={this.onClick}
       />
     );
   }

@@ -64,7 +64,7 @@ class LoadScreen extends React.Component {
             <RouteButton
               title={'New'}
               routeTo={'/homescreen'}
-              addOnClick={this.startNewGame}
+              onClick={this.startNewGame}
               variant='contained'
               color='primary'
               style={{width: '400px', height: '300px', flex: 'flex-grow', flexBasis: '40%', fontSize: '3em', fontFamily: 'Courier'}}
@@ -73,7 +73,7 @@ class LoadScreen extends React.Component {
             <RouteButton
               title={'Load'}
               routeTo={'/homescreen'}
-              addOnClick={this.loadSavedGame}
+              onClick={this.loadSavedGame}
               variant='contained'
               color='primary'
               style={{width: '400px', height: '300px', flex: 'flex-grow', flexBasis: '40%', fontSize: '3em', fontFamily: 'Courier'}}
@@ -91,7 +91,7 @@ class LoadScreen extends React.Component {
           <RouteButton
             title={'New'}
             routeTo={'/homescreen'}
-            addOnClick={this.startNewGame}
+            onClick={this.startNewGame}
             variant='contained'
             color='primary'
           >

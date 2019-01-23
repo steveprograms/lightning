@@ -16,7 +16,7 @@ class TransitScreen extends React.Component {
         <RouteButton
           title={'Land'}
           routeTo={'/homescreen'}
-          addOnClick={this.onClick}
+          onClick={this.onClick}
         />
       </div>
     );
