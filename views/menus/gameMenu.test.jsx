@@ -1,9 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import configureMockStore from 'redux-mock-store';
-const mockStore = configureMockStore();
+import { mount } from 'enzyme';
 
-describe('<GameMenu />', () => {
+describe('GameMenu', () => {
   let props
   , GameMenu
   , wrapper
@@ -12,20 +10,19 @@ describe('<GameMenu />', () => {
   , mapStateToProps
   , instance
   , menu
-  , state
-  , menuItem
-  , saveStateToFile
+  , firstMenuItem
+  , secondMenuItem
   , helpers;
 
   beforeEach(() => {
     jest.resetModules();
-
     props = {
       history: [],
     };
 
     helpers = {
-      saveStateToFile: jest.fn(),
+      saveStateToFile: jest.fn(() => {
+      }),
     };
 
     jest.setMock('../helpers/helper', helpers);
@@ -59,76 +56,78 @@ describe('<GameMenu />', () => {
     });
 
     describe('when Menu is clicked', () => {
-      it('renders first MenuItem with correct props', () => {
-        iconButton = wrapper.find('IconButton');
+      it('renders MenuItems with correct props', () => {
+        iconButton = wrapper.find('#game-menu-icon').hostNodes();
         iconButton.simulate('click');
-        menuItem = wrapper.find('MenuItem').first();
-        expect(menuItem.length).toEqual(1);
-        expect(menuItem.props().onClick).toEqual(instance.handleSave);
-        expect(menuItem.html()).toContain('Save');
+        firstMenuItem = wrapper.find('MenuItem').first();
+        secondMenuItem = wrapper.find('MenuItem').last();
+        expect(firstMenuItem.length).toEqual(1);
+        expect(firstMenuItem.props().onClick).toEqual(instance.handleSave);
+        expect(firstMenuItem.html()).toContain('Save');
+        expect(secondMenuItem.length).toEqual(1);
+        expect(secondMenuItem.props().onClick).toEqual(instance.handleSaveAndExit);
+        expect(secondMenuItem.html()).toContain('Save and Exit');
       });
+    });
+  });
 
-      it('renders last MenuItem with correct props', () => {
-        iconButton = wrapper.find('IconButton');
-        iconButton.simulate('click');
-        menuItem = wrapper.find('MenuItem').last();
-        expect(menuItem.length).toEqual(1);
-        expect(menuItem.props().onClick).toEqual(instance.handleSaveAndExit);
-        expect(menuItem.html()).toContain('Save and Exit');
-      });
+  describe('initial class state', () => {
+    it('sets anchorEl to null', () => {
+      expect(instance.state.anchorEl).toEqual(null);
+    });
+  });
+
+  describe('handleClick', () => {
+    it('sets states anchorEl to event Current Target', () => {
+      instance.setState = jest.fn();
+      wrapper.update();
+      instance.handleClick({ currentTarget: 'a monster mash' });
+      expect(instance.setState).toBeCalledWith({ anchorEl: 'a monster mash' });
     });
   });
 
   describe('handleSave', () => {
     it('saves state to file', () => {
-      iconButton = wrapper.find('IconButton');
-      iconButton.simulate('click');
-      wrapper.find('MenuItem').first().simulate('click');
+      instance.handleClose = jest.fn();
+      wrapper.update();
+      instance.handleSave();
       expect(helpers.saveStateToFile).toBeCalled();
-    });
-
-    it('closes menu', () => {
-      spyOn(instance, 'handleClose');
-      iconButton = wrapper.find('IconButton');
-      iconButton.simulate('click');
-      wrapper.find('MenuItem').first().simulate('click');
       expect(instance.handleClose).toBeCalled();
-      //jest.restoreAllMocks();
     });
   });
 
   describe('handleSaveAndExit', () => {
     it('saves state to file', () => {
-      iconButton = wrapper.find('IconButton');
-      iconButton.simulate('click');
-      wrapper.find('MenuItem').last().simulate('click');
+      expect(instance.props.history).toEqual([]);
+      instance.handleClose = jest.fn();
+      wrapper.update();
+      instance.handleSaveAndExit();
       expect(helpers.saveStateToFile).toBeCalled();
-    });
-
-    it('closes menu and routes to loading screen', () => {
-      spyOn(instance, 'handleClose');
-      iconButton = wrapper.find('IconButton');
-      iconButton.simulate('click');
-      wrapper.find('MenuItem').last().simulate('click');
       expect(instance.handleClose).toBeCalled();
-      //jest.restoreAllMocks();
+      expect(instance.props.history).toEqual(['/loadingscreen']);
     });
   });
 
+  describe('handleClose', () => {
+    it('sets states anchorEl to event Current Target', () => {
+      instance.setState = jest.fn();
+      wrapper.update();
+      instance.handleClose();
+      expect(instance.setState).toBeCalledWith({ anchorEl: null });
+    });
+  });
 
   describe('mapStateToProps', () => {
     it('maps correctly', () => {
       mapStateToProps = require('./gameMenu').mapStateToProps;
       initialState = {
         blue: {
-          monster: 'ha ha'
+          monster: 'ha ha',
         },
-        monkey: 'banana',
+        monkey: jest.fn(),
       };
       expect(mapStateToProps(initialState)).toEqual({
-        state: {
-          ...initialState
-        }
+        state: {...initialState}
       });
     });
   });

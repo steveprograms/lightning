@@ -28,7 +28,6 @@ export class GameMenu extends React.Component {
   }
 
   handleClose = () => {
-    console.log('go go go go go')
     this.setState({ anchorEl: null });
   };
 
@@ -38,6 +37,7 @@ export class GameMenu extends React.Component {
     return (
       <div id="game-menu-container">
         <IconButton
+          id="game-menu-icon"
           aria-label="More"
           aria-owns={open ? 'game-menu' : undefined}
           aria-haspopup="true"
