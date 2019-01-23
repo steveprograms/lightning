@@ -7,11 +7,11 @@ let filePath = './assets/data/user-data.json';
 import fs from 'fs';
 import GameMenu from '../menus/gameMenu';
 
-class HomeScreen extends React.Component {
+export class HomeScreen extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <GameMenu />
         <RouteButton
           title={'Map'}
@@ -24,7 +24,7 @@ class HomeScreen extends React.Component {
         <PlanetInfoHome
           currentPlanetId={this.props.currentPlanetId}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }
