@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { GameMenu } from '../menus/gameMenu';
 import { RouteButton } from '../buttons/routeButton';
+import configureMockStore from 'redux-mock-store';
+const mockStore = configureMockStore();
 
 describe('<HomeScreen />', () => {
   let props
@@ -18,7 +20,7 @@ describe('<HomeScreen />', () => {
     jest.setMock('../buttons/routeButton', RouteButton);
     jest.setMock('../menus/gameMenu', GameMenu);
 
-    HomeScreen = require('./homeScreen').HomedScreen;
+    HomeScreen = require('./homeScreen').HomeScreen;
   });
 
   describe('render', () => {
@@ -49,5 +51,12 @@ describe('<HomeScreen />', () => {
       expect(planetInfoHome.length).toEqual(1);
       expect(planetInfoHome.props().currentPlanetId).toEqual(props.currentPlanetId);
     });
+  });
+
+  it('', () => {
+    const initialState = {currentPlanetId: 'monster'};
+    let store = mockStore(initialState);
+    wrapper = shallow(<HomeScreen store={store} />);
+    expect(wrapper.props().currentPlanetId).toBe('terra');
   });
 });

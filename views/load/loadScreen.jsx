@@ -6,18 +6,30 @@ const defaults = require('../../assets/data/defaultStats');
 import { connect } from 'react-redux';
 import { assignGameDefaults } from '../../actions/appActions';
 
-const opts = {
-  configName: 'user-data',
-  defaults: defaults,
-};
-
 let dataPath = './assets/data/user-data.json';
+
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import indigo from '@material-ui/core/colors/blue';
+import pink from '@material-ui/core/colors/pink';
+
+// https://material-ui.com/customization/themes/
+// https://material-ui.com/style/color/
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
+  palette: {
+    primary: {
+      main: '#00e676'
+    },
+  },
+});
 
 class LoadScreen extends React.Component {
 
   startNewGame = () => {
-    opts.defaults.gameInitialized = true;
-    fs.writeFileSync(dataPath, JSON.stringify(opts.defaults));
+    defaults.gameInitialized = true;
+    fs.writeFileSync(dataPath, JSON.stringify(defaults));
     this.props.assignGameDefaults();
   }
 
@@ -31,34 +43,60 @@ class LoadScreen extends React.Component {
     let savedGameFound = this.props.gameInitialized;
     return savedGameFound ? (
       <div>
-        Green Lightning!
-        <div />
-        The galaxy's most action filled text based game
-        <RouteButton
-          title={'New'}
-          routeTo={'/homescreen'}
-          addOnClick={this.startNewGame}
+        <div
+          style={{height: '50%', textAlign: 'center', marginTop: '100px'}}
         >
-        </RouteButton>
-        <RouteButton
-          title={'Load'}
-          routeTo={'/homescreen'}
-          addOnClick={this.loadSavedGame}
+        <div
+          style={{height: '50%', fontSize: '8em', textShadow: '2px 2px #00e676'}}
         >
-        </RouteButton>
+          Green Lightning!
+        </div>
+        <div
+          style={{height: '50%', fontSize: '3em'}}
+        >
+          The galaxy's most action filled text based game
+        </div>
+        </div>
+        <div
+        style={{width: '100%', display: 'flex', justifyContent: 'space-evenly', bottom: '0', position: 'absolute', marginBottom: '70px'}}
+        >
+          <MuiThemeProvider theme={theme}>
+            <RouteButton
+              title={'New'}
+              routeTo={'/homescreen'}
+              addOnClick={this.startNewGame}
+              variant='contained'
+              color='primary'
+              style={{width: '400px', height: '300px', flex: 'flex-grow', flexBasis: '40%', fontSize: '3em', fontFamily: 'Courier'}}
+            >
+            </RouteButton>
+            <RouteButton
+              title={'Load'}
+              routeTo={'/homescreen'}
+              addOnClick={this.loadSavedGame}
+              variant='contained'
+              color='primary'
+              style={{width: '400px', height: '300px', flex: 'flex-grow', flexBasis: '40%', fontSize: '3em', fontFamily: 'Courier'}}
+            >
+            </RouteButton>
+          </MuiThemeProvider>
+        </div>
       </div>
     ) : (
       <div>
         Green Lightning!
         <div />
         The galaxy's most action filled text based game
-        <RouteButton
-          title={'New'}
-          routeTo={'/homescreen'}
-          addOnClick={this.startNewGame}
-        >
-        New
-        </RouteButton>
+        <MuiThemeProvider theme={theme}>
+          <RouteButton
+            title={'New'}
+            routeTo={'/homescreen'}
+            addOnClick={this.startNewGame}
+            variant='contained'
+            color='primary'
+          >
+          </RouteButton>
+        </MuiThemeProvider>
       </div>
     );
   }
