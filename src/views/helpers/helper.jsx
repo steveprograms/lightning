@@ -1,6 +1,5 @@
 import defaults from '../../assets/data/defaultStats';
 let fs = require('fs');
-let filePath = './assets/data/user-data.json';
 
 export function saveStateToFile(state) {
   fs.writeFileSync(filePath, JSON.stringify(state));
