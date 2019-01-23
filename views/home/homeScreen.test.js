@@ -10,7 +10,9 @@ describe('<HomeScreen />', () => {
   , HomeScreen
   , wrapper
   , routeButton
-  , planetInfoHome;
+  , planetInfoHome
+  , initialState
+  , mapStateToProps;
 
   beforeEach(() => {
     props = {
@@ -53,10 +55,13 @@ describe('<HomeScreen />', () => {
     });
   });
 
-  it('', () => {
-    const initialState = {currentPlanetId: 'monster'};
-    let store = mockStore(initialState);
-    wrapper = shallow(<HomeScreen store={store} />);
-    expect(wrapper.props().currentPlanetId).toBe('terra');
+  describe('mapStateToProps', () => {
+    it('maps correctly', () => {
+      mapStateToProps = require('./homeScreen').mapStateToProps;
+      initialState = {
+        currentPlanetId: 'abba',
+      };
+      expect(mapStateToProps(initialState).currentPlanetId).toEqual('abba');
+    });
   });
 });

@@ -29,15 +29,10 @@ export class HomeScreen extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return {
     currentPlanetId: state.currentPlanetId,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default connect(mapStateToProps)(HomeScreen);
