@@ -40,7 +40,7 @@ describe('RouteButton', () => {
       expect(button.props().style).toEqual(props.style);
       expect(button.props().size).toEqual(props.size);
       expect(button.props().onClick).toEqual(instance.onClick);
-      expect(button.text()).toEqual('Hallo');
+      expect(button.text()).toEqual(props.title);
     });
 
     describe('when no props are given', () => {
