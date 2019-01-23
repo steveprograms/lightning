@@ -15,6 +15,8 @@ describe('<HomeScreen />', () => {
   , mapStateToProps;
 
   beforeEach(() => {
+    jest.resetModules();
+    
     props = {
       currentPlanetId: 'terra'
     };

@@ -6,30 +6,30 @@ import { withRouter} from 'react-router-dom';
 export class RouteButton extends React.Component {
 
   onClick = () => {
-    if (this.props.addOnClick) {
-      console.log(this.props.addOnClick)
-      this.props.addOnClick();
+    if (this.props.onClick) {
+      this.props.onClick();
     }
     this.props.history.push(this.props.routeTo);
   }
 
   render() {
-    let { variant, color, style } = this.props;
+    let { variant, color, style, size } = this.props;
     color = color || 'inherit';
     // colors: 'default', 'inherit', 'primary', 'secondary'
     variant = variant || 'outlined';
     // variants: 'text', 'outlined', 'contained', 'fab', 'extednedFab'
     style = style || {};
+    size = size || 'large';
 
     return (
       <Button
         variant={variant}
         color={color}
         style={style}
-        size="large"
+        size={size}
         onClick={this.onClick}
       >
-      {this.props.title}
+        {this.props.title}
       </Button>
     );
   }

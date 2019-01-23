@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import Main from '../views/main.jsx';
+import LightningApp from '../views/app/lightningApp';
 import { HashRouter } from 'react-router-dom';
 let fs = require('fs');
 const defaults = require('../assets/data/defaultStats');
@@ -14,7 +14,7 @@ window.onload = function(){
   ReactDOM.render(
     <Provider store={store}>
       <HashRouter>
-        <Main />
+        <LightningApp />
       </HashRouter>
     </Provider>,
     document.getElementById('app')

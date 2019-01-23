@@ -1,13 +1,11 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { connect } from 'react-redux';
-import fs from 'fs';
-let filePath = './assets/data/user-data.json';
 import { withRouter} from 'react-router-dom';
+import { saveStateToFile } from '../helpers/helper';
 
 export class GameMenu extends React.Component {
   state = {
@@ -20,15 +18,13 @@ export class GameMenu extends React.Component {
 
   handleSave = () => {
     this.handleClose();
-    let { state } = this.props;
-    fs.writeFileSync(filePath, JSON.stringify(state));
+    saveStateToFile(this.props.state);
   };
 
   handleSaveAndExit = () => {
     this.handleClose();
-    let { state } = this.props;
-    fs.writeFileSync(filePath, JSON.stringify(state));
-    this.props.history.push('/loadingscreen')
+    saveStateToFile(this.props.state);
+    this.props.history.push('/loadingscreen');
   }
 
   handleClose = () => {
@@ -41,6 +37,7 @@ export class GameMenu extends React.Component {
     return (
       <div id="game-menu-container">
         <IconButton
+          id="game-menu-icon"
           aria-label="More"
           aria-owns={open ? 'game-menu' : undefined}
           aria-haspopup="true"
@@ -55,15 +52,23 @@ export class GameMenu extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem onClick={this.handleSave}>Save</MenuItem>
-          <MenuItem onClick={this.handleSaveAndExit}>Save and Exit</MenuItem>
+          <MenuItem
+            onClick={this.handleSave}
+          >
+            Save
+          </MenuItem>
+          <MenuItem
+            onClick={this.handleSaveAndExit}
+          >
+            Save and Exit
+          </MenuItem>
         </Menu>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return {
     state: state,
   };

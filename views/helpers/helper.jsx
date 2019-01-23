@@ -1,14 +1,10 @@
-let fs = require('fs');
-let dataPath = './assets/data/user-data.json';
 import defaults from '../../assets/data/defaultStats';
+let fs = require('fs');
+let filePath = './assets/data/user-data.json';
 
-export function save(data) {
-  fs.writeFileSync('../../assets/data/user-data.json', JSON.stringify(data));
-}
-
-export function read() {
-  return JSON.parse(fs.readFileSync('./assets/data/user-data.json'));
-}
+export function saveStateToFile(state) {
+  fs.writeFileSync(filePath, JSON.stringify(state));
+};
 
 export function planet_music(planet){
 
@@ -31,9 +27,9 @@ export function distanceBetweenPlanets(planet1, planet2) {
 
 export function parseDataFile() {
   try {
-    return JSON.parse(fs.readFileSync(dataPath));
+    return JSON.parse(fs.readFileSync(filePath));
   } catch(error) {
-    fs.writeFileSync(dataPath, JSON.stringify(defaults));
+    fs.writeFileSync(filePath, JSON.stringify(defaults));
     return defaults;
   }
 }
