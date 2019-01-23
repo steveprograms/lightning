@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { saveGame } from '../../actions/appActions';
 import fs from 'fs';
-let filePath = './assets/data/user-data.json';
+import { filePath } from import { filePath } from  './src/assets/constants';
 
 class SaveGameButton extends React.Component {
 

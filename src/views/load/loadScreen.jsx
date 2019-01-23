@@ -5,12 +5,11 @@ const path = require('path');
 const defaults = require('../../assets/data/defaultStats');
 import { connect } from 'react-redux';
 import { assignGameDefaults } from '../../actions/appActions';
-
-let dataPath = './assets/data/user-data.json';
-
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import indigo from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
+import { filePath } from  '../../assets/constants';
+import { audioPath } from '../../assets/constants';
 
 // https://material-ui.com/customization/themes/
 // https://material-ui.com/style/color/
@@ -29,12 +28,12 @@ class LoadScreen extends React.Component {
 
   startNewGame = () => {
     defaults.gameInitialized = true;
-    fs.writeFileSync(dataPath, JSON.stringify(defaults));
+    fs.writeFileSync(filePath, JSON.stringify(defaults));
     this.props.assignGameDefaults();
   }
 
   loadSavedGame(){
-    var audio = new Audio('./assets/audio/earth.wav');
+    var audio = new Audio(audioPath);
     audio.loop = true;
     audio.play();
   }

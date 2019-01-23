@@ -22,7 +22,7 @@ describe('RouteButton', () => {
       routeTo: '/loadingscreen',
     };
 
-    RouteButton = require('../buttons/routeButton').RouteButton;
+    RouteButton = require('../../../src/views/buttons/routeButton').RouteButton;
     wrapper = mount(<RouteButton {...props} />);
     instance = wrapper.instance();
   });

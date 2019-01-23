@@ -25,9 +25,9 @@ describe('GameMenu', () => {
       }),
     };
 
-    jest.setMock('../helpers/helper', helpers);
+    jest.setMock('../../../src/views/helpers/helper', helpers);
 
-    GameMenu = require('./gameMenu').GameMenu;
+    GameMenu = require('../../../src/views/menus/gameMenu').GameMenu;
     wrapper = mount(<GameMenu {...props} />);
     instance = wrapper.instance();
   });
@@ -119,7 +119,7 @@ describe('GameMenu', () => {
 
   describe('mapStateToProps', () => {
     it('maps correctly', () => {
-      mapStateToProps = require('./gameMenu').mapStateToProps;
+      mapStateToProps = require('../../../src/views/menus/gameMenu').mapStateToProps;
       initialState = {
         blue: {
           monster: 'ha ha',
