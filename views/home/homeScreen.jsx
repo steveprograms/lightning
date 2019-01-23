@@ -9,10 +9,16 @@ import GameMenu from '../menus/gameMenu';
 
 export class HomeScreen extends React.Component {
 
+  saveToFile = () => {
+    fs.writeFileSync(filePath, JSON.stringify(this.props.state));
+  };
+
   render() {
     return (
       <React.Fragment>
-        <GameMenu />
+        <GameMenu
+          saveToFile={this.saveToFile}
+        />
         <RouteButton
           title={'Map'}
           routeTo={'/mapscreen'}
@@ -22,7 +28,7 @@ export class HomeScreen extends React.Component {
           routeTo={'/merchantscreen'}
         />
         <PlanetInfoHome
-          currentPlanetId={this.props.currentPlanetId}
+          currentPlanetId={this.props.state.currentPlanetId}
         />
       </React.Fragment>
     );
@@ -31,7 +37,7 @@ export class HomeScreen extends React.Component {
 
 export const mapStateToProps = state => {
   return {
-    currentPlanetId: state.currentPlanetId,
+    state: state,
   };
 };
 

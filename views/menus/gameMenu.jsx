@@ -20,15 +20,13 @@ export class GameMenu extends React.Component {
 
   handleSave = () => {
     this.handleClose();
-    let { state } = this.props;
-    fs.writeFileSync(filePath, JSON.stringify(state));
+    this.props.saveStateToFile();
   };
 
   handleSaveAndExit = () => {
     this.handleClose();
-    let { state } = this.props;
-    fs.writeFileSync(filePath, JSON.stringify(state));
-    this.props.history.push('/loadingscreen')
+    this.props.saveStateToFile();
+    this.props.history.push('/loadingscreen');
   }
 
   handleClose = () => {
@@ -55,18 +53,20 @@ export class GameMenu extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem onClick={this.handleSave}>Save</MenuItem>
-          <MenuItem onClick={this.handleSaveAndExit}>Save and Exit</MenuItem>
+          <MenuItem
+            onClick={this.handleSave}
+          >
+            Save
+          </MenuItem>
+          <MenuItem
+            onClick={this.handleSaveAndExit}
+          >
+            Save and Exit
+          </MenuItem>
         </Menu>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    state: state,
-  };
-};
-
-export default withRouter(connect(mapStateToProps)(GameMenu));
+export default withRouter(GameMenu);
