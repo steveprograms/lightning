@@ -42,25 +42,47 @@ describe('<GameMenu />', () => {
       expect(menu.props().onClose).toEqual(instance.handleClose);
     });
 
-    describe('when anchorEl is false', () => {
-
+    describe('when Menu is not clicked', () => {
+      it('does not render MenuItems', () => {
+        expect(wrapper.find('MenuItem').length).toEqual(0);
+      });
     });
 
-    describe('when anchorEl is true', () => {
+    describe('when Menu is clicked', () => {
+      it('renders first MenuItem with correct props', () => {
+        iconButton = wrapper.find('IconButton');
+        iconButton.simulate('click');
+        menuItem = wrapper.find('MenuItem').first();
+        expect(menuItem.length).toEqual(1);
+        expect(menuItem.props().onClick).toEqual(instance.handleSave);
+        expect(menuItem.html()).toContain('Save');
+      });
 
+      it('renders last MenuItem with correct props', () => {
+        iconButton = wrapper.find('IconButton');
+        iconButton.simulate('click');
+        menuItem = wrapper.find('MenuItem').last();
+        expect(menuItem.length).toEqual(1);
+        expect(menuItem.props().onClick).toEqual(instance.handleSaveAndExit);
+        expect(menuItem.html()).toContain('Save and Exit');
+      });
     });
+  });
 
-    it('renders first MenuItem with correct props', () => {
-      console.log(wrapper.find('Menu').html());
-      menuItem = wrapper.find('MenuItem').first();
-      expect(menuItem.length).toEqual(1);
-      expect(menuItem.props().onClick).toEqual(instance.handleSave);
-    });
-
-    it('renders last MenuItem with correct props', () => {
-      menuItem = wrapper.find('MenuItem').last();
-      expect(menuItem.length).toEqual(1);
-      expect(menuItem.props().onClose).toEqual(instance.handleSaveAndExit);
+  describe('mapStateToProps', () => {
+    it('maps correctly', () => {
+      mapStateToProps = require('./gameMenu').mapStateToProps;
+      initialState = {
+        blue: {
+          monster: 'ha ha'
+        },
+        monkey: 'banana',
+      };
+      expect(mapStateToProps(initialState)).toEqual({
+        state: {
+          ...initialState
+        }
+      });
     });
   });
 });

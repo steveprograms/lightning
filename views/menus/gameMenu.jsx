@@ -67,7 +67,7 @@ export class GameMenu extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return {
     state: state,
   };
