@@ -11,7 +11,7 @@ export class HomeScreen extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <GameMenu />
         <RouteButton
           title={'Map'}
@@ -24,7 +24,7 @@ export class HomeScreen extends React.Component {
         <PlanetInfoHome
           currentPlanetId={this.props.currentPlanetId}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }
