@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { withRouter} from 'react-router-dom';
 
-class RouteButton extends React.Component {
+export class RouteButton extends React.Component {
 
   onClick = () => {
     if (this.props.addOnClick) {

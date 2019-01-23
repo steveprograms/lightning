@@ -9,7 +9,7 @@ import fs from 'fs';
 let filePath = './assets/data/user-data.json';
 import { withRouter} from 'react-router-dom';
 
-class GameMenu extends React.Component {
+export class GameMenu extends React.Component {
   state = {
     anchorEl: null,
   };
