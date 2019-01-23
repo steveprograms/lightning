@@ -7,7 +7,7 @@ let filePath = './assets/data/user-data.json';
 import fs from 'fs';
 import GameMenu from '../menus/gameMenu';
 
-class HomeScreen extends React.Component {
+export class HomeScreen extends React.Component {
 
   render() {
     return (
