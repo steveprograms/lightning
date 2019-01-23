@@ -9,7 +9,7 @@ import GameMenu from '../menus/gameMenu';
 
 export class HomeScreen extends React.Component {
 
-  saveToFile = () => {
+  saveStateToFile = () => {
     fs.writeFileSync(filePath, JSON.stringify(this.props.state));
   };
 
@@ -17,7 +17,7 @@ export class HomeScreen extends React.Component {
     return (
       <React.Fragment>
         <GameMenu
-          saveToFile={this.saveToFile}
+          saveStateToFile={this.saveStateToFile}
         />
         <RouteButton
           title={'Map'}

@@ -7,7 +7,6 @@ export class RouteButton extends React.Component {
 
   onClick = () => {
     if (this.props.addOnClick) {
-      console.log(this.props.addOnClick)
       this.props.addOnClick();
     }
     this.props.history.push(this.props.routeTo);
