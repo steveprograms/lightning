@@ -6,7 +6,7 @@ export function saveStateToFile(state) {
   fs.writeFileSync(filePath, JSON.stringify(state));
 };
 
-export function planet_music(planet){
+export function planetMusic(planet){
 
   //To Do:
   // * turn existing sound off first

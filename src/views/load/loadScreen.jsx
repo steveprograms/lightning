@@ -24,6 +24,39 @@ const theme = createMuiTheme({
   },
 });
 
+let styles = {
+  initializeButton: {
+    width: '400px',
+    height: '300px',
+    flex: 'flex-grow',
+    flexBasis: '40%',
+    fontSize: '3em',
+    fontFamily: 'Courier',
+  },
+  screenOutterWrapper: {
+    height: '50%',
+    textAlign: 'center',
+    marginTop: '100px',
+  },
+  screenInnerWrapper: {
+    height: '50%',
+    fontSize: '8em',
+    textShadow: '2px 2px #00e676',
+  },
+  buttonWrapper: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    bottom: '0',
+    position: 'absolute',
+    marginBottom: '70px',
+  },
+  descriptionWrapper: {
+    height: '50%',
+    fontSize: '3em',
+  },
+}
+
 class LoadScreen extends React.Component {
 
   startNewGame = () => {
@@ -43,21 +76,21 @@ class LoadScreen extends React.Component {
     return savedGameFound ? (
       <div>
         <div
-          style={{height: '50%', textAlign: 'center', marginTop: '100px'}}
+          style={styles.screenOutterWrapper}
         >
         <div
-          style={{height: '50%', fontSize: '8em', textShadow: '2px 2px #00e676'}}
+          style={styles.screenInnerWrapper}
         >
           Green Lightning!
         </div>
         <div
-          style={{height: '50%', fontSize: '3em'}}
+          style={styles.descriptionWrapper}
         >
           The galaxy's most action filled text based game
         </div>
         </div>
         <div
-        style={{width: '100%', display: 'flex', justifyContent: 'space-evenly', bottom: '0', position: 'absolute', marginBottom: '70px'}}
+        style={styles.buttonWrapper}
         >
           <MuiThemeProvider theme={theme}>
             <RouteButton
@@ -66,7 +99,7 @@ class LoadScreen extends React.Component {
               onClick={this.startNewGame}
               variant='contained'
               color='primary'
-              style={{width: '400px', height: '300px', flex: 'flex-grow', flexBasis: '40%', fontSize: '3em', fontFamily: 'Courier'}}
+              style={styles.initializeButton}
             >
             </RouteButton>
             <RouteButton
@@ -75,7 +108,7 @@ class LoadScreen extends React.Component {
               onClick={this.loadSavedGame}
               variant='contained'
               color='primary'
-              style={{width: '400px', height: '300px', flex: 'flex-grow', flexBasis: '40%', fontSize: '3em', fontFamily: 'Courier'}}
+              style={styles.initializeButton}
             >
             </RouteButton>
           </MuiThemeProvider>
@@ -93,6 +126,7 @@ class LoadScreen extends React.Component {
             onClick={this.startNewGame}
             variant='contained'
             color='primary'
+            style={styles.initializeButton}
           >
           </RouteButton>
         </MuiThemeProvider>
