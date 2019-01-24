@@ -1,19 +1,18 @@
 import defaults from '../../assets/data/defaultStats';
 let fs = require('fs');
 import { filePath } from  '../../assets/constants';
+import { audioPath } from  '../../assets/constants';
 
 export function saveStateToFile(state) {
   fs.writeFileSync(filePath, JSON.stringify(state));
 };
 
-export function planet_music(planet){
-
+export function playPlanetMusic(planet){
   //To Do:
   // * turn existing sound off first
-
-  var audio = new Audio(`./assets/audio/${planet}.wav`);
+  var audio = new Audio(audioPath);
   audio.loop = true;
-  // audio.play();
+  audio.play();
 }
 
 export function distanceBetweenPlanets(planet1, planet2) {
