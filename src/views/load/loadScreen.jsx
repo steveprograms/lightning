@@ -1,14 +1,12 @@
 import React from 'react';
-let fs = require('fs');
-
-const path = require('path');
-const defaults = require('../../assets/data/defaultStats');
+import LoadView from './loadView';
+import fs from 'fs';
+import defaults from '../../assets/data/defaultStats';
 import { connect } from 'react-redux';
 import { assignGameDefaults } from '../../actions/appActions';
-
 import { filePath } from  '../../assets/constants';
 import { audioPath } from '../../assets/constants';
-import LoadView from './loadView';
+import { playPlanetMusic } from '../helpers/helper';
 
 
 class LoadScreen extends React.Component {
@@ -19,10 +17,8 @@ class LoadScreen extends React.Component {
     this.props.assignGameDefaults();
   }
 
-  loadSavedGame(){
-    var audio = new Audio(audioPath);
-    audio.loop = true;
-    audio.play();
+  loadSavedGame = () => {
+    playPlanetMusic();
   }
 
   render() {
