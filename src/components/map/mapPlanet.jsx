@@ -24,13 +24,14 @@ class MapPlanet extends React.Component {
     return (
       <div
         style={{
-          position: 'relative',
+          position: 'absolute',
           margin: '20px',
         }}
       >
         <div
           className={'map-planet'}
           style={{
+            cursor: 'pointer',
             left: xCoord,
             top: yCoord,
             width: '15px',
@@ -43,7 +44,24 @@ class MapPlanet extends React.Component {
           onMouseLeave={this.mouseLeave}
           onClick={this.onClick}
         >
+        <div
+          style={{
+            cursor: 'pointer',
+            left: '-23.5px',
+            top: '-23.5px',
+            width: '60px',
+            height: '60px',
+            backgroundColor: 'rgba(255,255,255,0)',
+            borderStyle: 'solid',
+            borderWidth: '1px',
+            borderColor: 'red',
+            borderRadius: '50%',
+            position: 'absolute'
+          }}
+          >
         </div>
+        </div>
+
         <div style={{
           position: 'absolute',
           backgroundColor: 'rgba(255,255,255,0)',
