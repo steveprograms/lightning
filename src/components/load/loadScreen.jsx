@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadView from './loadView';
+import LoadScreenView from './loadScreenView';
 import fs from 'fs';
 import defaults from '../../data/defaultStats';
 import { connect } from 'react-redux';
@@ -25,7 +25,7 @@ class LoadScreen extends React.Component {
     let savedGameFound = this.props.gameInitialized;
 
     return (
-      <LoadView
+      <LoadScreenView
         savedGameFound={savedGameFound}
         startNewGame={this.startNewGame}
         loadSavedGame={this.loadSavedGame}

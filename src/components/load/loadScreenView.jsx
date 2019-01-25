@@ -13,7 +13,7 @@ let styles = {
   },
 }
 
-export default class LoadView extends React.Component {
+export default class LoadScreenView extends React.Component {
 
   render() {
     let { savedGameFound, startNewGame, loadSavedGame } = this.props;
