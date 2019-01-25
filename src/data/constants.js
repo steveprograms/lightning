@@ -1,5 +1,5 @@
 export const filePath = './src/data/user-data.json';
-export const audioPath = './src/assets/audio/earth.wav';
+export const audioPath = './src/audio/earth.wav';
 
 export const CHANGE_SELECTED_PLANET = "CHANGE_SELECTED_PLANET";
 export const SET_DESTINATION = "SET_DESTINATION";

@@ -1,7 +1,7 @@
 import React from 'react';
 import LoadView from './loadView';
 import fs from 'fs';
-import defaults from '../../assets/data/defaultStats';
+import defaults from '../../data/defaultStats';
 import { connect } from 'react-redux';
 import { assignGameDefaults } from '../../actions/appActions';
 import { filePath } from  '../../assets/constants';

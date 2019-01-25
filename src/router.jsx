@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
-import MapScreen from '../map/mapScreen';
-import HomeScreen from '../home/homeScreen';
-import TransitScreen from '../transit/transitScreen';
-import LoadScreen from '../load/loadScreen';
-import MerchantScreen from '../merchant/merchantScreen';
+import MapScreen from './views/map/mapScreen';
+import HomeScreen from './views/home/homeScreen';
+import TransitScreen from './views/transit/transitScreen';
+import LoadScreen from './views/load/loadScreen';
+import MerchantScreen from './views/merchant/merchantScreen';
 
-export default class LightningApp extends React.Component {
+export default class Router extends React.Component {
   render() {
     return (
       <Switch>

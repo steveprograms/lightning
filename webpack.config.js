@@ -1,7 +1,7 @@
 const path = require('path');
 const HWP = require('html-webpack-plugin');
 module.exports = {
-   entry: 'main.js',
+   entry: 'src/app/app.js',
    output: {
        filename: 'build.js',
        path: 'app/dist',

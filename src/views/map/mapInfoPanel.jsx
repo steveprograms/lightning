@@ -1,5 +1,5 @@
 import React from 'react';
-import planets from '../../assets/data/planets'
+import planets from '../../data/planets'
 import { connect } from 'react-redux';
 import { distanceBetweenPlanets } from '../helpers/helper';
 import TransitScreenButton from '../buttons/transitScreenButton';

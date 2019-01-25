@@ -9,7 +9,7 @@ describe('helper', () => {
   beforeEach(() => {
     jest.resetModules();
 
-    filePath = './src/assets/data/user-data.json';
+    filePath = './src/data/user-data.json';
 
     fs = {
       writeFileSync: jest.fn(),

@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom';
-import LightningApp from '../src/views/app/lightningApp';
+import Router from './router';
 import { HashRouter } from 'react-router-dom';
 let fs = require('fs');
-const defaults = require('../src/assets/data/defaultStats');
-const filePath = './src/assets/data/user-data.json';
+const defaults = require('../src/data/defaultStats');
+const filePath = './src/data/user-data.json';
 import { createStore } from 'redux';
 import app from '../src/reducers/appReducer';
 import { Provider } from 'react-redux';
@@ -14,7 +14,7 @@ window.onload = function(){
   ReactDOM.render(
     <Provider store={store}>
       <HashRouter>
-        <LightningApp />
+        <Router />
       </HashRouter>
     </Provider>,
     document.getElementById('app')

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
-import planets from '../../assets/data/planets'
+import planets from '../../data/planets'
 import { changeSelectedPlanet } from '../../actions/appActions';
 import { connect } from 'react-redux';
 

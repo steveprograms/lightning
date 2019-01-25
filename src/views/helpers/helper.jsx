@@ -1,4 +1,4 @@
-import defaults from '../../assets/data/defaultStats';
+import defaults from '../../data/defaultStats';
 let fs = require('fs');
 import { filePath } from  '../../assets/constants';
 import { audioPath } from  '../../assets/constants';

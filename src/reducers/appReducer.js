@@ -1,5 +1,5 @@
 import fs from 'fs';
-import defaults from '../assets/data/defaultStats';
+import defaults from '../data/defaultStats';
 import { parseDataFile } from '../views/helpers/helper';
 import {
   ADD_NANOBUCK,
