@@ -1,6 +1,6 @@
 import fs from 'fs';
 import defaults from '../data/defaultStats';
-import { parseDataFile } from '../views/helpers/helper';
+import { parseDataFile } from '../components/helpers/helper';
 import {
   ADD_NANOBUCK,
   CHANGE_SELECTED_PLANET,

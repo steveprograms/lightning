@@ -18,7 +18,7 @@ describe('helper', () => {
 
     jest.setMock('fs', fs);
 
-    helper = require('../../../src/views/helpers/helper');
+    helper = require('../../../src/components/helpers/helper');
   });
 
   it('saveStateToFile', () => {
