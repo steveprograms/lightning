@@ -22,8 +22,8 @@ class MapPlanet extends React.Component {
     let currentPlanetIndicatorColor = isCurrentPlanet ? 'green' : 'rgba(255,255,255,0)';
     let selectedPlanetIndicatorColor = isSelectedPlanet ? 'red' : 'rgba(255,255,255,0)';
 
-    let planetRadius = 7.5;
-    let circleRadius = 30;
+    let planetRadius = 8;
+    let circleRadius = 10;
     let planetDiameter = String(planetRadius * 2) + 'px';
     let circleDiameter = String(circleRadius * 2) + 'px';
     return (
@@ -53,14 +53,14 @@ class MapPlanet extends React.Component {
         <div
           style={{
             cursor: 'pointer',
-            left: (xCoord - circleRadius),
-            top: (yCoord - circleRadius),
+            left: (xCoord - circleRadius - 1),
+            top: (yCoord - circleRadius - 1),
             width: circleDiameter,
             height: circleDiameter,
             backgroundColor: 'rgba(255,255,255,0)',
             borderStyle: 'solid',
             borderWidth: '1px',
-            borderColor: 'red',
+            borderColor: currentPlanetIndicatorColor,
             borderRadius: '50%',
             position: 'absolute'
           }}
