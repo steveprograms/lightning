@@ -14,6 +14,7 @@ class MapPlanet extends React.Component {
     let { id } = this.props;
     let planet = planets[id];
     let xCoord = planet.x_coord;
+    console.log('x: ', xCoord)
     let yCoord = planet.y_coord;
     let color = planet.color;
     let isCurrentPlanet = (this.props.currentPlanetId == id) ? true : false;
@@ -32,8 +33,8 @@ class MapPlanet extends React.Component {
           className={'map-planet'}
           style={{
             cursor: 'pointer',
-            left: xCoord,
-            top: yCoord,
+            left: (xCoord - 7.5),
+            top: (yCoord - 7.5),
             width: '15px',
             height: '15px',
             backgroundColor: color,
@@ -44,11 +45,12 @@ class MapPlanet extends React.Component {
           onMouseLeave={this.mouseLeave}
           onClick={this.onClick}
         >
+        </div>
         <div
           style={{
             cursor: 'pointer',
-            left: '-23.5px',
-            top: '-23.5px',
+            left: (xCoord - 30),
+            top: (yCoord - 30),
             width: '60px',
             height: '60px',
             backgroundColor: 'rgba(255,255,255,0)',
@@ -59,7 +61,6 @@ class MapPlanet extends React.Component {
             position: 'absolute'
           }}
           >
-        </div>
         </div>
 
         <div style={{
