@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import planets from '../../data/planets'
 import { changeSelectedPlanet } from '../../actions/appActions';
 import { connect } from 'react-redux';
+import Circle from './circle'
 
 class MapPlanet extends React.Component {
 
@@ -50,23 +51,13 @@ class MapPlanet extends React.Component {
           onClick={this.onClick}
         >
         </div>
-        <div
-          style={{
-            cursor: 'pointer',
-            left: (xCoord - circleRadius - 1),
-            top: (yCoord - circleRadius - 1),
-            width: circleDiameter,
-            height: circleDiameter,
-            backgroundColor: 'rgba(255,255,255,0)',
-            borderStyle: 'solid',
-            borderWidth: '1px',
-            borderColor: currentPlanetIndicatorColor,
-            borderRadius: '50%',
-            position: 'absolute'
-          }}
-          >
-        </div>
-
+        <Circle
+          radius={circleRadius}
+          borderWidth={1}
+          xCoord={xCoord}
+          yCoord={yCoord}
+          borderColor={currentPlanetIndicatorColor}
+        />
         <div style={{
           position: 'absolute',
           backgroundColor: 'rgba(255,255,255,0)',
