@@ -3,8 +3,10 @@ import Typography from '@material-ui/core/Typography';
 import planets from '../../data/planets'
 import { changeSelectedPlanet } from '../../actions/appActions';
 import { connect } from 'react-redux';
+import PlanetCircle from './planetCircle'
+import Planet from './planet'
 
-class MapPlanet extends React.Component {
+class PlanetContainer extends React.Component {
 
   onClick = () => {
     this.props.changeSelectedPlanet(this.props.id);
@@ -15,35 +17,40 @@ class MapPlanet extends React.Component {
     let planet = planets[id];
     let xCoord = planet.x_coord;
     let yCoord = planet.y_coord;
-    let color = planet.color;
     let isCurrentPlanet = (this.props.currentPlanetId == id) ? true : false;
     let isSelectedPlanet = (this.props.selectedPlanetId == id) ? true : false;
     let currentPlanetIndicatorColor = isCurrentPlanet ? 'green' : 'rgba(255,255,255,0)';
-    let selectedPlanetIndicatorColor = isSelectedPlanet ? 'red' : 'rgba(255,255,255,0)';
+    let selectedPlanetIndicatorColor = (isSelectedPlanet && !isCurrentPlanet) ? 'red' : 'rgba(255,255,255,0)';
 
     return (
       <div
         style={{
-          position: 'relative',
+          position: 'absolute',
           margin: '20px',
         }}
       >
-        <div
-          className={'map-planet'}
-          style={{
-            left: xCoord,
-            top: yCoord,
-            width: '15px',
-            height: '15px',
-            backgroundColor: color,
-            borderRadius: '50%',
-            position: 'absolute'
-          }}
-          onMouseEnter={this.mouseEnter}
-          onMouseLeave={this.mouseLeave}
+        <PlanetCircle
+          radius={15}
+          borderWidth={1}
+          xCoord={xCoord}
+          yCoord={yCoord}
+          color={selectedPlanetIndicatorColor}
+        />
+        <PlanetCircle
+          radius={50}
+          borderWidth={1}
+          xCoord={xCoord}
+          yCoord={yCoord}
+          borderStyle={'dashed'}
+          color={currentPlanetIndicatorColor}
+        />
+        <Planet
+          radius={8}
+          xCoord={xCoord}
+          yCoord={yCoord}
+          color={planet.color}
           onClick={this.onClick}
-        >
-        </div>
+        />
         <div style={{
           position: 'absolute',
           backgroundColor: 'rgba(255,255,255,0)',
@@ -53,28 +60,6 @@ class MapPlanet extends React.Component {
           top: yCoord,
         }}>
           {planet.name}
-        </div>
-        <div style={{
-          position: 'absolute',
-          backgroundColor: currentPlanetIndicatorColor,
-          width: '20px',
-          height: '5px',
-          left: xCoord,
-          top: yCoord,
-          marginTop: '5px',
-          marginLeft: '-25px'
-        }}>
-        </div>
-        <div style={{
-          position: 'absolute',
-          backgroundColor: selectedPlanetIndicatorColor,
-          width: '20px',
-          height: '5px',
-          left: xCoord,
-          top: yCoord,
-          marginTop: '5px',
-          marginLeft: '20px'
-        }}>
         </div>
       </div>
     );
@@ -95,4 +80,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapPlanet);
+export default connect(mapStateToProps, mapDispatchToProps)(PlanetContainer);
