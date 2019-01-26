@@ -1,10 +1,19 @@
 import React from 'react';
 
 
-export default class Circle extends React.Component {
+export default class PlanetCircle extends React.Component {
 
   render() {
-    let { radius, borderWidth, xCoord, yCoord, borderColor } = this.props;
+    let {
+      radius,
+      borderWidth,
+      xCoord,
+      yCoord,
+      color,
+      borderStyle
+    } = this.props;
+
+    borderStyle = borderStyle || 'solid';
 
     return (
       <div
@@ -15,9 +24,9 @@ export default class Circle extends React.Component {
           width: (radius + radius),
           height: (radius + radius),
           backgroundColor: 'rgba(255,255,255,0)',
-          borderStyle: 'solid',
+          borderStyle: borderStyle,
           borderWidth: borderWidth,
-          borderColor: borderColor,
+          borderColor: color,
           borderRadius: '50%',
           position: 'absolute'
         }}
