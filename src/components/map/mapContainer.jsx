@@ -8,6 +8,7 @@ let styles = {
     height: '800px',
     backgroundColor: 'black',
     position: 'absolute',
+    left: '20px'
   },
 };
 

@@ -4,6 +4,19 @@ import { connect } from 'react-redux';
 import { distanceBetweenPlanets } from '../helpers/helper';
 import TransitScreenButton from '../buttons/transitScreenButton';
 
+let styles = {
+  mapInfoPanel: {
+    backgroundColor: 'black',
+    height: '800px',
+    width: '240px',
+    right: '20px',
+    top: '50px',
+    position: 'absolute',
+    color: 'green',
+  }
+}
+
+
 class MapInfoPanel extends React.Component {
   render() {
     let selectedPlanet  = planets[this.props.selectedPlanetId];
@@ -12,7 +25,7 @@ class MapInfoPanel extends React.Component {
 
     return (
       <div
-        style={{backgroundColor: 'white', height: '800px', width: '200px', left: '820px', top: '50px', position: 'absolute'}}
+        style={styles.mapInfoPanel}
       >
         <div />
         Current Planet:
