@@ -1,6 +1,6 @@
 var defaults = {
   gameInitialized: false,
-  nanobucks:1000,
+  dollars:1000,
   selectedPlanetId: 'terra',
   currentPlanetId: 'terra',
   destinationPlanet: null,
@@ -12,6 +12,8 @@ var defaults = {
   shipHoldLimit: 10,
   inventory: [],
   crew: [],
+  fuelCapacity: 20,
+  fuel: 20,
 };
 
 module.exports = defaults;

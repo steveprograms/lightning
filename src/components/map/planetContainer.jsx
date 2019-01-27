@@ -3,8 +3,10 @@ import Typography from '@material-ui/core/Typography';
 import planets from '../../data/planets'
 import { changeSelectedPlanet } from '../../actions/appActions';
 import { connect } from 'react-redux';
-import PlanetCircle from './planetCircle'
+import CurrentPlanetIndicator from './currentPlanetIndicator';
+import TargetPlanetIndicator from './targetPlanetIndicator';
 import Planet from './planet'
+import { gmPerTon } from '../../data/constants';
 
 class PlanetContainer extends React.Component {
 
@@ -19,50 +21,53 @@ class PlanetContainer extends React.Component {
     let yCoord = planet.y_coord;
     let isCurrentPlanet = (this.props.currentPlanetId == id) ? true : false;
     let isSelectedPlanet = (this.props.selectedPlanetId == id) ? true : false;
-    let currentPlanetIndicatorColor = isCurrentPlanet ? 'green' : 'rgba(255,255,255,0)';
-    let selectedPlanetIndicatorColor = (isSelectedPlanet && !isCurrentPlanet) ? 'red' : 'rgba(255,255,255,0)';
+    let possibleDistance = (this.props.fuel * gmPerTon);
 
-    return (
-      <div
-        style={{
-          position: 'absolute',
-          margin: '20px',
-        }}
-      >
-        <PlanetCircle
-          radius={15}
+    return isCurrentPlanet ? (
+      <React.Fragment>
+        <CurrentPlanetIndicator
+          possibleDistance={possibleDistance}
           borderWidth={1}
           xCoord={xCoord}
           yCoord={yCoord}
-          color={selectedPlanetIndicatorColor}
-        />
-        <PlanetCircle
-          radius={50}
-          borderWidth={1}
-          xCoord={xCoord}
-          yCoord={yCoord}
-          borderStyle={'dashed'}
-          color={currentPlanetIndicatorColor}
         />
         <Planet
           radius={8}
+          name={planet.name}
           xCoord={xCoord}
           yCoord={yCoord}
           color={planet.color}
           onClick={this.onClick}
         />
-        <div style={{
-          position: 'absolute',
-          backgroundColor: 'rgba(255,255,255,0)',
-          color: 'white',
-          marginTop: '15px',
-          left: xCoord,
-          top: yCoord,
-        }}>
-          {planet.name}
-        </div>
-      </div>
-    );
+      </React.Fragment>
+    ) : isSelectedPlanet ? (
+      <React.Fragment>
+        <TargetPlanetIndicator
+          borderWidth={1}
+          xCoord={xCoord}
+          yCoord={yCoord}
+        />
+        <Planet
+          radius={8}
+          name={planet.name}
+          xCoord={xCoord}
+          yCoord={yCoord}
+          color={planet.color}
+          onClick={this.onClick}
+        />
+      </React.Fragment>
+    ) : (
+      <React.Fragment>
+        <Planet
+          radius={8}
+          name={planet.name}
+          xCoord={xCoord}
+          yCoord={yCoord}
+          color={planet.color}
+          onClick={this.onClick}
+        />
+      </React.Fragment>
+    )
   }
 }
 
@@ -70,6 +75,7 @@ const mapStateToProps = state => {
   return {
     selectedPlanetId: state.selectedPlanetId,
     currentPlanetId: state.currentPlanetId,
+    fuel: state.fuel,
   };
 };
 

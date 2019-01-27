@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class PlanetCircle extends React.Component {
+export default class TargetPlanetIndicator extends React.Component {
 
   render() {
     let {
@@ -15,6 +15,8 @@ export default class PlanetCircle extends React.Component {
     } = this.props;
 
     borderStyle = borderStyle || 'solid';
+    color = color || 'red';
+    radius = radius || 15;
 
     return (
       <div
@@ -30,7 +32,6 @@ export default class PlanetCircle extends React.Component {
           borderColor: color,
           borderRadius: '50%',
           position: 'absolute',
-          ...style,
         }}
         >
       </div>
