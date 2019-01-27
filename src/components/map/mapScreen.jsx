@@ -1,20 +1,18 @@
 import React from 'react';
-import MapContainer from './mapContainer';
 import RouteButton from '../buttons/routeButton';
-import MapInfoPanel from './mapInfoPanel';
 import { connect } from 'react-redux';
+import DataViewer from './dataViewer';
 
 class MapScreen extends React.Component {
   render() {
     let { selectedPlanetId } = this.props;
     return (
       <div>
-        <MapContainer/>
         <RouteButton
           title={'Home'}
           routeTo={'/homescreen'}
         />
-        <MapInfoPanel
+        <DataViewer
           selectedPlanetId={selectedPlanetId}
         />
       </div>
