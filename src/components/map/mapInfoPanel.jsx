@@ -1,6 +1,5 @@
 import React from 'react';
 import planets from '../../data/planets'
-import { connect } from 'react-redux';
 import { distanceBetweenPlanets } from '../helpers/helper';
 import TransitScreenButton from '../buttons/transitScreenButton';
 
@@ -59,10 +58,4 @@ class MapInfoPanel extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    currentPlanetId: state.currentPlanetId,
-  };
-};
-
-export default connect(mapStateToProps)(MapInfoPanel);
+export default MapInfoPanel;
