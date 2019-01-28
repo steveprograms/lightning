@@ -5,7 +5,7 @@ import DataViewer from './dataViewer';
 
 class MapScreen extends React.Component {
   render() {
-    let { selectedPlanetId } = this.props;
+    let { selectedPlanetId, currentPlanetId } = this.props;
     return (
       <div>
         <RouteButton
@@ -14,6 +14,7 @@ class MapScreen extends React.Component {
         />
         <DataViewer
           selectedPlanetId={selectedPlanetId}
+          currentPlanetId={currentPlanetId}
         />
       </div>
     );

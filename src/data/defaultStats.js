@@ -1,6 +1,6 @@
 var defaults = {
   gameInitialized: false,
-  dollars:1000,
+  dollars: 1000,
   selectedPlanetId: 'terra',
   currentPlanetId: 'terra',
   destinationPlanet: null,
