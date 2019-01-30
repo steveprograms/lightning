@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import CurrentPlanetIndicator from './currentPlanetIndicator';
 import TargetPlanetIndicator from './targetPlanetIndicator';
 import Planet from './planet'
-import { gmPerTon } from '../../data/constants';
+import { gmPerTonne } from '../../data/constants';
 
 class PlanetContainer extends React.Component {
 
@@ -21,7 +21,7 @@ class PlanetContainer extends React.Component {
     let yCoord = planet.y_coord;
     let isCurrentPlanet = (this.props.currentPlanetId == id) ? true : false;
     let isSelectedPlanet = (this.props.selectedPlanetId == id) ? true : false;
-    let possibleDistance = (this.props.fuel * gmPerTon);
+    let possibleDistance = (this.props.fuel * gmPerTonne);
 
     return isCurrentPlanet ? (
       <React.Fragment>

@@ -3,7 +3,7 @@ import {
   SET_DESTINATION,
   SET_CURRENT_PLANET,
   ASSIGN_GAME_DEFAULTS
-} from "../assets/constants";
+} from "../data/constants";
 
 export function changeSelectedPlanet(planetId) {
   return {
