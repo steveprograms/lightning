@@ -35,8 +35,10 @@ function appReducer(state = initialState, action) {
   }
 
   if (action.type === FUEL_NEEDED) {
+  
     return Object.assign({}, state, {
       fuel: (action.fuelNeeded + state.fuel),
+      dollars: (state.dollars - (action.fuelNeeded * 20)),
     });
   }
 

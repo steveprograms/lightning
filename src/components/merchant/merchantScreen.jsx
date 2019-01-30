@@ -41,12 +41,16 @@ class MerchantScreen extends React.Component {
         <div>
           fuel capacity: {this.props.fuelCapacity}
         </div>
+        <div>
+          cost to refuel: {(this.props.fuelCapacity - this.props.fuel) * 20}
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
+
   return {
     fuelCapacity: state.fuelCapacity,
     fuel: state.fuel,
