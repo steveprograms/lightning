@@ -31,6 +31,10 @@ export class GameMenu extends React.Component {
     this.setState({ anchorEl: null });
   };
 
+  toggleMusic = () => {
+    console.log('Copy...toggling...')
+  }
+
   render() {
     const { anchorEl } = this.state;
 
@@ -61,6 +65,10 @@ export class GameMenu extends React.Component {
             onClick={this.handleSaveAndExit}
           >
             Save and Exit
+          </MenuItem>
+          <MenuItem onClick={this.toggleMusic}
+          >
+          Toggle Game Music
           </MenuItem>
         </Menu>
       </div>
