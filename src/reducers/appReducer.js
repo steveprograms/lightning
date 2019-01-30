@@ -22,7 +22,8 @@ function appReducer(state = initialState, action) {
 
   if (action.type === SET_DESTINATION) {
     return Object.assign({}, state, {
-      destinationPlanet: action.planetId
+      destinationPlanet: action.planetId,
+      fuel: (state.fuel - action.fuelToBeUsed),
     });
   }
 

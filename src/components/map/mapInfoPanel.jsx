@@ -19,11 +19,12 @@ let styles = {
 
 class MapInfoPanel extends React.Component {
 
-  getLaunchButton = (maxDistance, planetDistance, selectedIsCurrent) => {
+  getLaunchButton = (maxDistance, planetDistance, selectedIsCurrent, fuelToBeUsed) => {
     if ((maxDistance >= planetDistance) && !selectedIsCurrent){
       return (
         <TransitScreenButton
           transitDestination={this.props.selectedPlanetId}
+          fuelToBeUsed={fuelToBeUsed}
         />
       );
     }
@@ -46,6 +47,7 @@ class MapInfoPanel extends React.Component {
     let planetDistance = distanceBetweenPlanets(selectedPlanet, currentPlanet);
     let fuel = this.props.fuel;
     let maxDistance = (fuel * gmPerTonne);
+    let fuelToBeUsed = Math.round(planetDistance / gmPerTonne);
 
     return (
       <div
@@ -85,7 +87,7 @@ class MapInfoPanel extends React.Component {
         <div />
         -
         <div />
-        {this.getLaunchButton(maxDistance, planetDistance, selectedIsCurrent)}
+        {this.getLaunchButton(maxDistance, planetDistance, selectedIsCurrent, fuelToBeUsed)}
       </div>
     );
   }

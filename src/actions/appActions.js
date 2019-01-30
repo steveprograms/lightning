@@ -12,10 +12,11 @@ export function changeSelectedPlanet(planetId) {
   };
 };
 
-export function setDestination(planetId) {
+export function setDestination(planetId, fuelToBeUsed) {
   return {
     type: SET_DESTINATION,
-    planetId
+    planetId,
+    fuelToBeUsed,
   }
 }
 
