@@ -6,6 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { connect } from 'react-redux';
 import { withRouter} from 'react-router-dom';
 import { saveStateToFile } from '../helpers/helper';
+import { toggleMusic } from '../../actions/appActions'
 
 export class GameMenu extends React.Component {
   state = {
@@ -32,7 +33,8 @@ export class GameMenu extends React.Component {
   };
 
   toggleMusic = () => {
-    console.log('Copy...toggling...')
+    console.log(this.props.state.music)
+    toggleMusic(this.props.state.currentPlanetId);
   }
 
   render() {
@@ -80,6 +82,10 @@ export const mapStateToProps = state => {
   return {
     state: state,
   };
+};
+
+const mapDispatchToProps = dispatch => {
+  toggleMusic: () => dispatch(toggleMusic()),
 };
 
 export default withRouter(connect(mapStateToProps)(GameMenu));

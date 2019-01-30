@@ -15,6 +15,7 @@ var defaults = {
   fuelCapacity: 20,
   fuel: 20,
   daysPassed: 0,
+  music: true,
 };
 
 module.exports = defaults;
