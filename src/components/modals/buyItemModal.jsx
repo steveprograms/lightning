@@ -4,15 +4,15 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-import Slider from '../common/slider';
+import Slider from '@material-ui/lab/Slider';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
 
 function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+  const top = 50;
+  const left = 50;
 
   return {
     top: `${top}%`,
@@ -30,17 +30,18 @@ const styles = theme => ({
     padding: theme.spacing.unit * 4,
     outline: 'none',
   },
+  root: {
+    width: 300,
+  },
+  slider: {
+    padding: '22px 0px',
+  },
 });
 
 class BuyItemModal extends React.Component {
-
-  handleChange = (event, sliderValue) => {
-    this.setState({ sliderValue });
-  };
-
   state = {
     open: false,
-    sliderValue: 1,
+    value: 1,
   };
 
   handleOpen = () => {
@@ -56,8 +57,14 @@ class BuyItemModal extends React.Component {
     this.handleClose();
   }
 
+  handleChange = (event, value) => {
+    this.setState({ value });
+  };
+
   render() {
     const { classes } = this.props;
+    const { value } = this.state;
+    console.log('rendering')
 
     return (
       <div>
@@ -68,6 +75,7 @@ class BuyItemModal extends React.Component {
           +
         </Button>
         <Modal
+          style={{position: 'absolute'}}
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
           open={this.state.open}
@@ -77,14 +85,19 @@ class BuyItemModal extends React.Component {
             <Typography variant="h6" id="modal-title">
               How many?
             </Typography>
+            <Typography variant="subtitle1" id="simple-modal-description">
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+
             <Slider
-              itemName={this.props.itemName}
-              quantity={this.props.quantity}
-              handleBuy={this.props.handleBuy}
-              sliderValue={this.state.sliderValue}
-              handleChange={this.handleChange}
+              classes={{ container: classes.slider }}
+              value={value}
+              min={1}
+              max={this.props.quantity}
+              step={1}
+              onChange={this.handleChange}
             />
-            {this.state.sliderValue}
+
             <Button
               onClick={this.handleClose}
               variant={'outlined'}
