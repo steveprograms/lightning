@@ -5,6 +5,7 @@ import RouteButton from '../buttons/routeButton';
 class MerchantScreen extends React.Component {
 
   render() {
+
     return (
       <div>
         <RouteButton
@@ -27,9 +28,12 @@ class MerchantScreen extends React.Component {
 }
 
 const mapStateToProps = state => {
+
+  //generate merchant items
+
   return {
     inventory: state.inventory,
-    nanobucks: state.nanobucks,
+    nanobucks: state.dollars,
     shipHoldLimit: state.shipHoldLimit,
   };
 };
