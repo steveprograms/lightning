@@ -3,7 +3,7 @@ import {
   SET_DESTINATION,
   SET_CURRENT_PLANET,
   ASSIGN_GAME_DEFAULTS,
-  FUEL_NEEDED
+  REFILL_FUEL
 } from "../data/constants";
 
 export function changeSelectedPlanet(planetId) {
@@ -34,9 +34,10 @@ export function assignGameDefaults() {
   };
 };
 
-export function refillFuel(fuelNeeded) {
+export function refillFuel(fuelNeeded, cost) {
   return {
-    type: FUEL_NEEDED,
-    fuelNeeded
+    type: REFILL_FUEL,
+    fuelNeeded,
+    cost
   };
 };

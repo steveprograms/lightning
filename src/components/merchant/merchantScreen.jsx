@@ -3,12 +3,17 @@ import { connect } from 'react-redux';
 import RouteButton from '../buttons/routeButton';
 import Button from '@material-ui/core/Button';
 import { refillFuel } from '../../actions/appActions';
+import { dollarsPerTonne } from '../../data/constants'
 
 class MerchantScreen extends React.Component {
 
   refillFuel = () => {
-    let fuelNeeded = this.props.fuelCapacity - this.props.fuel;
-    this.props.refillFuel(fuelNeeded);
+    let { fuelCapacity, fuel, dollars, refillFuel } = this.props;
+    let fuelNeeded = fuelCapacity - fuel;
+    let cost = (fuelNeeded * dollarsPerTonne)
+    if (cost < dollars) {
+      refillFuel(fuelNeeded, cost);
+    }
   }
 
   render() {
@@ -60,7 +65,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    refillFuel: (fuelNeeded) => dispatch(refillFuel(fuelNeeded)),
+    refillFuel: (fuelNeeded, cost) => dispatch(refillFuel(fuelNeeded, cost)),
   };
 };
 
