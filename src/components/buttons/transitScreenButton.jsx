@@ -18,6 +18,7 @@ class TransitScreenButton extends React.Component {
         routeTo={'/transitscreen'}
         transitDestination={transitDestination}
         onClick={this.onClick}
+        variant={'contained'}
       />
     );
   }

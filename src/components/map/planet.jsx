@@ -28,7 +28,8 @@ export default class Planet extends React.Component {
           height: (radius + radius),
           backgroundColor: color,
           borderRadius: '50%',
-          position: 'absolute'
+          position: 'absolute',
+          zIndex: '2',
         }}
         onClick={this.onClick}
         >
