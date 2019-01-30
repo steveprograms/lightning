@@ -60,7 +60,7 @@ TradeTable.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = props => {
+const mapStateToProps = state => {
   return {
 
   };
