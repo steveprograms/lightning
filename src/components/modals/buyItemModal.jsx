@@ -6,6 +6,7 @@ import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/lab/Slider';
 import { buyItem } from '../../actions/appActions';
+import { connect } from 'react-redux';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -55,6 +56,10 @@ class BuyItemModal extends React.Component {
 
   handleBuy = () => {
     console.log('buy')
+    let { dollars, itemPrice, currentPlanetId } = this.props;
+    let { value } = this.state;
+    let totalPrice = value * itemPrice;
+
     buyItem();
     this.handleClose();
   }
@@ -66,7 +71,6 @@ class BuyItemModal extends React.Component {
   render() {
     const { classes } = this.props;
     const { value } = this.state;
-    console.log('rendering')
 
     return (
       <div>
@@ -124,7 +128,7 @@ BuyItemModal.propTypes = {
 
 const mapStateToProps = state => {
   return {
-
+    dollars: state.dollars,
   }
 }
 

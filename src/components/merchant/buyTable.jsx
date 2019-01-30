@@ -62,6 +62,8 @@ class BuyTable extends React.Component {
                     itemName={item.name}
                     quantity={item.quantity}
                     handleBuy={this.handleBuy}
+                    itemPrice={prices[item.name]}
+                    currentPlanetId={this.props.currentPlanetId}
                   />
                 </TableCell>
               </TableRow>
@@ -79,7 +81,7 @@ BuyTable.propTypes = {
 
 const mapStateToProps = state => {
   return {
-
+    currentPlanetId: state.currentPlanetId,
     inventory: state.merchants[state.currentPlanetId].inventory,
     prices: state.merchants[state.currentPlanetId].prices,
   };
