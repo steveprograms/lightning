@@ -22,6 +22,7 @@ export default class DataViewer extends React.Component {
         <MapInfoPanel
           selectedPlanetId={this.props.selectedPlanetId}
           currentPlanetId={this.props.currentPlanetId}
+          fuel={this.props.fuel}
         />
       </div>
     );

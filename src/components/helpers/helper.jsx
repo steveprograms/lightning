@@ -1,7 +1,7 @@
 import defaults from '../../data/defaultStats';
 let fs = require('fs');
-import { filePath } from  '../../assets/constants';
-import { audioPath } from  '../../assets/constants';
+import { filePath } from  '../../data/constants';
+import { audioPath } from  '../../data/constants';
 
 export function saveStateToFile(state) {
   fs.writeFileSync(filePath, JSON.stringify(state));

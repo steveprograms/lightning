@@ -4,8 +4,8 @@ import fs from 'fs';
 import defaults from '../../data/defaultStats';
 import { connect } from 'react-redux';
 import { assignGameDefaults } from '../../actions/appActions';
-import { filePath } from  '../../assets/constants';
-import { audioPath } from '../../assets/constants';
+import { filePath } from  '../../data/constants';
+import { audioPath } from '../../data/constants';
 import { playPlanetMusic } from '../helpers/helper';
 
 

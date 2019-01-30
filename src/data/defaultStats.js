@@ -14,6 +14,7 @@ var defaults = {
   crew: [],
   fuelCapacity: 20,
   fuel: 20,
+  daysPassed: 0,
 };
 
 module.exports = defaults;

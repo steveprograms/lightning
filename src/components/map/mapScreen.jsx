@@ -15,6 +15,7 @@ class MapScreen extends React.Component {
         <DataViewer
           selectedPlanetId={selectedPlanetId}
           currentPlanetId={currentPlanetId}
+          fuel={this.props.fuel}
         />
       </div>
     );
@@ -24,6 +25,7 @@ class MapScreen extends React.Component {
 const mapStateToProps = state => {
   return {
     selectedPlanetId: state.selectedPlanetId,
+    fuel: state.fuel,
   };
 };
 

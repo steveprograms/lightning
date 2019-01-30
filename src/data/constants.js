@@ -7,4 +7,4 @@ export const SET_CURRENT_PLANET = "SET_CURRENT_PLANET";
 export const ASSIGN_GAME_DEFAULTS = "ASSIGN_GAME_DEFAULTS";
 
 export const dollarsPerTon = 25;
-export const gmPerTon = 20;
+export const gmPerTonne = 20;

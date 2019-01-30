@@ -2,6 +2,7 @@ import React from 'react';
 import planets from '../../data/planets'
 import { distanceBetweenPlanets } from '../helpers/helper';
 import TransitScreenButton from '../buttons/transitScreenButton';
+import { gmPerTonne } from '../../data/constants';
 
 let styles = {
   mapInfoPanel: {
@@ -17,10 +18,36 @@ let styles = {
 
 
 class MapInfoPanel extends React.Component {
+
+  getLaunchButton = (maxDistance, planetDistance, selectedIsCurrent, fuelToBeUsed) => {
+    if ((maxDistance >= planetDistance) && !selectedIsCurrent){
+      return (
+        <TransitScreenButton
+          transitDestination={this.props.selectedPlanetId}
+          fuelToBeUsed={fuelToBeUsed}
+        />
+      );
+    }
+  }
+
+  getPlanetDistance = (selectedIsCurrent, planetDistance) => {
+    if (!selectedIsCurrent) {
+      return (
+        <div>
+          Distance to target planet: {planetDistance} gigameters
+        </div>
+      );
+    }
+  }
+
   render() {
     let selectedPlanet  = planets[this.props.selectedPlanetId];
     let currentPlanet = planets[this.props.currentPlanetId] || planets['terra'];
-    let distance = distanceBetweenPlanets(selectedPlanet, currentPlanet);
+    let selectedIsCurrent = (selectedPlanet == currentPlanet);
+    let planetDistance = distanceBetweenPlanets(selectedPlanet, currentPlanet);
+    let fuel = this.props.fuel;
+    let maxDistance = (fuel * gmPerTonne);
+    let fuelToBeUsed = Math.round(planetDistance / gmPerTonne);
 
     return (
       <div
@@ -48,11 +75,19 @@ class MapInfoPanel extends React.Component {
         <div />
         -
         <div />
-        Distance: {distance} gigameters
+        Max distance can travel on fuel: {maxDistance}
         <div />
-        <TransitScreenButton
-          transitDestination={this.props.selectedPlanetId}
-        />
+        -
+        <div />
+        Fuel: {fuel} tonnes
+        <div />
+        -
+        <div />
+        {this.getPlanetDistance(selectedIsCurrent, planetDistance)}
+        <div />
+        -
+        <div />
+        {this.getLaunchButton(maxDistance, planetDistance, selectedIsCurrent, fuelToBeUsed)}
       </div>
     );
   }

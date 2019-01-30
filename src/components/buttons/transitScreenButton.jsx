@@ -6,7 +6,7 @@ import { setDestination } from '../../actions/appActions';
 class TransitScreenButton extends React.Component {
 
   onClick = () => {
-    this.props.setDestination(this.props.transitDestination);
+    this.props.setDestination(this.props.transitDestination, this.props.fuelToBeUsed);
   }
 
   render() {
@@ -30,8 +30,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setDestination: (planetId) =>
-    dispatch(setDestination(planetId)),
+    setDestination: (planetId, fuelToBeUsed) =>
+    dispatch(setDestination(planetId, fuelToBeUsed)),
   };
 };
 
