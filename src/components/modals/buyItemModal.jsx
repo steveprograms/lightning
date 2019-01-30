@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/lab/Slider';
+import { buyItem } from '../../actions/appActions';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -54,6 +55,7 @@ class BuyItemModal extends React.Component {
 
   handleBuy = () => {
     console.log('buy')
+    buyItem();
     this.handleClose();
   }
 
@@ -88,7 +90,6 @@ class BuyItemModal extends React.Component {
             <Typography variant="subtitle1" id="simple-modal-description">
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             </Typography>
-
             <Slider
               classes={{ container: classes.slider }}
               value={value}
@@ -97,7 +98,7 @@ class BuyItemModal extends React.Component {
               step={1}
               onChange={this.handleChange}
             />
-
+            {this.state.value}
             <Button
               onClick={this.handleClose}
               variant={'outlined'}
@@ -121,5 +122,17 @@ BuyItemModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
+const mapStateToProps = state => {
+  return {
+
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    buyItem: () => dispatch(buyItem()),
+  }
+}
+
 // We need an intermediary variable for handling the recursive nesting.
-export default withStyles(styles)(BuyItemModal);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(BuyItemModal));

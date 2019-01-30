@@ -41,3 +41,10 @@ export function refillFuel(fuelNeeded, cost) {
     cost
   };
 };
+
+export function buyItem() {
+  console.log('buying in action')
+  return {
+    type: REFILL_FUEL,
+  };
+};
