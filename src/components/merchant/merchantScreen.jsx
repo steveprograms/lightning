@@ -10,9 +10,12 @@ class MerchantScreen extends React.Component {
   refillFuel = () => {
     let { fuelCapacity, fuel, dollars, refillFuel } = this.props;
     let fuelNeeded = fuelCapacity - fuel;
-    let cost = (fuelNeeded * dollarsPerTonne)
+    let cost = fuelNeeded * dollarsPerTonne;
+
     if (cost < dollars) {
       refillFuel(fuelNeeded, cost);
+    } else {
+      console.log('not enough money to refill fuel, need alert');
     }
   }
 

@@ -24,6 +24,7 @@ class MapScreen extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    currentPlanetId: state.currentPlanetId,
     selectedPlanetId: state.selectedPlanetId,
     fuel: state.fuel,
   };
