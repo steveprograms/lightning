@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import BuyItemModal from '../modals/buyItemModal';
 
 
 const styles = theme => ({
@@ -23,6 +24,10 @@ const styles = theme => ({
 });
 
 class BuyTable extends React.Component {
+
+  handleBuy = () => {
+    console.log('buying from buy Table');
+  }
 
   onClick = () => {
     console.log('buy button click')
@@ -53,12 +58,11 @@ class BuyTable extends React.Component {
                 <TableCell
                   align="right"
                 >
-                  <Button
-                    onClick={this.onClick}
-                    variant={'outlined'}
-                  >
-                    +
-                  </Button>
+                  <BuyItemModal
+                    itemName={item.name}
+                    quantity={item.quantity}
+                    handleBuy={this.handleBuy}
+                  />
                 </TableCell>
               </TableRow>
             ))}
@@ -83,7 +87,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    buyItem: (itemName, quantity, price, planet) =>
+    dispatch(buyItem(itemName, quantity, price, planet)),
   };
 };
 
