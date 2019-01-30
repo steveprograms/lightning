@@ -7,7 +7,8 @@ import {
   SET_DESTINATION,
   SET_CURRENT_PLANET,
   ASSIGN_GAME_DEFAULTS,
-  REFILL_FUEL
+  REFILL_FUEL,
+  TOGGLE_MUSIC
 } from "../data/constants";
 
 let data = parseDataFile();
@@ -44,6 +45,14 @@ function appReducer(state = initialState, action) {
   if (action.type === ASSIGN_GAME_DEFAULTS) {
     return Object.assign({}, state, defaults);
   }
+
+  if (action.type === TOGGLE_MUSIC) {
+    console.log('reducer')
+    return Object.assign({}, state, {
+      music: !state.toggle_value
+    });
+  }
+
 
   return state;
 };

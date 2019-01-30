@@ -33,8 +33,8 @@ export class GameMenu extends React.Component {
   };
 
   toggleMusic = () => {
-    console.log(this.props.state.music)
-    toggleMusic(this.props.state.currentPlanetId);
+    //console.log(this.props.state.music)
+    toggleMusic(this.props.state.music);
   }
 
   render() {
@@ -85,7 +85,9 @@ export const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  toggleMusic: () => dispatch(toggleMusic()),
+  return{
+    toggleMusic: () => dispatch(toggleMusic()),
+  };
 };
 
-export default withRouter(connect(mapStateToProps)(GameMenu));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(GameMenu));
