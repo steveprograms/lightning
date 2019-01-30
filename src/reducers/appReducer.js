@@ -6,7 +6,8 @@ import {
   CHANGE_SELECTED_PLANET,
   SET_DESTINATION,
   SET_CURRENT_PLANET,
-  ASSIGN_GAME_DEFAULTS
+  ASSIGN_GAME_DEFAULTS,
+  FUEL_NEEDED
 } from "../data/constants";
 
 let data = parseDataFile();
@@ -30,6 +31,12 @@ function appReducer(state = initialState, action) {
   if (action.type === SET_CURRENT_PLANET) {
     return Object.assign({}, state, {
       currentPlanetId: action.planetId
+    });
+  }
+
+  if (action.type === FUEL_NEEDED) {
+    return Object.assign({}, state, {
+      fuel: (action.fuelNeeded + state.fuel),
     });
   }
 

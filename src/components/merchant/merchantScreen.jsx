@@ -1,8 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import RouteButton from '../buttons/routeButton';
+import Button from '@material-ui/core/Button';
+import { refillFuel } from '../../actions/appActions';
 
 class MerchantScreen extends React.Component {
+
+  refillFuel = () => {
+    let fuelNeeded = this.props.fuelCapacity - this.props.fuel;
+    this.props.refillFuel(fuelNeeded);
+  }
 
   render() {
 
@@ -12,15 +19,27 @@ class MerchantScreen extends React.Component {
           title={'Home'}
           routeTo={'/homescreen'}
         />
-        Merchant MANNNNNN
+        <div/>
+        -
+        <Button
+          color={'secondary'}
+          variant={'contained'}
+          onClick={this.refillFuel}
+        >
+         Refill Fuel
+        </Button>
+        <div/>
+        -
         <div>
-          Nanobucks: {this.props.nanobucks}
+          Dollars: {this.props.dollars}
         </div>
+        -
         <div>
-          Inventory: {this.props.inventory}
+          Fuel in tonnes: {this.props.fuel}
         </div>
+        -
         <div>
-          Ship Hold Limit: {this.props.shipHoldLimit}
+          fuel capacity: {this.props.fuelCapacity}
         </div>
       </div>
     );
@@ -28,18 +47,16 @@ class MerchantScreen extends React.Component {
 }
 
 const mapStateToProps = state => {
-
-  //generate merchant items
-
   return {
-    inventory: state.inventory,
-    nanobucks: state.dollars,
-    shipHoldLimit: state.shipHoldLimit,
+    fuelCapacity: state.fuelCapacity,
+    fuel: state.fuel,
+    dollars: state.dollars,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    refillFuel: (fuelNeeded) => dispatch(refillFuel(fuelNeeded)),
   };
 };
 

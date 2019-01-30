@@ -2,7 +2,8 @@ import {
   CHANGE_SELECTED_PLANET,
   SET_DESTINATION,
   SET_CURRENT_PLANET,
-  ASSIGN_GAME_DEFAULTS
+  ASSIGN_GAME_DEFAULTS,
+  FUEL_NEEDED
 } from "../data/constants";
 
 export function changeSelectedPlanet(planetId) {
@@ -30,5 +31,12 @@ export function setCurrentPlanet(planetId) {
 export function assignGameDefaults() {
   return {
     type: ASSIGN_GAME_DEFAULTS
+  };
+};
+
+export function refillFuel(fuelNeeded) {
+  return {
+    type: FUEL_NEEDED,
+    fuelNeeded
   };
 };
