@@ -4,6 +4,7 @@ import RouteButton from '../buttons/routeButton';
 import Button from '@material-ui/core/Button';
 import { refillFuel } from '../../actions/appActions';
 import { dollarsPerTonne } from '../../data/constants'
+import TradeTableContainer from './tradeTableContainer';
 
 class MerchantScreen extends React.Component {
 
@@ -52,6 +53,7 @@ class MerchantScreen extends React.Component {
         <div>
           cost to refuel: {(this.props.fuelCapacity - this.props.fuel) * 20}
         </div>
+        <TradeTableContainer />
       </div>
     );
   }
