@@ -43,11 +43,10 @@ export function refillFuel(fuelNeeded, cost) {
   };
 };
 
-export function toggleMusic(toggle_value){
-  console.log(toggle_value)
+export function toggleMusic(){
+  //console.log(toggle_value)
     return{
-      type: TOGGLE_MUSIC,
-      toggle_value
+      type: TOGGLE_MUSIC
     }
 /*  console.log(audioPath2[planet])
   //if toggle is True, we should stop music and set state.music to true

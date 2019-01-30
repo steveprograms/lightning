@@ -32,11 +32,6 @@ export class GameMenu extends React.Component {
     this.setState({ anchorEl: null });
   };
 
-  toggleMusic = () => {
-    //console.log(this.props.state.music)
-    toggleMusic(this.props.state.music);
-  }
-
   render() {
     const { anchorEl } = this.state;
 
@@ -68,7 +63,7 @@ export class GameMenu extends React.Component {
           >
             Save and Exit
           </MenuItem>
-          <MenuItem onClick={this.toggleMusic}
+          <MenuItem onClick={this.props.toggleMusic}
           >
           Toggle Game Music
           </MenuItem>

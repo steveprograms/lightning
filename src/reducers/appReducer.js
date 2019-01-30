@@ -49,7 +49,7 @@ function appReducer(state = initialState, action) {
   if (action.type === TOGGLE_MUSIC) {
     console.log('reducer')
     return Object.assign({}, state, {
-      music: !state.toggle_value
+      music: !state.music
     });
   }
 
