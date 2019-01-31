@@ -5,6 +5,9 @@ import {
   ASSIGN_GAME_DEFAULTS,
   REFILL_FUEL,
   TOGGLE_MUSIC,
+  BUY_ITEMS,
+  SELL_ITEMS,
+
 } from "../data/constants";
 
 export function changeSelectedPlanet(planetId) {
@@ -43,11 +46,13 @@ export function refillFuel(fuelNeeded, cost) {
   };
 };
 
+
 export function toggleMusic(){
   //console.log(toggle_value)
     return{
       type: TOGGLE_MUSIC
     }
+};
 /*  console.log(audioPath2[planet])
   //if toggle is True, we should stop music and set state.music to true
   if (toggle){
@@ -59,5 +64,25 @@ export function toggleMusic(){
     audio.play();
 */
     //toggle state.music to true
+
+
+export function buyItems(currentPlanetId, itemName, buyPrice, buyQuantity) {
+  return {
+    type: BUY_ITEMS,
+    currentPlanetId,
+    itemName,
+    buyPrice,
+    buyQuantity
+  };
+};
+
+export function sellItems(currentPlanetId, itemName, sellPrice, sellQuantity) {
+  return {
+    type: SELL_ITEMS,
+    currentPlanetId,
+    itemName,
+    sellPrice,
+    sellQuantity
+  };
 
 };
