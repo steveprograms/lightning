@@ -17,33 +17,38 @@ const initialState = data.gameInitialized ? data : defaults;
 
 function appReducer(state = initialState, action) {
   if (action.type === CHANGE_SELECTED_PLANET) {
-    return Object.assign({}, state, {
+    return {
+      ...state,
       selectedPlanetId: action.planetId
-    });
+    };
   }
 
   if (action.type === SET_DESTINATION) {
-    return Object.assign({}, state, {
+    return {
+      ...state,
       destinationPlanet: action.planetId,
       fuel: (state.fuel - action.fuelToBeUsed),
-    });
+    };
   }
 
   if (action.type === SET_CURRENT_PLANET) {
-    return Object.assign({}, state, {
+    return {
+      ...state,
       currentPlanetId: action.planetId
-    });
+    };
   }
 
   if (action.type === REFILL_FUEL) {
-    return Object.assign({}, state, {
+    return {
+      ...state,
       fuel: (action.fuelNeeded + state.fuel),
       dollars: (state.dollars - action.cost),
-    });
+    };
   }
 
   if (action.type === BUY_ITEMS) {
-    return Object.assign({}, state, {
+    return {
+      ...state,
       dollars: (state.dollars - action.buyPrice),
       inventory: {
         ...state.inventory,
@@ -62,7 +67,7 @@ function appReducer(state = initialState, action) {
           },
         },
       },
-    });
+    };
   }
 
   if (action.type === ASSIGN_GAME_DEFAULTS) {
