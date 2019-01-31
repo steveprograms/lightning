@@ -52,11 +52,11 @@ class TradeTab extends React.Component {
       playerInventory,
     } = this.props;
 
-    if (transactionType == 'buy') {
+    if (transactionType == 'Buy') {
       return (
         <TradeTable
           transactionSymbol={'+'}
-          transactionType={'Buy'}
+          transactionType={transactionType}
           currentPlanetId={currentPlanetId}
           inventory={planetInventories[currentPlanetId]}
           prices={planetPrices[currentPlanetId]}
@@ -66,11 +66,11 @@ class TradeTab extends React.Component {
         />
       );
     }
-    if (transactionType == 'sell') {
+    if (transactionType == 'Sell') {
       return (
         <TradeTable
           transactionSymbol={'-'}
-          transactionType={'Sell'}
+          transactionType={transactionType}
           currentPlanetId={currentPlanetId}
           inventory={playerInventory}
           prices={planetPrices[currentPlanetId]}

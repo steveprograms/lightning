@@ -8,6 +8,13 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import TradeTab from './tradetab';
 
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+  },
+});
+
 function TabContainer(props) {
   return (
     <Typography component="div" style={{ padding: 8 * 3 }}>
@@ -19,13 +26,6 @@ function TabContainer(props) {
 TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
-});
 
 class TradeTablesContainer extends React.Component {
   state = {
@@ -48,8 +48,8 @@ class TradeTablesContainer extends React.Component {
             <Tab label="Sell" />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer><TradeTab transactionType={'buy'} /></TabContainer>}
-        {value === 1 && <TabContainer><TradeTab transactionType={'sell'} /></TabContainer>}
+        {value === 0 && <TabContainer><TradeTab transactionType={'Buy'} /></TabContainer>}
+        {value === 1 && <TabContainer><TradeTab transactionType={'Sell'} /></TabContainer>}
       </div>
     );
   }
