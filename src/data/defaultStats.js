@@ -27,6 +27,7 @@ var defaults = {
       narcotics: 40,
       furs: 6,
       seeds: 21,
+      gold: 0,
     },
   },
   planetPrices: {
@@ -34,6 +35,7 @@ var defaults = {
       narcotics: 100,
       furs: 2,
       seeds: 12,
+      gold: 250,
     },
   },
 };

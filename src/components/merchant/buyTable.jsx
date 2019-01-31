@@ -56,6 +56,8 @@ class BuyTable extends React.Component {
       credits
     } = this.props;
     let inventory = planetInventories[currentPlanetId];
+    let inventoryKeys = Object.keys(inventory);
+    let filteredInventory = inventoryKeys.filter(itemName => inventory[itemName]);
     let prices = planetPrices[currentPlanetId];
 
     return (
@@ -70,7 +72,7 @@ class BuyTable extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {Object.keys(inventory).map((itemName, index) => (
+            {filteredInventory.map((itemName, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row">
                   {itemName}
@@ -81,6 +83,7 @@ class BuyTable extends React.Component {
                   align="right"
                 >
                   <TransactionModal
+                    transactionSymbol={'+'}
                     transactionType={'Buy'}
                     quantity={inventory[itemName]}
                     handleTransaction={() => this.handleBuy(itemName)}

@@ -5,8 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/lab/Slider';
-import { connect } from 'react-redux';
-
 
 const styles = theme => ({
   root: {
@@ -16,16 +14,28 @@ const styles = theme => ({
     padding: '22px 0px',
   },
   modal: {
+    textAlign: 'center',
+  },
+  modalInner: {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     position: 'absolute',
-    width: theme.spacing.unit * 50,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
+    width: 400,
+    backgroundColor: 'white',
+    padding: 32,
     outline: 'none',
-  }
+  },
+  buttonLeft: {
+    float: 'left',
+    marginLeft: '20px',
+    marginTop: '10px',
+  },
+  buttonRight: {
+    float: 'right',
+    marginRight: '20px',
+    marginTop: '10px',
+  },
 });
 
 class TransactionModal extends React.Component {
@@ -47,57 +57,61 @@ class TransactionModal extends React.Component {
   }
 
   render() {
-    const { classes, sliderValue } = this.props;
+    const { open } = this.state;
+    const {
+      classes,
+      sliderValue,
+      transactionSymbol,
+      transactionType,
+      handleChange,
+      quantity,
+    } = this.props;
 
     return (
-      <div>
+      <React.Fragment>
         <Button
           onClick={this.handleOpen}
           variant={'outlined'}
         >
-          +
+          {transactionSymbol}
         </Button>
         <Modal
-          style={{textAlign: 'center'}}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={this.state.open}
+          classes={{root: classes.modal}}
+          open={open}
           onClose={this.handleClose}
         >
-          <div className={classes.modal}>
-            <Typography variant="h6" id="modal-title">
-              {this.props.transactionType} How Many?
+          <div className={classes.modalInner}>
+            <Typography variant="h6">
+              {transactionType} How Many?
             </Typography>
             <Slider
               classes={{ container: classes.slider }}
               value={sliderValue}
               min={1}
-              max={this.props.quantity}
+              max={quantity}
               step={1}
-              onChange={this.props.handleChange}
+              onChange={handleChange}
             />
-            <div>
+            <Typography>
               {sliderValue}
-            </div>
-            <div style={{marginTop: '10px'}}>
-              <Button
-                onClick={this.handleClose}
-                variant={'outlined'}
-                style={{float: 'left', marginLeft: '20px'}}
-              >
-                Cancel
-              </Button>
-              <Button
-                onClick={this.handleTransaction}
-                variant={'outlined'}
-                style={{float: 'right', marginRight: '20px'}}
-              >
-                Ok
-              </Button>
-            </div>
+            </Typography>
+            <Button
+              onClick={this.handleClose}
+              variant={'outlined'}
+              classes={{root: classes.buttonLeft}}
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={this.handleTransaction}
+              variant={'outlined'}
+              classes={{root: classes.buttonRight}}
+            >
+              Ok
+            </Button>
           </div>
         </Modal>
-      </div>
+      </React.Fragment>
     );
   }
 }
