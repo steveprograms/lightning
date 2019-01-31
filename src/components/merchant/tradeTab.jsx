@@ -14,11 +14,12 @@ class TradeTab extends React.Component {
   };
 
   handleBuy = (itemName) => {
-    let { credits, currentPlanetId, buyItems } = this.props;
+    let { credits, currentPlanetId, buyItems, planetPrices } = this.props;
     let { sliderValue } = this.state;
-    let itemPrice = this.props.planetPrices[currentPlanetId][itemName];
-    console.log('itemPrices: ', itemPrice)
+    let itemPrice = planetPrices[currentPlanetId][itemName];
     let buyPrice = sliderValue * itemPrice;
+
+    // check that planet has enough iventory?
 
     if (buyPrice <= credits) {
       buyItems(currentPlanetId, itemName, buyPrice, sliderValue);
@@ -29,22 +30,28 @@ class TradeTab extends React.Component {
   }
 
   handleSell = (itemName) => {
-    let { credits, currentPlanetId, sellItems } = this.props;
+    let { currentPlanetId, sellItems, planetPrices, playerInventory } = this.props;
     let { sliderValue } = this.state;
-    let itemPrice = this.props.planetPrices[currentPlanetId][itemName];
-    console.log('itemPrices: ', itemPrice)
+    let itemPrice = planetPrices[currentPlanetId][itemName];
     let sellPrice = sliderValue * itemPrice;
 
-    if (sellPrice <= credits) {
+    if (sliderValue <= playerInventory[itemName]) {
       sellItems(currentPlanetId, itemName, sellPrice, sliderValue);
     }
-    if (sellPrice > credits) {
-      console.log('Problem: You do not have enough money')
+    if (sliderValue > playerInventory[itemName]) {
+      console.log('Problem: You dont have enough of this item to sell')
     }
   }
 
   render() {
-    let { transactionType, currentPlanetId, planetInventories, planetPrices } = this.props;
+    let {
+      transactionType,
+      currentPlanetId,
+      planetInventories,
+      planetPrices,
+      playerInventory,
+    } = this.props;
+
     if (transactionType == 'buy') {
       return (
         <TradeTable
@@ -65,7 +72,7 @@ class TradeTab extends React.Component {
           transactionSymbol={'-'}
           transactionType={'Sell'}
           currentPlanetId={currentPlanetId}
-          inventory={planetInventories[currentPlanetId]}
+          inventory={playerInventory}
           prices={planetPrices[currentPlanetId]}
           handleTransaction={this.handleSell}
           sliderValue={this.state.sliderValue}
@@ -82,6 +89,7 @@ const mapStateToProps = state => {
     planetInventories: state.planetInventories,
     planetPrices: state.planetPrices,
     credits: state.credits,
+    playerInventory: state.playerInventory
   };
 }
 

@@ -28,6 +28,8 @@ var defaults = {
       furs: 6,
       seeds: 21,
       gold: 0,
+      water: 0,
+      antibiotics: 0,
     },
   },
   planetPrices: {
@@ -36,6 +38,8 @@ var defaults = {
       furs: 2,
       seeds: 12,
       gold: 250,
+      water: 5,
+      antibiotics: 250,
     },
   },
 };

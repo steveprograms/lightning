@@ -68,6 +68,18 @@ function appReducer(state = initialState, action) {
   if (action.type === SELL_ITEMS) {
     return {
       ...state,
+      credits: (state.credits + action.sellPrice),
+      playerInventory: {
+        ...state.playerInventory,
+        [action.itemName]: (state.playerInventory[action.itemName] - action.sellQuantity),
+      },
+      planetInventories: {
+        ...state.planetInventories,
+        [action.currentPlanetId]: {
+          ...state.planetInventories[action.currentPlanetId],
+          [action.itemName]: (state.planetInventories[action.currentPlanetId][action.itemName] + action.sellQuantity),
+        },
+      },
     };
   }
 

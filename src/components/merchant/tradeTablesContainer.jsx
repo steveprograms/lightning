@@ -59,16 +59,4 @@ TradeTablesContainer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
-  return {
-
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(TradeTablesContainer));
+export default withStyles(styles)(TradeTablesContainer);

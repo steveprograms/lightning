@@ -56,7 +56,7 @@ export function buyItems(currentPlanetId, itemName, buyPrice, buyQuantity) {
 
 export function sellItems(currentPlanetId, itemName, sellPrice, sellQuantity) {
   return {
-    type: BUY_ITEMS,
+    type: SELL_ITEMS,
     currentPlanetId,
     itemName,
     sellPrice,
