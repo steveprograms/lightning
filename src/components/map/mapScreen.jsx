@@ -1,13 +1,14 @@
 import React from 'react';
 import RouteButton from '../buttons/routeButton';
 import { connect } from 'react-redux';
-import DataViewer from './dataViewer';
+import DataViewer from './dataViewer';import GameMenu from '../menus/gameMenu';
 
 class MapScreen extends React.Component {
   render() {
     let { selectedPlanetId, currentPlanetId } = this.props;
     return (
       <div>
+        <GameMenu />
         <RouteButton
           title={'Home'}
           routeTo={'/homescreen'}

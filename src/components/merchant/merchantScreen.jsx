@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { refillFuel } from '../../actions/appActions';
 import { creditsPerTonne } from '../../data/constants'
 import TradeTablesContainer from './tradeTablesContainer';
+import GameMenu from '../menus/gameMenu';
 
 class MerchantScreen extends React.Component {
 
@@ -24,6 +25,7 @@ class MerchantScreen extends React.Component {
 
     return (
       <div>
+        <GameMenu />
         <RouteButton
           title={'Home'}
           routeTo={'/homescreen'}
