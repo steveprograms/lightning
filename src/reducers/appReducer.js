@@ -7,7 +7,8 @@ import {
   SET_DESTINATION,
   SET_CURRENT_PLANET,
   ASSIGN_GAME_DEFAULTS,
-  REFILL_FUEL
+  REFILL_FUEL,
+  BUY_ITEMS
 } from "../data/constants";
 
 let data = parseDataFile();
@@ -38,6 +39,11 @@ function appReducer(state = initialState, action) {
     return Object.assign({}, state, {
       fuel: (action.fuelNeeded + state.fuel),
       dollars: (state.dollars - action.cost),
+    });
+  }
+
+  if (action.type === BUY_ITEMS) {
+    return Object.assign({}, state, {
     });
   }
 

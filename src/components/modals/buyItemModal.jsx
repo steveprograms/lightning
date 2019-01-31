@@ -91,9 +91,6 @@ class BuyItemModal extends React.Component {
             <Typography variant="h6" id="modal-title">
               How many?
             </Typography>
-            <Typography variant="subtitle1" id="simple-modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
             <Slider
               classes={{ container: classes.slider }}
               value={value}
@@ -134,7 +131,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    buyItem: () => dispatch(buyItem()),
+    buyItem: (currentPlanetId, itemName, itemPrice, itemQuantity) => dispatch(buyItem(currentPlanetId, itemName, itemPrice, itemQuantity)),
   }
 }
 

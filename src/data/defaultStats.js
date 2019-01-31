@@ -21,17 +21,10 @@ var defaults = {
   daysPassed: 0,
   merchants: {
     terra: {
-      inventory: [
-        { name: 'narcotics', quantity: 40 },
-        { name: 'furs', quantity: 6 },
-        { name: 'seeds', quantity: 21 },
-      ],
-      prices: {
-        narcotics: 100,
-        furs: 2,
-        seeds: 12,
-      },
-    }
+      narcotics: { quantity: 40, price: 100 },
+      furs: { quantity: 6, price: 2 },
+      seeds: { quantity: 21, price: 12 },
+    },
   }
 };
 
