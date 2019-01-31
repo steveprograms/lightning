@@ -20,7 +20,7 @@ export default class MapContainer extends React.Component {
         <PlanetContainer id={ 'mercurion' } />
         <PlanetContainer id={ 'orias' } />
         <PlanetContainer id={ 'rust' } />
-        <PlanetContainer id={ 'k-787' } />
+        <PlanetContainer id={ 'k787' } />
         <PlanetContainer id={ 'sunspeared' } />
         <PlanetContainer id={ 'chindi' } />
         <PlanetContainer id={ 'omega' } />

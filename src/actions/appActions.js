@@ -3,7 +3,9 @@ import {
   SET_DESTINATION,
   SET_CURRENT_PLANET,
   ASSIGN_GAME_DEFAULTS,
-  REFILL_FUEL
+  REFILL_FUEL,
+  BUY_ITEMS,
+  SELL_ITEMS,
 } from "../data/constants";
 
 export function changeSelectedPlanet(planetId) {
@@ -39,5 +41,25 @@ export function refillFuel(fuelNeeded, cost) {
     type: REFILL_FUEL,
     fuelNeeded,
     cost
+  };
+};
+
+export function buyItems(currentPlanetId, itemName, buyPrice, buyQuantity) {
+  return {
+    type: BUY_ITEMS,
+    currentPlanetId,
+    itemName,
+    buyPrice,
+    buyQuantity
+  };
+};
+
+export function sellItems(currentPlanetId, itemName, sellPrice, sellQuantity) {
+  return {
+    type: SELL_ITEMS,
+    currentPlanetId,
+    itemName,
+    sellPrice,
+    sellQuantity
   };
 };
