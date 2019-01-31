@@ -81,12 +81,9 @@ class BuyTable extends React.Component {
                   align="right"
                 >
                   <TransactionModal
-                    credits={credits}
-                    itemName={itemName}
+                    transactionType={'Buy'}
                     quantity={inventory[itemName]}
                     handleTransaction={() => this.handleBuy(itemName)}
-                    itemPrice={prices[itemName]}
-                    currentPlanetId={this.props.currentPlanetId}
                     sliderValue={this.state.sliderValue}
                     handleChange={this.handleChange}
                   />
