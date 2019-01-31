@@ -44,6 +44,24 @@ function appReducer(state = initialState, action) {
 
   if (action.type === BUY_ITEMS) {
     return Object.assign({}, state, {
+      dollars: (state.dollars - action.buyPrice),
+      inventory: {
+        ...state.inventory,
+        [action.itemName]: {
+          ...state.inventory[action.itemName],
+          quantity: (state.inventory[action.itemName].quantity + action.buyQuantity),
+        },
+      },
+      merchants: {
+        ...state.merchants,
+        [action.currentPlanetId]: {
+          ...state.merchants[action.currentPlanetId],
+          [action.itemName]: {
+            ...state.merchants[action.currentPlanetId][action.itemName],
+            quantity: (state.merchants[action.currentPlanetId][action.itemName].quantity - action.buyQuantity),
+          },
+        },
+      },
     });
   }
 

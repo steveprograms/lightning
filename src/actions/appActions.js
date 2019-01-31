@@ -43,12 +43,12 @@ export function refillFuel(fuelNeeded, cost) {
   };
 };
 
-export function buyItems() {
+export function buyItems(currentPlanetId, itemName, buyPrice, buyQuantity) {
   return {
     type: BUY_ITEMS,
     currentPlanetId,
     itemName,
-    itemPrice,
-    itemQuantity
+    buyPrice,
+    buyQuantity
   };
 };

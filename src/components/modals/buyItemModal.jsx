@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/lab/Slider';
-import { buyItem } from '../../actions/appActions';
+import { buyItems } from '../../actions/appActions';
 import { connect } from 'react-redux';
 
 function rand() {
@@ -55,12 +55,11 @@ class BuyItemModal extends React.Component {
   };
 
   handleBuy = () => {
-    console.log('buy')
-    let { dollars, itemPrice, currentPlanetId } = this.props;
+    let { dollars, itemPrice, currentPlanetId, itemName, buyItems } = this.props;
     let { value } = this.state;
-    let totalPrice = value * itemPrice;
+    let buyPrice = value * itemPrice;
 
-    buyItems();
+    buyItems(currentPlanetId, itemName, buyPrice, value);
     this.handleClose();
   }
 
@@ -131,7 +130,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    buyItem: (currentPlanetId, itemName, itemPrice, itemQuantity) => dispatch(buyItem(currentPlanetId, itemName, itemPrice, itemQuantity)),
+    buyItems: (currentPlanetId, itemName, buyPrice, buyQuantity) => dispatch(buyItems(currentPlanetId, itemName, buyPrice, buyQuantity)),
   }
 }
 
