@@ -10,25 +10,32 @@ var defaults = {
   shipModel: 'The Baby Destroyer',
   shipMake: 'Lazer Products Corporation',
   shipHoldLimit: 10,
-  inventory: {
-    water: { quantity: 8 },
-    gold: { quantity: 3 },
-    antibiotics: { quantity: 12 },
-    narcotics: { quantity: 0 },
-    furs: { quantity: 0 },
-    seeds: { quantity: 0 },
+  playerInventory: {
+    water: 8,
+    gold: 3,
+    antibiotics: 12,
+    narcotics: 0,
+    furs: 0,
+    seeds: 0,
   },
   crew: [],
   fuelCapacity: 20,
   fuel: 20,
   daysPassed: 0,
-  merchants: {
+  planetInventories: {
     terra: {
-      narcotics: { quantity: 40, price: 100 },
-      furs: { quantity: 6, price: 2 },
-      seeds: { quantity: 21, price: 12 },
+      narcotics: 40,
+      furs: 6,
+      seeds: 21,
     },
-  }
+  },
+  planetPrices: {
+    terra: {
+      narcotics: 100,
+      furs: 2,
+      seeds: 12,
+    },
+  },
 };
 
 module.exports = defaults;

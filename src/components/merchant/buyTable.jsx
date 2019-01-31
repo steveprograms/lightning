@@ -34,7 +34,9 @@ class BuyTable extends React.Component {
   }
 
   render() {
-    const { classes, inventory, prices } = this.props;
+    const { classes, planetInventories, planetPrices, currentPlanetId } = this.props;
+    let inventory = planetInventories[currentPlanetId];
+    let prices = planetPrices[currentPlanetId];
 
     return (
       <Paper className={classes.root}>
@@ -48,22 +50,21 @@ class BuyTable extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {console.log('in: ', inventory)}
             {Object.keys(inventory).map((item, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row">
                   {item}
                 </TableCell>
-                <TableCell align="right">{inventory[item].quantity}</TableCell>
-                <TableCell align="right">{inventory[item].price}</TableCell>
+                <TableCell align="right">{inventory[item]}</TableCell>
+                <TableCell align="right">{prices[item]}</TableCell>
                 <TableCell
                   align="right"
                 >
                   <BuyItemModal
                     itemName={item}
-                    quantity={inventory[item].quantity}
+                    quantity={inventory[item]}
                     handleBuy={this.handleBuy}
-                    itemPrice={inventory[item].price}
+                    itemPrice={prices[item]}
                     currentPlanetId={this.props.currentPlanetId}
                   />
                 </TableCell>
@@ -83,7 +84,8 @@ BuyTable.propTypes = {
 const mapStateToProps = state => {
   return {
     currentPlanetId: state.currentPlanetId,
-    inventory: state.merchants[state.currentPlanetId],
+    planetInventories: state.planetInventories,
+    planetPrices: state.planetPrices,
   };
 };
 

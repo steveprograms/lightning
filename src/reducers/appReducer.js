@@ -50,21 +50,15 @@ function appReducer(state = initialState, action) {
     return {
       ...state,
       dollars: (state.dollars - action.buyPrice),
-      inventory: {
-        ...state.inventory,
-        [action.itemName]: {
-          ...state.inventory[action.itemName],
-          quantity: (state.inventory[action.itemName].quantity + action.buyQuantity),
-        },
+      playerInventory: {
+        ...state.playerInventory,
+        [action.itemName]: (state.playerInventory[action.itemName] + action.buyQuantity),
       },
-      merchants: {
-        ...state.merchants,
+      planetInventories: {
+        ...state.planetInventories,
         [action.currentPlanetId]: {
-          ...state.merchants[action.currentPlanetId],
-          [action.itemName]: {
-            ...state.merchants[action.currentPlanetId][action.itemName],
-            quantity: (state.merchants[action.currentPlanetId][action.itemName].quantity - action.buyQuantity),
-          },
+          ...state.planetInventories[action.currentPlanetId],
+          [action.itemName]: (state.planetInventories[action.currentPlanetId][action.itemName] - action.buyQuantity),
         },
       },
     };
