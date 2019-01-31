@@ -60,7 +60,7 @@ class BuyItemModal extends React.Component {
     let { value } = this.state;
     let totalPrice = value * itemPrice;
 
-    buyItem();
+    buyItems();
     this.handleClose();
   }
 
