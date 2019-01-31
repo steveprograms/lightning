@@ -42,14 +42,14 @@ function appReducer(state = initialState, action) {
     return {
       ...state,
       fuel: (action.fuelNeeded + state.fuel),
-      dollars: (state.dollars - action.cost),
+      credits: (state.credits - action.cost),
     };
   }
 
   if (action.type === BUY_ITEMS) {
     return {
       ...state,
-      dollars: (state.dollars - action.buyPrice),
+      credits: (state.credits - action.buyPrice),
       playerInventory: {
         ...state.playerInventory,
         [action.itemName]: (state.playerInventory[action.itemName] + action.buyQuantity),

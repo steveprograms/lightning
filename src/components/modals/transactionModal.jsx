@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/lab/Slider';
-import { buyItems } from '../../actions/appActions';
 import { connect } from 'react-redux';
 
 function rand() {
@@ -40,10 +39,9 @@ const styles = theme => ({
   },
 });
 
-class BuyItemModal extends React.Component {
+class TransactionModal extends React.Component {
   state = {
     open: false,
-    value: 1,
   };
 
   handleOpen = () => {
@@ -54,22 +52,13 @@ class BuyItemModal extends React.Component {
     this.setState({ open: false });
   };
 
-  handleBuy = () => {
-    let { dollars, itemPrice, currentPlanetId, itemName, buyItems } = this.props;
-    let { value } = this.state;
-    let buyPrice = value * itemPrice;
-
-    buyItems(currentPlanetId, itemName, buyPrice, value);
+  handleTransaction = () => {
+    this.props.handleTransaction();
     this.handleClose();
   }
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
-
   render() {
-    const { classes } = this.props;
-    const { value } = this.state;
+    const { classes, sliderValue } = this.props;
 
     return (
       <div>
@@ -92,13 +81,13 @@ class BuyItemModal extends React.Component {
             </Typography>
             <Slider
               classes={{ container: classes.slider }}
-              value={value}
+              value={sliderValue}
               min={1}
               max={this.props.quantity}
               step={1}
-              onChange={this.handleChange}
+              onChange={this.props.handleChange}
             />
-            {this.state.value}
+            {sliderValue}
             <Button
               onClick={this.handleClose}
               variant={'outlined'}
@@ -106,7 +95,7 @@ class BuyItemModal extends React.Component {
               Cancel
             </Button>
             <Button
-              onClick={this.handleBuy}
+              onClick={this.handleTransaction}
               variant={'outlined'}
             >
               Ok
@@ -118,21 +107,8 @@ class BuyItemModal extends React.Component {
   }
 }
 
-BuyItemModal.propTypes = {
+TransactionModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
-  return {
-    dollars: state.dollars,
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    buyItems: (currentPlanetId, itemName, buyPrice, buyQuantity) => dispatch(buyItems(currentPlanetId, itemName, buyPrice, buyQuantity)),
-  }
-}
-
-// We need an intermediary variable for handling the recursive nesting.
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(BuyItemModal));
+export default withStyles(styles)(TransactionModal);

@@ -9,7 +9,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import BuyItemModal from '../modals/buyItemModal';
+import TransactionModal from '../modals/transactionModal';
+import { buyItems } from '../../actions/appActions';
 
 
 const styles = theme => ({
@@ -24,17 +25,36 @@ const styles = theme => ({
 });
 
 class BuyTable extends React.Component {
-
-  handleBuy = () => {
-    console.log('buying from buy Table');
+  state = {
+    sliderValue: 1,
   }
 
-  onClick = () => {
-    console.log('buy button click')
+  handleBuy = (itemName) => {
+    let { credits, currentPlanetId, planetPrices, buyItems } = this.props;
+    let { sliderValue } = this.state;
+    let itemPrice = planetPrices[currentPlanetId][itemName];
+    let buyPrice = sliderValue * itemPrice;
+
+    if (buyPrice <= credits) {
+      buyItems(currentPlanetId, itemName, buyPrice, sliderValue);
+    }
+    if (buyPrice > credits) {
+      console.log('Problem: You do not have enough money')
+    }
   }
+
+  handleChange = (event, sliderValue) => {
+    this.setState({ sliderValue });
+  };
 
   render() {
-    const { classes, planetInventories, planetPrices, currentPlanetId } = this.props;
+    const {
+      classes,
+      planetInventories,
+      planetPrices,
+      currentPlanetId,
+      credits
+    } = this.props;
     let inventory = planetInventories[currentPlanetId];
     let prices = planetPrices[currentPlanetId];
 
@@ -50,22 +70,25 @@ class BuyTable extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {Object.keys(inventory).map((item, index) => (
+            {Object.keys(inventory).map((itemName, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row">
-                  {item}
+                  {itemName}
                 </TableCell>
-                <TableCell align="right">{inventory[item]}</TableCell>
-                <TableCell align="right">{prices[item]}</TableCell>
+                <TableCell align="right">{inventory[itemName]}</TableCell>
+                <TableCell align="right">{prices[itemName]}</TableCell>
                 <TableCell
                   align="right"
                 >
-                  <BuyItemModal
-                    itemName={item}
-                    quantity={inventory[item]}
-                    handleBuy={this.handleBuy}
-                    itemPrice={prices[item]}
+                  <TransactionModal
+                    credits={credits}
+                    itemName={itemName}
+                    quantity={inventory[itemName]}
+                    handleTransaction={() => this.handleBuy(itemName)}
+                    itemPrice={prices[itemName]}
                     currentPlanetId={this.props.currentPlanetId}
+                    sliderValue={this.state.sliderValue}
+                    handleChange={this.handleChange}
                   />
                 </TableCell>
               </TableRow>
@@ -86,13 +109,14 @@ const mapStateToProps = state => {
     currentPlanetId: state.currentPlanetId,
     planetInventories: state.planetInventories,
     planetPrices: state.planetPrices,
+    credits: state.credits,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    buyItem: (itemName, quantity, price, planet) =>
-    dispatch(buyItem(itemName, quantity, price, planet)),
+    buyItems: (currentPlanetId, itemName, buyPrice, buyQuantity) =>
+    dispatch(buyItems(currentPlanetId, itemName, buyPrice, buyQuantity)),
   };
 };
 
