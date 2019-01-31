@@ -6,8 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import BuyTable from './buyTable';
-import SellTable from './sellTable';
+import TradeTab from './tradetab';
 
 function TabContainer(props) {
   return (
@@ -28,7 +27,7 @@ const styles = theme => ({
   },
 });
 
-class TradeTable extends React.Component {
+class TradeTablesContainer extends React.Component {
   state = {
     value: 0,
   };
@@ -49,14 +48,14 @@ class TradeTable extends React.Component {
             <Tab label="Sell" />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer><BuyTable /></TabContainer>}
-        {value === 1 && <TabContainer><SellTable /></TabContainer>}
+        {value === 0 && <TabContainer><TradeTab transactionType={'buy'} /></TabContainer>}
+        {value === 1 && <TabContainer><TradeTab transactionType={'sell'} /></TabContainer>}
       </div>
     );
   }
 }
 
-TradeTable.propTypes = {
+TradeTablesContainer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -72,4 +71,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(TradeTable));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(TradeTablesContainer));

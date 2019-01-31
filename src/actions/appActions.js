@@ -5,6 +5,7 @@ import {
   ASSIGN_GAME_DEFAULTS,
   REFILL_FUEL,
   BUY_ITEMS,
+  SELL_ITEMS,
 } from "../data/constants";
 
 export function changeSelectedPlanet(planetId) {
@@ -50,5 +51,15 @@ export function buyItems(currentPlanetId, itemName, buyPrice, buyQuantity) {
     itemName,
     buyPrice,
     buyQuantity
+  };
+};
+
+export function sellItems(currentPlanetId, itemName, sellPrice, sellQuantity) {
+  return {
+    type: BUY_ITEMS,
+    currentPlanetId,
+    itemName,
+    sellPrice,
+    sellQuantity
   };
 };

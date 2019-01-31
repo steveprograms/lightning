@@ -8,7 +8,8 @@ import {
   SET_CURRENT_PLANET,
   ASSIGN_GAME_DEFAULTS,
   REFILL_FUEL,
-  BUY_ITEMS
+  BUY_ITEMS,
+  SELL_ITEMS,
 } from "../data/constants";
 
 let data = parseDataFile();
@@ -61,6 +62,12 @@ function appReducer(state = initialState, action) {
           [action.itemName]: (state.planetInventories[action.currentPlanetId][action.itemName] - action.buyQuantity),
         },
       },
+    };
+  }
+
+  if (action.type === SELL_ITEMS) {
+    return {
+      ...state,
     };
   }
 
