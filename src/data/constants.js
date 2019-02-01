@@ -13,6 +13,6 @@ export const SELL_ITEMS = "SELL_ITEMS";
 export const creditsPerTonne = 25;
 export const gmPerTonne = 20;
 
-export const audioPath2 = {
+export const planet_audio_paths = {
     'terra':'./src/assets/audio/earth.wav'
 }
