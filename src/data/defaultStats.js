@@ -1,5 +1,6 @@
 var defaults = {
   gameInitialized: false,
+  newGame: true,
   credits: 1000,
   selectedPlanetId: 'terra',
   currentPlanetId: 'terra',

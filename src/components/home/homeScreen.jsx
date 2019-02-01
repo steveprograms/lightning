@@ -11,6 +11,15 @@ export class HomeScreen extends React.Component {
   }
 
   render() {
+
+    if(this.props.newGame){
+
+      //begin dialogs for game instruction
+
+      //When game instruction dialog completes-
+        //action to turn newGame = false
+    }
+
     return (
       <React.Fragment>
         <GameMenu />
@@ -37,6 +46,7 @@ export class HomeScreen extends React.Component {
 export const mapStateToProps = state => {
   return {
     currentPlanetId: state.currentPlanetId,
+    newGame: state.newGame,
   };
 };
 
