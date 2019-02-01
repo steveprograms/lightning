@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PlanetInfoHome from '../planet/planetInfoHome';
 import RouteButton from '../buttons/routeButton';
 import GameMenu from '../menus/gameMenu';
-import  planet_audio_paths  from '../../data/constants'
+import { planet_audio_paths } from '../../data/constants'
 
 export class HomeScreen extends React.Component {
 
@@ -19,9 +19,11 @@ export class HomeScreen extends React.Component {
 
     if(this.props.music == true){
 
-        //planet_audio_path = AUDIO_PATHS[this.props.currentPlanetId]
-      //  var audio = new Audio(planet_audio_path)
-        //  console.log(audio)
+        var planet_audio_path = planet_audio_paths[this.props.currentPlanetId];
+        var audio = new Audio(planet_audio_path);
+        audio.loop = true;
+        audio.play();
+        console.log(audio)
 
 
     }
