@@ -84,10 +84,6 @@ export class GameMenu extends React.Component {
           >
             Save and Exit
           </MenuItem>
-          <MenuItem onClick={this.props.toggleMusic}
-          >
-          Toggle Game Music
-          </MenuItem>
         </Menu>
       </div>
     )
