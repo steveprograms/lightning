@@ -22,7 +22,9 @@ var defaults = {
   fuelCapacity: 20,
   fuel: 20,
   daysPassed: 0,
-  music: true,
+  settings: {
+    music: true,
+  },
   planetInventories: {
     terra: {
       narcotics: 50,

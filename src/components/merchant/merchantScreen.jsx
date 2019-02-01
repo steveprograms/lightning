@@ -3,20 +3,18 @@ import { connect } from 'react-redux';
 import RouteButton from '../buttons/routeButton';
 import Button from '@material-ui/core/Button';
 import { refillFuel } from '../../actions/appActions';
-import { creditsPerTonne } from '../../data/constants'
-import TradeTablesContainer from './tradeTablesContainer';
-import GameMenu from '../menus/gameMenu';
+import { dollarsPerTonne } from '../../data/constants'
 
 class MerchantScreen extends React.Component {
 
-  
+    
 
   refillFuel = () => {
-    let { fuelCapacity, fuel, credits, refillFuel } = this.props;
+    let { fuelCapacity, fuel, dollars, refillFuel } = this.props;
     let fuelNeeded = fuelCapacity - fuel;
-    let cost = fuelNeeded * creditsPerTonne;
+    let cost = fuelNeeded * dollarsPerTonne;
 
-    if (cost < credits) {
+    if (cost < dollars) {
       refillFuel(fuelNeeded, cost);
     } else {
       console.log('not enough money to refill fuel, need alert');
@@ -27,7 +25,6 @@ class MerchantScreen extends React.Component {
 
     return (
       <div>
-        <GameMenu />
         <RouteButton
           title={'Home'}
           routeTo={'/homescreen'}
@@ -44,7 +41,7 @@ class MerchantScreen extends React.Component {
         <div/>
         -
         <div>
-          credits: {this.props.credits}
+          Dollars: {this.props.dollars}
         </div>
         -
         <div>
@@ -57,7 +54,6 @@ class MerchantScreen extends React.Component {
         <div>
           cost to refuel: {(this.props.fuelCapacity - this.props.fuel) * 20}
         </div>
-        <TradeTablesContainer />
       </div>
     );
   }
@@ -68,7 +64,7 @@ const mapStateToProps = state => {
   return {
     fuelCapacity: state.fuelCapacity,
     fuel: state.fuel,
-    credits: state.credits,
+    dollars: state.dollars,
   };
 };
 
