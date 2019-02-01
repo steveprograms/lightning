@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PlanetInfoHome from '../planet/planetInfoHome';
 import RouteButton from '../buttons/routeButton';
 import GameMenu from '../menus/gameMenu';
-import { planet_audio_paths } from '../../data/constants'
+//import { planet_audio_paths } from '../../data/constants'
 
 export class HomeScreen extends React.Component {
 
@@ -15,19 +15,27 @@ export class HomeScreen extends React.Component {
 
   render() {
 
-    console.log(planet_audio_paths)
+
+  /*  //ON HOLD: play music
+    var planet_audio_path = planet_audio_paths[this.props.currentPlanetId];
+    var audio = new Audio(planet_audio_path);
+    audio.loop = true;
 
     if(this.props.music == true){
 
-        var planet_audio_path = planet_audio_paths[this.props.currentPlanetId];
-        var audio = new Audio(planet_audio_path);
-        audio.loop = true;
         audio.play();
-        console.log(audio)
-
-
+        console.log('playing, music props: ', this.props.music) ;
+        console.log('audio muted: ', audio.muted);
     }
 
+    if(this.props.music == false){
+
+
+      audio.muted = true;
+      console.log('pausing, music props: ', this.props.music);
+      console.log('audio muted: ', audio.muted);
+    }
+*/
 
 
     return (
@@ -52,7 +60,7 @@ export class HomeScreen extends React.Component {
 export const mapStateToProps = state => {
   return {
     currentPlanetId: state.currentPlanetId,
-    music: state.settings.music,
+    //music: state.settings.music,
   };
 };
 

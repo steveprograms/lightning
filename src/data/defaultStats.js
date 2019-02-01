@@ -23,7 +23,7 @@ var defaults = {
   fuel: 20,
   daysPassed: 0,
   settings: {
-    music: true,
+    music: false,
   },
   planetInventories: {
     terra: {

@@ -46,24 +46,16 @@ export function refillFuel(fuelNeeded, cost) {
   };
 };
 
-
+/*
+//TO DO: uncomment when need to toggle music state
 export function toggleMusic(){
   //console.log(toggle_value)
     return{
       type: TOGGLE_MUSIC
     }
 };
-/*  console.log(audioPath2[planet])
-  //if toggle is True, we should stop music and set state.music to true
-  if (toggle){
-    //stop audio
-  }else{
-    //if audio not playing, play
-    var audio = new Audio(audioPath2[planet]);
-    audio.loop = true;
-    audio.play();
 */
-    //toggle state.music to true
+
 
 
 export function buyItems(currentPlanetId, itemName, buyPrice, buyQuantity) {

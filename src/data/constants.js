@@ -13,6 +13,11 @@ export const SELL_ITEMS = "SELL_ITEMS";
 export const creditsPerTonne = 25;
 export const gmPerTonne = 20;
 
+/*
+
+    TO DO: Uncomment when you need the audio
+    paths for each planet
+
 export const planet_audio_paths = {
     'terra':'./src/assets/audio/earth.wav'
-}
+}*/
