@@ -6,6 +6,10 @@ import GameMenu from '../menus/gameMenu';
 
 export class HomeScreen extends React.Component {
 
+  save = () => {
+    console.log('wowzerbowzer')
+  }
+
   render() {
     return (
       <React.Fragment>
