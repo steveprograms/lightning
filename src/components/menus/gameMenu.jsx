@@ -8,18 +8,37 @@ import { withRouter} from 'react-router-dom';
 import { saveStateToFile } from '../helpers/helper';
 import { toggleMusic } from '../../actions/appActions'
 
+import SimpleSnackbar, { openSnackbar } from '../snackbars/simpleSnackbar';
+import Mousetrap from 'mousetrap';
+
+
 export class GameMenu extends React.Component {
+  componentDidMount() {
+    Mousetrap.bind(['command+s'], this.handleSaveFromKeyBinding);
+  }
+
+  componentWillUnmount() {
+    Mousetrap.unbind(['command+s'], this.handleSaveFromKeyBinding);
+  }
+
   state = {
     anchorEl: null,
+    snackbarIsOpen: false,
   };
 
   handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
 
+  handleSaveFromKeyBinding = () => {
+    saveStateToFile(this.props.state);
+    openSnackbar({ message: 'Game Saved' });
+  }
+
   handleSave = () => {
     this.handleClose();
     saveStateToFile(this.props.state);
+    openSnackbar({ message: 'Game Saved' });
   };
 
   handleSaveAndExit = () => {
@@ -34,9 +53,11 @@ export class GameMenu extends React.Component {
 
   render() {
     const { anchorEl } = this.state;
-
     return (
       <div id="game-menu-container">
+        <SimpleSnackbar
+          snackbarIsOpen={this.state.snackbarIsOpen}
+        />
         <IconButton
           id="game-menu-icon"
           aria-label="More"
