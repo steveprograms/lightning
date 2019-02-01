@@ -8,6 +8,7 @@ import {
   SET_CURRENT_PLANET,
   ASSIGN_GAME_DEFAULTS,
   REFILL_FUEL,
+  //TOGGLE_MUSIC,
   BUY_ITEMS,
   SELL_ITEMS,
 } from "../data/constants";
@@ -86,6 +87,19 @@ function appReducer(state = initialState, action) {
   if (action.type === ASSIGN_GAME_DEFAULTS) {
     return Object.assign({}, state, defaults);
   }
+
+/*
+  TO DO: Uncomment to toggle music state
+  if (action.type === TOGGLE_MUSIC) {
+
+    return Object.assign({}, state, {
+      settings:{
+        music: !state.settings.music
+      }
+    });
+  }
+*/
+
 
   return state;
 };

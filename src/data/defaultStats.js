@@ -1,5 +1,6 @@
 var defaults = {
   gameInitialized: false,
+  newGame: true,
   credits: 1000,
   selectedPlanetId: 'terra',
   currentPlanetId: 'terra',
@@ -22,6 +23,9 @@ var defaults = {
   fuelCapacity: 20,
   fuel: 20,
   daysPassed: 0,
+  settings: {
+    music: false,
+  },
   planetInventories: {
     terra: {
       narcotics: 50,

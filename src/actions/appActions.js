@@ -4,8 +4,10 @@ import {
   SET_CURRENT_PLANET,
   ASSIGN_GAME_DEFAULTS,
   REFILL_FUEL,
+  TOGGLE_MUSIC,
   BUY_ITEMS,
   SELL_ITEMS,
+
 } from "../data/constants";
 
 export function changeSelectedPlanet(planetId) {
@@ -44,6 +46,18 @@ export function refillFuel(fuelNeeded, cost) {
   };
 };
 
+/*
+//TO DO: uncomment when need to toggle music state
+export function toggleMusic(){
+  //console.log(toggle_value)
+    return{
+      type: TOGGLE_MUSIC
+    }
+};
+*/
+
+
+
 export function buyItems(currentPlanetId, itemName, buyPrice, buyQuantity) {
   return {
     type: BUY_ITEMS,
@@ -62,4 +76,5 @@ export function sellItems(currentPlanetId, itemName, sellPrice, sellQuantity) {
     sellPrice,
     sellQuantity
   };
+
 };

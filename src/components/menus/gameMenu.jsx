@@ -6,14 +6,17 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { connect } from 'react-redux';
 import { withRouter} from 'react-router-dom';
 import { saveStateToFile } from '../helpers/helper';
+import { toggleMusic } from '../../actions/appActions'
+
 import SimpleSnackbar, { openSnackbar } from '../snackbars/simpleSnackbar';
 import Mousetrap from 'mousetrap';
+
 
 export class GameMenu extends React.Component {
   componentDidMount() {
     Mousetrap.bind(['command+s'], this.handleSaveFromKeyBinding);
   }
-  
+
   componentWillUnmount() {
     Mousetrap.unbind(['command+s'], this.handleSaveFromKeyBinding);
   }
@@ -81,6 +84,10 @@ export class GameMenu extends React.Component {
           >
             Save and Exit
           </MenuItem>
+          <MenuItem onClick={this.props.toggleMusic}
+          >
+          Toggle Game Music
+          </MenuItem>
         </Menu>
       </div>
     )
@@ -93,4 +100,10 @@ export const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps)(GameMenu));
+const mapDispatchToProps = dispatch => {
+  return{
+    toggleMusic: () => dispatch(toggleMusic()),
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(GameMenu));

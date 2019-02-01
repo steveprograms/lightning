@@ -17,9 +17,9 @@ class LoadScreen extends React.Component {
     this.props.assignGameDefaults();
   }
 
-  loadSavedGame = () => {
+/*  loadSavedGame = () => {
     playPlanetMusic();
-  }
+  }*/
 
   render() {
     let savedGameFound = this.props.gameInitialized;
