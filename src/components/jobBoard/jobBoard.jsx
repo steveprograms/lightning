@@ -9,7 +9,11 @@ export class JobBoard extends React.Component{
   render(){
     return(
       <React.Fragment>
-      hello world
+      <div><h1><center>Job Board</center></h1></div>
+      <RouteButton
+        title={'Home'}
+        routeTo={'/homescreen'}
+      />
       </React.Fragment>
     )
   }

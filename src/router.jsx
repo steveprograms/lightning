@@ -16,7 +16,7 @@ export default class Router extends React.Component {
         <Route path='/transitscreen' component={TransitScreen}/>
         <Route path='/homescreen' component={HomeScreen}/>
         <Route path='/mapscreen' component={MapScreen}/>
-        <Route path='/jobBoard' component={JobBoard}
+        <Route path='/jobBoard' component={JobBoard}/>
         <Route path='/' component={LoadScreen}/>
       </Switch>
     );

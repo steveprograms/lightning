@@ -23,7 +23,7 @@ export class HomeScreen extends React.Component {
           routeTo={'/merchantscreen'}
         />
         <RouteButton
-          title={'JobBoard'}
+          title={'Job Board'}
           routeTo={'/JobBoard'}
         />
         <PlanetInfoHome
