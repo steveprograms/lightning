@@ -7,6 +7,8 @@ import { dollarsPerTonne } from '../../data/constants'
 
 class MerchantScreen extends React.Component {
 
+  
+
   refillFuel = () => {
     let { fuelCapacity, fuel, dollars, refillFuel } = this.props;
     let fuelNeeded = fuelCapacity - fuel;

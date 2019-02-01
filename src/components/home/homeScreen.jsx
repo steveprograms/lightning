@@ -6,6 +6,8 @@ import GameMenu from '../menus/gameMenu';
 
 export class HomeScreen extends React.Component {
 
+  //console.log('here');
+
   render() {
     return (
       <React.Fragment>
@@ -29,6 +31,7 @@ export class HomeScreen extends React.Component {
 export const mapStateToProps = state => {
   return {
     currentPlanetId: state.currentPlanetId,
+    //music: state.music,
   };
 };
 

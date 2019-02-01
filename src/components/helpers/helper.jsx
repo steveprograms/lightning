@@ -7,13 +7,14 @@ export function saveStateToFile(state) {
   fs.writeFileSync(filePath, JSON.stringify(state));
 };
 
+/*
 export function playPlanetMusic(planet){
   //To Do:
   // * turn existing sound off first
   var audio = new Audio(audioPath);
   audio.loop = true;
   audio.play();
-}
+}*/
 
 export function distanceBetweenPlanets(planet1, planet2) {
   let xDistance = Math.abs(planet1.x_coord - planet2.x_coord);
