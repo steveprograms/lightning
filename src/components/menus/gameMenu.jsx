@@ -7,8 +7,17 @@ import { connect } from 'react-redux';
 import { withRouter} from 'react-router-dom';
 import { saveStateToFile } from '../helpers/helper';
 import SimpleSnackbar, { openSnackbar } from '../snackbars/simpleSnackbar';
+import Mousetrap from 'mousetrap';
 
 export class GameMenu extends React.Component {
+  componentDidMount() {
+    Mousetrap.bind(['command+s'], this.handleSaveFromKeyBinding);
+  }
+  
+  componentWillUnmount() {
+    Mousetrap.unbind(['command+s'], this.handleSaveFromKeyBinding);
+  }
+
   state = {
     anchorEl: null,
     snackbarIsOpen: false,
@@ -17,6 +26,11 @@ export class GameMenu extends React.Component {
   handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
+
+  handleSaveFromKeyBinding = () => {
+    saveStateToFile(this.props.state);
+    openSnackbar({ message: 'Game Saved' });
+  }
 
   handleSave = () => {
     this.handleClose();
