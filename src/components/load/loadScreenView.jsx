@@ -27,10 +27,12 @@ export default class LoadScreenView extends React.Component {
           <StartButton
             title={'New'}
             onClick={startNewGame}
+            routeTo={'/enterName'}
           />
           <StartButton
             title={'Load'}
             onClick={loadSavedGame}
+            routeTo={'/homescreen'}
           />
         </div>
       </React.Fragment>

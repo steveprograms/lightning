@@ -46,6 +46,12 @@ export function refillFuel(fuelNeeded, cost) {
   };
 };
 
+export function setUsername(username){
+  return {
+    type: SET_USERNAME,
+    username:username,
+  }
+}
 /*
 //TO DO: uncomment when need to toggle music state
 export function toggleMusic(){
