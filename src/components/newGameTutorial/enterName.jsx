@@ -5,18 +5,21 @@ import TextField from '@material-ui/core/TextField';
 
 
 export class EnterName extends React.Component {
-
-  getUsername = () => {
-      //get text field value when "Next" button is clicked
-
-      console.log('inside get username')
+  state = {
+    value: ''
   }
 
+  onClick = () => {
+    let username = this.state.value;
+      console.log('username: ', username);
+  }
+
+  handleChange = (event) => {
+    console.log('event: ', event.target.value)
+    this.setState({ value: event.target.value });
+  }
 
   render() {
-
-
-
     return (
       <React.Fragment>
         <h1>Enter your name, player</h1><br />
@@ -24,15 +27,16 @@ export class EnterName extends React.Component {
         <h3>Name</h3>
           <TextField
             id="standard-bare"
-            defaultValue=""
+            value={this.state.value}
             margin="normal"
             variant="filled"
+            onChange={this.handleChange}
           />
         </form><br />
         <RouteButton
           title={'Next'}
           routeTo={'/NewGameTutorial'}
-          onClick={this.getUsername}
+          onClick={this.onClick}
         />
       </React.Fragment>
 
