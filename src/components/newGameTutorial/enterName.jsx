@@ -23,10 +23,10 @@ export class EnterName extends React.Component {
         <form>
         <h3>Name</h3>
           <TextField
-            id="standard-bare"
+            id="username"
             defaultValue=""
             margin="normal"
-            variant="filled"
+            variant="outlined"
           />
         </form><br />
         <RouteButton
