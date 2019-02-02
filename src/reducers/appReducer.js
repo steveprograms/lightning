@@ -92,7 +92,7 @@ function appReducer(state = initialState, action) {
   if (action.type === SET_USERNAME) {
     return {
       ...state,
-      username: action.username
+      username: action.username,
     };
   }
 

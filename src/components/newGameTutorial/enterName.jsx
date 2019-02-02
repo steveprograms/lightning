@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RouteButton from '../buttons/routeButton';
 import TextField from '@material-ui/core/TextField';
+import { setUsername } from '../../actions/appActions'
 
 
 export class EnterName extends React.Component {
@@ -12,6 +13,7 @@ export class EnterName extends React.Component {
   onClick = () => {
     let username = this.state.value;
       console.log('username: ', username);
+      setUsername(username);
   }
 
   handleChange = (event) => {
@@ -50,4 +52,10 @@ export const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(EnterName);
+const mapDispatchToProps = dispatch => {
+  return{
+    setUsername: () => dispatch(setUsername())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EnterName);

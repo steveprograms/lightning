@@ -7,6 +7,7 @@ import {
   TOGGLE_MUSIC,
   BUY_ITEMS,
   SELL_ITEMS,
+  SET_USERNAME,
 
 } from "../data/constants";
 
@@ -47,9 +48,10 @@ export function refillFuel(fuelNeeded, cost) {
 };
 
 export function setUsername(username){
+
   return {
     type: SET_USERNAME,
-    username:username,
+    username: username,
   }
 }
 /*
