@@ -90,6 +90,7 @@ function appReducer(state = initialState, action) {
   }
 
   if (action.type === SET_USERNAME) {
+    console.log(action.username);
     return {
       ...state,
       username: action.username,

@@ -11,9 +11,9 @@ export class EnterName extends React.Component {
   }
 
   onClick = () => {
-    let username = this.state.value;
+    let username = this.props.value;
       console.log('username: ', username);
-      setUsername(username);
+      this.props.setUsername(username);
   }
 
   handleChange = (event) => {
@@ -54,7 +54,7 @@ export const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return{
-    setUsername: () => dispatch(setUsername())
+    setUsername: (username) => dispatch(setUsername(username))
   };
 };
 

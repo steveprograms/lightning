@@ -48,7 +48,7 @@ export function refillFuel(fuelNeeded, cost) {
 };
 
 export function setUsername(username){
-
+  console.log(username)
   return {
     type: SET_USERNAME,
     username: username,
