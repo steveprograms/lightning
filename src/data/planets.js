@@ -8,8 +8,8 @@ var planets = {
       history: "The home of humans.  Approximately 4.5 billion years old, Terra orbits a yellow dwarf star colloquially called 'The Sun.' Humans in their current state have been evolving for millions of years, and now number 26 billion on Terra alone, with another 14 billion system-wide.  The planet is 70% water, with the other portion covered in a variety of terrains, from ice and snow to sandy deserts, from sprawling grasslands to towering mountains. Along with humans, Terra also is home to around 10 billion beings of other species, with 30 billion travelers visiting each year.  Because of the immense population of human and non-human beings on Terra, buildings reach nearly a mile into the sky, and the same distance underground.  Energy is derived almost soley from the sun, as non-renewable resources have been all but used up on the planet.  About 50% of the food is grown on Terra, with the other half is grown on large gardens which orbit the sun. Terra was annexed, along with 3 other planets, in the year 4089 N.E.",
     },
     'mercurion': {
-      x_coord: 300,
-      y_coord: 500,
+      x_coord: 200,
+      y_coord: 450,
       color: 'red',
       name: "Mercurion",
       description: "A boiling hot planet, mostly inhabited by those who work in the mines",
@@ -56,8 +56,8 @@ var planets = {
       history: "",
     },
     'omega': {
-      x_coord: 200,
-      y_coord: 450,
+      x_coord: 300,
+      y_coord: 500,
       color: 'white',
       name: "Omega",
       description: "Constantly covered with immense yellow clouds",
