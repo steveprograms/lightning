@@ -52,6 +52,8 @@ class TradeTab extends React.Component {
       playerInventory,
     } = this.props;
 
+    console.log('here we are then:', planetInventories[currentPlanetId])
+
     if (transactionType == 'Buy') {
       return (
         <TradeTable
