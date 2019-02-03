@@ -1,3 +1,14 @@
+function narcotics_generator(range,modifier){
+
+  var random_range = Math.floor(Math.random() * range)
+  var value =  ((random_range) * modifier)
+  console.log(random_range, value)
+
+  return(
+    value //returns random value between 1-100
+  )
+}
+
 var defaults = {
   gameInitialized: false,
   newGame: true,
@@ -28,7 +39,7 @@ var defaults = {
   },
   planetInventories: {
     terra: {
-      narcotics: 50,
+      narcotics: narcotics_generator(100,1.5),
       furs: 6,
       seeds: 21,
       gold: 20,

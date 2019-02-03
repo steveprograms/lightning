@@ -9,6 +9,7 @@ export const REFILL_FUEL = "REFILL_FUEL";
 export const TOGGLE_MUSIC = "TOGGLE_MUSIC"
 export const BUY_ITEMS = "BUY_ITEMS";
 export const SELL_ITEMS = "SELL_ITEMS";
+export const SET_USERNAME = "SET_USERNAME";
 
 export const creditsPerTonne = 25;
 export const gmPerTonne = 20;

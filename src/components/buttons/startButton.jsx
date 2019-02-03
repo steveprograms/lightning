@@ -33,7 +33,7 @@ export default class StartButton extends React.Component {
       <MuiThemeProvider theme={theme}>
         <RouteButton
           title={title}
-          routeTo={'/homescreen'}
+          routeTo={routeTo}
           onClick={onClick}
           variant='contained'
           color='primary'

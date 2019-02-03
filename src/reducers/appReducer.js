@@ -11,6 +11,7 @@ import {
   //TOGGLE_MUSIC,
   BUY_ITEMS,
   SELL_ITEMS,
+  SET_USERNAME,
 } from "../data/constants";
 
 let data = parseDataFile();
@@ -86,6 +87,14 @@ function appReducer(state = initialState, action) {
 
   if (action.type === ASSIGN_GAME_DEFAULTS) {
     return Object.assign({}, state, defaults);
+  }
+
+  if (action.type === SET_USERNAME) {
+    console.log(action.username);
+    return {
+      ...state,
+      username: action.username,
+    };
   }
 
 /*
