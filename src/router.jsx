@@ -5,7 +5,7 @@ import HomeScreen from './components/home/homeScreen';
 import TransitScreen from './components/transit/transitScreen';
 import LoadScreen from './components/load/loadScreen';
 import MerchantScreen from './components/merchant/merchantScreen';
-import JobBoard from './components/jobBoard/jobBoard'
+import eBoard from './components/eBoard/eBoard'
 import NewGameTutorial from './components/NewGameTutorial/NewGameTutorial'
 import EnterName from './components/NewGameTutorial/enterName'
 
@@ -19,7 +19,7 @@ export default class Router extends React.Component {
         <Route path='/transitscreen' component={TransitScreen}/>
         <Route path='/homescreen' component={HomeScreen}/>
         <Route path='/mapscreen' component={MapScreen}/>
-        <Route path='/jobBoard' component={JobBoard}/>
+        <Route path='/eBoard' component={eBoard}/>
         <Route path='/enterName' component={EnterName}/>
         <Route path='/' component={LoadScreen}/>
       </Switch>

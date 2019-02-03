@@ -33,7 +33,7 @@ export class NewGameTutorial extends React.Component {
        <ol>
        <li>Check the Map for potential planets to fly to</li>
        <li>Visit the Merchant to buy or sell goods, and to refuel your ship</li>
-       <li>Check the Job Board for contract work. Be careful who you work with...space is a dangerous place</li>
+       <li>Check the e-Board for contract work and news about the galaxy. Be careful who you work with...space is a dangerous place</li>
        <li>Hire a crew to help navigate through the unknowns of outer space, when you can afford it</li>
        </ol>
        </h3>

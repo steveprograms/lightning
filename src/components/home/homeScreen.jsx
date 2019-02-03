@@ -20,8 +20,8 @@ export class HomeScreen extends React.Component {
           routeTo={'/merchantscreen'}
         />
         <RouteButton
-          title={'Job Board'}
-          routeTo={'/JobBoard'}
+          title={'e-Board'}
+          routeTo={'/eBoard'}
         />
         <PlanetInfoHome
           currentPlanetId={this.props.currentPlanetId}

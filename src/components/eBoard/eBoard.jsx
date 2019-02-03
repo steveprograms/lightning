@@ -4,12 +4,12 @@ import PlanetInfoHome from '../planet/planetInfoHome';
 import RouteButton from '../buttons/routeButton';
 
 
-export class JobBoard extends React.Component{
+export class eBoard extends React.Component{
 
   render(){
     return(
       <React.Fragment>
-      <div><h1><center>Job Board</center></h1></div>
+      <div><h1><center>Electronic Message Board</center></h1></div>
       <RouteButton
         title={'Home'}
         routeTo={'/homescreen'}
@@ -25,4 +25,4 @@ export const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(JobBoard)
+export default connect(mapStateToProps)(eBoard)
