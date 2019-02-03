@@ -5,7 +5,7 @@ function narcotics_generator(range,modifier){
   console.log(random_range, value)
 
   return(
-    value //returns random value between 1-100
+    Math.round(value) //returns random value between 1-100
   )
 }
 
