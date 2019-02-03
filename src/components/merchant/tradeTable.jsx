@@ -36,9 +36,9 @@ class TradeTable extends React.Component {
 
     let inventoryKeys = Object.keys(inventory);
 
-    let filteredInventory = inventoryKeys.filter(itemName => inventory[itemName]);
+    let filteredInventory = inventoryKeys.filter(itemName => inventory[itemName]); //item names
 
-    console.log('inventory: ',inventory)
+    console.log('inventory: ',inventory['water'])
     console.log('filtered inventory: ',filteredInventory)
     return (
       <Paper className={classes.root}>
@@ -57,15 +57,15 @@ class TradeTable extends React.Component {
                 <TableCell component="th" scope="row">
                   {itemName}
                 </TableCell>
-                <TableCell align="right">{inventory[itemName]}</TableCell>
-                <TableCell align="right">{prices[itemName]}</TableCell>
+                <TableCell align="right">{inventory[itemName].quantity}</TableCell>
+                <TableCell align="right">{inventory[itemName].price}</TableCell>
                 <TableCell
                   align="right"
                 >
                   <TransactionModal
                     transactionSymbol={this.props.transactionSymbol}
                     transactionType={this.props.transactionType}
-                    quantity={inventory[itemName]}
+                    quantity={inventory[itemName].quantity}
                     handleTransaction={() => handleTransaction(itemName)}
                     sliderValue={this.props.sliderValue}
                     handleChange={this.props.handleChange}
