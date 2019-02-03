@@ -1,4 +1,4 @@
-var planets = {
+export const planets = {
     'terra': {
       x_coord: 400,
       y_coord: 690,
@@ -6,10 +6,54 @@ var planets = {
       name: "Terra",
       description: "Home sweet home",
       history: "The home of humans.  Approximately 4.5 billion years old, Terra orbits a yellow dwarf star colloquially called 'The Sun.' Humans in their current state have been evolving for millions of years, and now number 26 billion on Terra alone, with another 14 billion system-wide.  The planet is 70% water, with the other portion covered in a variety of terrains, from ice and snow to sandy deserts, from sprawling grasslands to towering mountains. Along with humans, Terra also is home to around 10 billion beings of other species, with 30 billion travelers visiting each year.  Because of the immense population of human and non-human beings on Terra, buildings reach nearly a mile into the sky, and the same distance underground.  Energy is derived almost soley from the sun, as non-renewable resources have been all but used up on the planet.  About 50% of the food is grown on Terra, with the other half is grown on large gardens which orbit the sun. Terra was annexed, along with 3 other planets, in the year 4089 N.E.",
+      merchantItems:{
+        batteries: {
+          qty_range:101,
+          qty_modifier:0.5,
+          price_range:20,
+          price_modifier:.75,
+        },
+        seeds:{
+          qty_range:101,
+          qty_modifier:0.69,
+          price_range:101,
+          price_modifier:.65,
+        },
+        gold:{
+          qty_range:11,
+          qty_modifier:1,
+          price_range:251,
+          price_modifier:5,
+        },
+        iron:{
+          qty_range:101,
+          qty_modifier:1.5,
+          price_range:101,
+          price_modifier:1.65,
+        },
+        'Yellow Lightning Energy Pods':{
+          qty_range:21,
+          qty_modifier:3,
+          price_range:101,
+          price_modifier:.3,
+        },
+        water:{
+          qty_range:101,
+          qty_modifier:5,
+          price_range:101,
+          price_modifier:.5,
+        },
+        antibiotics:{
+          qty_range:3,
+          qty_modifier:.89,
+          price_range:150,
+          price_modifier:1.05,
+        }
+      },
     },
     'mercurion': {
-      x_coord: 200,
-      y_coord: 450,
+      x_coord: 590,
+      y_coord: 665,
       color: 'red',
       name: "Mercurion",
       description: "A boiling hot planet, mostly inhabited by those who work in the mines",
@@ -24,8 +68,8 @@ var planets = {
       history: "",
     },
     'rust': {
-      x_coord: 590,
-      y_coord: 665,
+      x_coord: 200,
+      y_coord: 450,
       name: "Rust",
       color: 'orange',
       description: "Dusty, red, quiet",
@@ -57,11 +101,11 @@ var planets = {
     },
     'omega': {
       x_coord: 300,
-      y_coord: 500,
-      color: 'white',
+      y_coord: 600,
+      color: 'yellow',
       name: "Omega",
       description: "Constantly covered with immense yellow clouds",
-      history: "",
+      history: "The planet suffers a minimum of 4 megastorms every day. These megastorms are filled with millions of lightning strikes. Humans first discovered this planet's special Yellow Lightning could be harvested and used as energy. Daily transport ships leave Omega, filled to the brim with Yellow Lightning pods, to be processed on Terra ",
     },
     'ark': {
       x_coord: 85,

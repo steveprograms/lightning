@@ -1,13 +1,58 @@
-function narcotics_generator(range,modifier){
+import planets from './planets'
 
-  var random_range = Math.floor(Math.random() * range)
-  var value =  ((random_range) * modifier)
-  console.log(random_range, value)
+function item_generator(range,modifier){
+
+  let random_range = Math.floor(Math.random() * range)
+  let value =  ((random_range) * modifier)
 
   return(
     Math.round(value) //returns random value between 1-100
   )
 }
+
+function planet_generator(planet){
+
+  let planet_items_list = Object.keys(planets[planet].merchantItems)
+
+  let merchant_items = {}
+
+  console.log(Object.keys(merchant_items).length)
+
+  while(Object.keys(merchant_items).length < 5){
+    //  get random item from planet_items_list
+    let item = planet_items_list[Math.floor(Math.random()*planet_items_list.length)];
+    let item_range = planets[planet].merchantItems[item].qty_range
+    let item_modifier = planets[planet].merchantItems[item].qty_modifier
+    let item_price_range = planets[planet].merchantItems[item].price_range
+    let item_price_modifier = planets[planet].merchantItems[item].price_modifier
+
+    //  append random item's range and modifier to merchant_items_list
+    merchant_items[item] = {
+      quantity: item_generator(item_range,item_modifier),
+      price: Math.round(item_price_range * item_price_modifier),
+      }
+
+    //  delete random item from planet_items_list
+    delete planet_items_list[item]
+  }
+
+  console.log('merchant items: ', merchant_items)
+
+/*
+  merchant_items['narcotics'] = 20
+  merchant_items['furs'] = 0
+  merchant_items['seeds'] = 0
+  merchant_items['gold'] = 200
+  merchant_items['water'] = 0
+  merchant_items['antibiotics'] = 50
+  */
+
+  return(
+    merchant_items
+  )
+}
+
+
 
 var defaults = {
   gameInitialized: false,
@@ -38,14 +83,7 @@ var defaults = {
     music: false,
   },
   planetInventories: {
-    terra: {
-      narcotics: narcotics_generator(100,1.5),
-      furs: 6,
-      seeds: 21,
-      gold: 20,
-      water: 100,
-      antibiotics: 50,
-    },
+    terra:planet_generator('terra'),
     mercurion: {
       narcotics: 20,
       furs: 0,
