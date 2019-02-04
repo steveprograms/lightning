@@ -60,7 +60,7 @@ class TradeTab extends React.Component {
           transactionSymbol={'+'}
           transactionType={transactionType}
           currentPlanetId={currentPlanetId}
-          inventory={planetInventories[currentPlanetId]}
+          merchantInventory={planetInventories[currentPlanetId]}
           prices={planetPrices[currentPlanetId]}
           handleTransaction={this.handleBuy}
           sliderValue={this.state.sliderValue}
